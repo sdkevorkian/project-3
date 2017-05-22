@@ -4,7 +4,9 @@ var fs = require('fs');
 var request = require('request');
 var router = express();
 
-router.get('/api/compare', function(req, res) {
+router.post('/', function(req, res) {
+    // below is how to access data posted to this route
+    console.log(req.body.test);
     var user = 'user.jpg';
     var pet = 'pet.jpg';
     var userUrl = 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/8/000/279/3a6/3922032.jpg';
@@ -28,7 +30,7 @@ router.get('/api/compare', function(req, res) {
                         console.log(equality);
                         deleteAfterUse(user);
                         deleteAfterUse(pet);
-                        res.send('your match is ' + equality);
+                        res.send({ matchPercent: equality });
                     });
                 });
 
