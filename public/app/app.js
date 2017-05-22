@@ -25,6 +25,11 @@ app.config([
                 templateUrl: 'app/views/userLogin.html',
                 controller: 'LoginCtrl'
             })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: 'app/views/profile.html',
+                controller: 'ProfileCtrl'
+            })
             .state('search', {
                 url: '/search',
                 templateUrl: 'app/views/search.html',
