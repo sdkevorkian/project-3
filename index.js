@@ -21,8 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('morgan')('dev'));
 
 
-app.use('/api/users', require('./controllers/users'));
-
+// app.use('/api/users', require('./controllers/users'));
+app.use('/api/compare', require('./controllers/compare'));
 
 // Replace the above routes with the following
 
