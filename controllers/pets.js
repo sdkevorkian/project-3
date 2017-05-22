@@ -10,8 +10,7 @@ router.route('/random')
             // request returns random petId.  need a 2nd request to get actual info on pet
         });
     });
-
-
+// show all pets
 router.route('/')
     .post(function(req, res) {
         request({
