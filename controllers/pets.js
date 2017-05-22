@@ -10,7 +10,6 @@ router.route('/random')
             // request returns random petId.  need a 2nd request to get actual info on pet
         });
     });
-
 // show all pets
 router.route('/')
     .post(function(req, res) {
@@ -32,5 +31,20 @@ router.route('/')
         });
     });
 
+router.route('/:id')
+  .get(function(req, res) {
+      request({
+        uri: 'http://api.petfinder.com/pet.get',
+        method: 'GET',
+        qs: {
+          key: key,
+          id: req.params.id,
+          format: 'json'
+        }
+      }, function(error, response, body) {
+        if (error) console.log('error', error);
+        res.send(JSON.parse(body));
+      });
+  })
 
 module.exports = router;
