@@ -1,15 +1,11 @@
-# Angular Auth
+<h1>Doggleganger</h1>
+<h4>WDI 13 | Project 3 | Andrew, Sara, Alaina</h4>
 
-## Getting Started
+<h2>User Stories</h2>
+<p>People say pets look like their owners. Doggleganger allows you to find the perfect pet based on a percentage look-alike match, as well as personality information about the animal.</p>
+<p>Pet lovers who love to procrastinate real-world tasks will love the hours of entertainment Doggleganger provides, while also tempting them to adopt more animals!</p>
 
-* Fork and clone this repository
-* Run `npm install` to install dependencies
-* Create a `.env` file and place an environment variable called `JWT_SECRET` for the JWT module. Set the value to a hard-to-guess string.
-* Use `foreman run nodemon` to run the application
-* Use Postman to test API endpoints
-
----
-
-## Licensing
-1. All content is licensed under a CC-BY-NC-SA 4.0 license.
-2. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
+<h2>Links</h2>
+<a href="https://trello.com/b/VTSyaYEI/doggleganger">Trello Board</a>
+<a href="#">HerokuApp</a>
+<a href="https://github.com/alainabuzas/project-3">GitHub</a>

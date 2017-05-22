@@ -1,0 +1,13 @@
+<div class="profile-content">
+	<h3>Your Profile Information</h3>
+	<div class="change-img">
+		<img src="#">
+		<div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
+	    <label for="userImg">Upload new picture</label>
+	    <input type="file" class="form-control" id="userImg" ng-model="user.userImg">
+	  </div>
+	</div>
+	<p>First Name: {{ user.firstName }}</p>
+	<p>Email: {{ user.email }}</p>
+	<p>Password: Hidden <a href="#">Update Password</a></p>
+</div>
