@@ -1,7 +1,6 @@
 var express = require('express');
 var request = require('request');
 var router = express.Router();
-var url = 'http://api.petfinder.com/';
 var key = process.env.API_KEY;
 
 router.route('/random')
@@ -15,8 +14,16 @@ router.route('/random')
 
 router.route('/')
   .post(function(req, res) {
-      request(url + 'pet.find' + key + req.body + '&format=json', function(err, res, body) {
-          if (err) return ('somethign went wrong', err);
+      request({
+        uri: 'http://api.petfinder.com/pet.find',
+        method: 'GET',
+        qs: {
+          key: key,
+          location: req.body.location,
+          format: 'json'
+        }
+      }, function(error, responce, body) {
+          if (error) console.log('somethign went wrong', error);
           console.log(body);
       });
   });
