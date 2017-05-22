@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.route('/')
   .get(function(req, res) {
+    // Find and return ALL users.  Do we need this route?
     User.find(function(err, users) {
       if (err) return res.status(500).send(err);
 
@@ -11,7 +12,7 @@ router.route('/')
     });
   })
   .post(function(req, res) {
-    // find the user first in case the email already exists
+    // Find the user by email.  Error if already exists, otherwise create user
     User.findOne({ email: req.body.email }, function(err, user) {
       if (user) return res.status(400).send({ message: 'Email already exists' });
 
@@ -23,6 +24,7 @@ router.route('/')
     });
   });
 
+// Find a single user, by ID.  Used for profile page.  Should we search by email instead?
 router.get('/:id', function(req, res) {
   User.findById(req.params.id, function(err, user) {
     if (err) return res.status(500).send(err);
