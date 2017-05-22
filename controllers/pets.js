@@ -27,7 +27,7 @@ router.route('/')
                 format: 'json'
             }
         }, function(error, response, body) {
-            if (error) console.log('something went wrong', error);
+            if (error) console.log('somethign went wrong', error);
             res.send(JSON.parse(body));
         });
     });
