@@ -1,6 +1,5 @@
-angular.module('Ctrls', ['AuthServices'])
+angular.module('AuthCtrls', ['AuthServices'])
     .controller('HomeCtrl', ['$scope', 'Auth', function($scope, Auth) {
-        // console.log(Auth.currentUser());
 
     }])
     .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', function($scope, Auth, Alerts) {
@@ -57,4 +56,7 @@ angular.module('Ctrls', ['AuthServices'])
                 });
             };
         }
-    ]);
+    ])
+    .controller('ProfileCtrl', ['$scope', function($scope) {
+
+    }]);

@@ -1,0 +1,13 @@
+<div class="profile-content">
+    <h3>Your Profile Information</h3>
+    <div class="change-img">
+        <img src="{{user.profileImg}}">
+        <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
+            <label for="profileImg">Change picture url</label>
+            <input type="text" class="form-control" id="profileImg" ng-model="user.profileImg">
+        </div>
+    </div>
+    <p>First Name: {{ user.firstName }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Password: Hidden <a href="#">Update Password</a></p>
+</div>
