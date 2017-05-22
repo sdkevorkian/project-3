@@ -1,4 +1,4 @@
-angular.module('Ctrls', ['AuthServices'])
+angular.module('AuthCtrls', ['AuthServices'])
     .controller('HomeCtrl', ['$scope', 'Auth', function($scope, Auth) {
         // console.log(Auth.currentUser());
 
