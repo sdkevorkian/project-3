@@ -26,12 +26,26 @@ router.route('/')
           format: 'json'
         }
       }, function(error, response, body) {
-          if (error) console.log('somethign went wrong', error);
+          if (error) console.log('error', error);
           res.send(JSON.parse(body));
       });
   });
 
-
+router.route('/breeds')
+  .post(function(req, res) {
+      request({
+        uri: 'http://api.petfinder.com/breed.list',
+        method: 'GET',
+        qs: {
+          key: key,
+          animal: req.body.animal,
+          format: 'json'
+        }
+      }, function(error, response, body) {
+          if (error) console.log('error', error);
+          res.send(JSON.parse(body));
+      });
+  })
 
 
 module.exports = router;
