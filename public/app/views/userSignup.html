@@ -1,8 +1,8 @@
 <form ng-submit="userSignup()">
   <legend>Signup</legend>
-  <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
-    <label for="userImg">Profile Image</label>
-    <input type="file" class="form-control" id="userImg" ng-model="user.userImg">
+  <div class="form-group">
+    <label for="search">Profile Image URL</label>
+    <input type="text" class="form-control" id="userImg" placeholder="Public link" ng-model="user.userImg">
   </div>
   <div class="form-group">
     <label for="firstName">First Name</label>
