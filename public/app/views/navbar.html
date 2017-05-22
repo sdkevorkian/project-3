@@ -1,10 +1,10 @@
 <nav role="navigation" ng-controller="NavCtrl">
-        <a class="brand" href="/">Home</a>
-        <ul class="navbar-nav navbar-right">
-            <li><a href="/userSignup" ng-hide="Auth.isLoggedIn()">Signup</a></li>
-            <li><a href="/userLogin" ng-hide="Auth.isLoggedIn()">Login</a></li>
-            <li><a href="/search" ng-show="Auth.isLoggedIn()">Search</a></li>
-            <li><a href="/profile" ng-show="Auth.isLoggedIn()">Profile</a></li>
-            <li><a ng-click="logout()" ng-show="Auth.isLoggedIn()">Logout</a></li>
-        </ul>
+    <a class="brand" href="/">Home</a>
+    <ul class="navbar-nav navbar-right">
+        <li><a href="/signup" ng-hide="Auth.isLoggedIn()">Signup</a></li>
+        <li><a href="/login" ng-hide="Auth.isLoggedIn()">Login</a></li>
+        <li><a href="/search" ng-show="Auth.isLoggedIn()">Search</a></li>
+        <li><a href="/profile" ng-show="Auth.isLoggedIn()">Profile</a></li>
+        <li><a ng-click="logout()" ng-show="Auth.isLoggedIn()">Logout</a></li>
+    </ul>
 </nav>
