@@ -19,6 +19,10 @@ router.route('/')
         method: 'GET',
         qs: {
           key: key,
+          animal: req.body.animal,
+          breed: req.body.breed,
+          size: req.body.size,
+          sex: req.body.sex,
           location: req.body.location,
           format: 'json'
         }
