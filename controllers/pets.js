@@ -68,5 +68,20 @@ router.route('/breeds')
       });
   })
 
+router.route('/:id')
+  .get(function(req, res) {
+      request({
+        uri: 'http://api.petfinder.com/pet.get',
+        method: 'GET',
+        qs: {
+          key: key,
+          id: req.params.id,
+          format: 'json'
+        }
+      }, function(error, response, body) {
+        if (error) console.log('error', error);
+        res.send(JSON.parse(body));
+      });
+  })
 
 module.exports = router;
