@@ -19,12 +19,16 @@ router.route('/')
         method: 'GET',
         qs: {
           key: key,
+          animal: req.body.animal,
+          breed: req.body.breed,
+          size: req.body.size,
+          sex: req.body.sex,
           location: req.body.location,
           format: 'json'
         }
-      }, function(error, responce, body) {
+      }, function(error, response, body) {
           if (error) console.log('somethign went wrong', error);
-          console.log(body);
+          res.send(JSON.parse(body));
       });
   });
 
