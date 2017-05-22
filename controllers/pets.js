@@ -22,9 +22,9 @@ router.route('/')
           location: req.body.location,
           format: 'json'
         }
-      }, function(error, responce, body) {
+      }, function(error, response, body) {
           if (error) console.log('somethign went wrong', error);
-          console.log(body);
+          res.send(JSON.parse(body));
       });
   });
 
