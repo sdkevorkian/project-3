@@ -27,19 +27,10 @@
     "dot-env": "0.0.1",
     "express": "^4.15.3",
     "express-jwt": "^3.4.0",
-    "jsonwebtoken": "^7.4.1",
-    "mongoose": "^4.10.1",
-    "morgan": "^1.8.1"
-  },
-  "description": "<h1>Doggleganger</h1> <h4>WDI 13 | Project 3 | Andrew, Sara, Alaina</h4>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alainabuzas/project-3.git"
-  },
-  "keywords": [],
-  "author": "",
-  "bugs": {
-    "url": "https://github.com/alainabuzas/project-3/issues"
-  },
-  "homepage": "https://github.com/alainabuzas/project-3#readme"
+    "fs": "0.0.1-security",
+    "gm": "^1.23.0",
+    "jsonwebtoken": "^7.1.6",
+    "mongoose": "^4.5.7",
+    "morgan": "^1.7.0"
+  }
 }
