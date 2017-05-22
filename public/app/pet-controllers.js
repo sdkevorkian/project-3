@@ -10,8 +10,9 @@ angular.module('PetCtrls', [])
 
     }])
     .controller('CompareCtrl', ['$scope', '$http', function($scope, $http) {
-        $http.post('/api/compare', { test: 'test' }).then(function(data) {
-            $scope.data = data;
+
+        $http.post('/api/compare', { test: 'test', }).then(function(result) {
+            $scope.matchPercent = result.data.matchPercent;
         }).catch(function(err) {
             console.log(err);
         });
