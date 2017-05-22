@@ -21,11 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('morgan')('dev'));
 
 
-app.use('/api/users', require('./controllers/users'));
+// app.use('/api/users', require('./controllers/users'));
+app.use('/api/compare', require('./controllers/compare'));
+app.use('/api/pets', require('./controllers/pets'));
 
 
 // Replace the above routes with the following
-
 app.use('/api/users', expressJWT({ secret: secret }).unless({
     path: [{ url: '/api/users', methods: ['POST'] }]
 }), require('./controllers/users'));
