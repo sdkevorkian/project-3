@@ -1,8 +1,7 @@
 angular.module('PetCtrls', [])
     .controller('SearchCtrl', ['$scope', function($scope) {
-        var animalChosen = false;
-        if ($scope.animal) {
-            animalChosen = true;
+        function getBreeds(animal) {
+
         }
 
     }])

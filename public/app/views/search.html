@@ -4,9 +4,16 @@
         <div class="animal">
             <label for="petAnimal">Type of Pet</label>
             <select name="petAnimal" class="form-control" ng-model="pet.animal">
-                <option ng-repeat="animal in animals"></option>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+                <option value="bird">Bird</option>
+                <option value="reptile">Reptile</option>
+                <option value="pig">Pig</option>
+                <option value="horse">Horse</option>
+				<option value="barnyard">Barnyard</option>
+				<option value="smallfury">Small Fury</option>
             </select>
-            <button type="submit">Get Breeds</button>
+            <button type="submit" ng-submit="getBreeds(pet.animal)">Get Breeds</button>
         </div>
         <div class="breeds">
             <label for="petBreed">Pet's Breed</label>
@@ -19,21 +26,23 @@
         <div class="size">
             <label for="petSize">Pet's Size</label>
             <select name="petSize" class="form-control" ng-model="pet.size">
-                <option ng-repeat="size in sizes"></option>
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">Extra Large</option>
             </select>
         </div>
         <div class="sex">
             <label for="petSex">Pet's Sex</label>
             <select name="petSex" class="form-control" ng-model="pet.sex">
-                <option ng-repeat="sex in sexes"></option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
             </select>
         </div>
     </div>
     <div class="form-column-3 location">
         <label for="petLocation">Pet's Location</label>
-        <select name="petLocation" class="form-control" ng-model="pet.location">
-            <option ng-repeat="location in locations"></option>
-        </select>
+        <input name="petLocation" class="form-control" ng-model="pet.location" placeholder="Zip Code">
     </div>
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
