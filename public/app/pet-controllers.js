@@ -6,7 +6,15 @@ angular.module('PetCtrls', [])
             }).catch(function(err) {
                 console.log(err);
             });
-        }
+        };
+
+        $scope.petSearch = function() {
+            $http.post('/api/pets', { searchBody: $scope.pet }).then(function(results) {
+                $scope.pets = results.data;
+            }).catch(function(err) {
+                console.log(err);
+            });
+        };
     }])
     .controller('PetShowCtrl', ['$scope', function($scope) {
 

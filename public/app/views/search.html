@@ -13,7 +13,7 @@
                 <option value="barnyard">Barnyard</option>
                 <option value="smallfury">Small Furry</option>
             </select>
-            <input type="submit" ng-click="getBreeds()" value="Get Breeds">
+            <button type="button" ng-click="getBreeds()">Get Breeds</button>
         </div>
         <div class="breeds">
             <label for="petBreed">Pet's Breed</label>
@@ -46,3 +46,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
+
+<div ng-model="pets" ng-repeat="result in pets">
+    <p>{{ result.name.$t }}</p>
+</div>
