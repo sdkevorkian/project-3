@@ -179,6 +179,25 @@ select {
 }
 
 
+/* SEARCH RESULTS */
+
+.pet-results {
+    display: grid;
+    width: 1000px;
+    grid-template-columns: repeat(3, 1fr);
+    font-family: 'Droid Sans', sans-serif;
+}
+
+.one-pet img {
+    width: 100%;
+}
+
+.pet-result-name {
+    text-align: center;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+
 /* PET INFO */
 
 

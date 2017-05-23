@@ -10,4 +10,8 @@
     <p>First Name: {{ user.firstName }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Password: Hidden <a href="#">Update Password</a></p>
+    <div ng-repeat="pet in user.favorites">
+        <p><a href="/petShow/{{ pet.id }}">{{ pet.name }}</a></p>
+        <img src="{{ pet.petImg }}" alt="{{ pet.name }}">
+    </div>
 </div>
