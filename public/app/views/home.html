@@ -9,15 +9,11 @@
 <div class="container hp-test">
     <p>Skeptical? Give it a spin.</p>
     <div class="pick-one">
-      <h1>compare one of these people</h1>
-      <img src="../img/home-test/sk.jpg" ng-click="userChosen()">
-      <img src="../img/home-test/ab.jpg" ng-click="userChosen()">
-      <img src="../img/home-test/at.jpg" ng-click="userChosen()">
+        <h4>compare one of these people</h4>
+        <img src="{{person}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)">
     </div>
     <div class="pick-one">
-    <h1>to one of these pets</h1>
-    <img src="../img/home-test/zoe.png" ng-click="petChosen()">
-    <img src="../img/home-test/zero.png" ng-click="petChosen()">
-    <img src="../img/home-test/hobbes.png" ng-click="petChosen()">
+        <h4>to one of these pets</h4>
+        <img src="{{pet}}" ng-repeat='pet in pets track by $index' ng-click="petChosen($index)">
     </div>
 </div>
