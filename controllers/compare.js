@@ -5,6 +5,7 @@ var request = require('request');
 var router = express();
 
 router.post('/', function(req, res) {
+
     // below is how to access data posted to this route
     console.log(req.body.test);
     console.log(req.user);
@@ -16,29 +17,29 @@ router.post('/', function(req, res) {
     download(userUrl, user, function(err, data) {
         if (err) console.log(err);
         else console.log(data);
-        download(petUrl, pet, function(err, data) {
-            if (err) console.log(err);
-            else console.log(data);
+            download(petUrl, pet, function(err, data) {
+                if (err) console.log(err);
+                else console.log(data);
 
-            gm(user).resize(200, 200, '!').noProfile().write(user, function(err) {
-                if (!err) console.log('user resized');
-                gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
-                    if (!err) console.log('pet resized');
+                gm(user).resize(200, 200, '!').noProfile().write(user, function(err) {
+                    if (!err) console.log('user resized');
+                    gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
+                        if (!err) console.log('pet resized');
 
-                    gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
-                        console.log(err);
-                        console.log(isEqual);
-                        console.log(equality);
-                        deleteAfterUse(user);
-                        deleteAfterUse(pet);
-                        res.send({ matchPercent: equality });
+                        gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
+                            console.log(err);
+                            console.log(isEqual);
+                            console.log(equality);
+                            deleteAfterUse(user);
+                            deleteAfterUse(pet);
+                            res.send({ matchPercent: equality });
+                        });
                     });
-                });
 
+                });
             });
         });
     });
-});
 
 // helper functions
 var download = function(uri, filename, callback) {
