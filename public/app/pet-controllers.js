@@ -3,8 +3,6 @@ angular.module('PetCtrls', [])
         $scope.getBreeds = function() {
             $http.post('/api/pets/breeds', { animal: $scope.pet.animal }).then(function(results) {
                 $scope.breeds = results.data;
-                console.log($scope.breeds);
-                return $scope.breeds;
             }).catch(function(err) {
                 console.log(err);
             });
