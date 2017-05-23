@@ -5,7 +5,7 @@ angular.module('PetFactories', [])
               return $http.post('/api/compare', { userUrl: user, petUrl: pet });
             }
         }
-    })
+    }])
     .factory('Favorite', ['$http', function($http) {
         return {
           add: function(userId, pet) {

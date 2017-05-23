@@ -18,7 +18,7 @@ angular.module('PetCtrls', ['PetFactories'])
             });
         };
     }])
-    .controller('PetShowCtrl', ['$scope', '$http','$stateParams', function($scope,$http, $stateParams) {
+    .controller('PetShowCtrl', ['$scope', '$http','$stateParams', 'Favorite', function($scope,$http, $stateParams, Favorite) {
         $http.get('/api/pets/' + $stateParams.id).then(function(result){
             $scope.pet =result.data;
             //save to local storage for retrieval on compare page
@@ -28,7 +28,7 @@ angular.module('PetCtrls', ['PetFactories'])
             localStorage.petId = $scope.petId;
         });
     }])
-    .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', function($scope, $http, Auth, Compare) {
+    .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', 'Favorite', function($scope, $http, Auth, Compare, Favorite) {
         var user = Auth.currentUser();
         console.log(user);
         // gets image urls for display
@@ -42,5 +42,7 @@ angular.module('PetCtrls', ['PetFactories'])
         }).catch(function(err){
             console.log(err);
         });
-
+       $scope.addFavorite = function() {
+            Favorite.add(user.id, )
+        };
     }]);
