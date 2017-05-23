@@ -52,4 +52,9 @@
         <img src="{{ result.media.photos.photo[2].$t }}" alt="{{ result.name.$t }}">
         <p>{{ results.description.$t }}</p>
     </div>
+    <div class="form-column-3 location">
+        <label for="petLocation">Pet's Location</label>
+        <input name="petLocation" class="form-control" ng-model="pet.location" placeholder="Zip Code">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
 </div>
