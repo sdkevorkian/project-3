@@ -27,6 +27,7 @@ angular.module('PetCtrls', ['PetFactories'])
     }])
     .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', function($scope, $http, Auth, Compare) {
         var user = Auth.currentUser();
+        console.log(user);
         // gets image urls for display
         $scope.profileImg = user.profileImg;
         $scope.petImg = localStorage.petUrl;
