@@ -17,8 +17,8 @@ angular.module('PetCtrls', [])
     }])
     .controller('PetShowCtrl', ['$scope', '$http','$stateParams', function($scope,$http, $stateParams) {
         $http.get('/api/pets/' + $stateParams.id).then(function(result){
-            $scope.pet =result.data.petfinder.pet;
-            localStorage.petUrl=result.data.petfinder.pet.media.photos.photo[2].$t;
+            $scope.pet =result.data;
+            localStorage.petUrl=result.data.media.photos.photo[2].$t;
             $scope.petId = $stateParams.id;
             localStorage.petId = $scope.petId;
         });

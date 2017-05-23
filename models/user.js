@@ -12,7 +12,12 @@ var UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    profileImg: String
+    profileImg: String,
+    favorites: [{
+        id: String,
+        name: String,
+        petImg: String
+    }]
 });
 
 UserSchema.set('toJSON', {

@@ -41,6 +41,16 @@ a {
     color: #E89005;
 }
 
+body {
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    max-width: 80%;
+    margin-left: 5%;
+}
+
 
 /* NAV */
 
@@ -67,6 +77,22 @@ nav a:hover {
 
 
 /* HOME */
+
+.home {
+    background-image: url('../img/funny-dog.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.home h1 {
+    text-align: left;
+}
+
+.home p {
+    color: #fff;
+    width: 40%;
+}
 
 
 /* SIGNUP */
