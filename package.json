@@ -33,5 +33,15 @@
     "mongoose": "^4.5.7",
     "morgan": "^1.7.0",
     "request": "^2.81.0"
-  }
+  },
+  "description": "<h1>Doggleganger</h1> <h4>WDI 13 | Project 3 | Andrew, Sara, Alaina</h4>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alainabuzas/project-3.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/alainabuzas/project-3/issues"
+  },
+  "homepage": "https://github.com/alainabuzas/project-3#readme"
 }
