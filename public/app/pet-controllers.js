@@ -1,16 +1,17 @@
 angular.module('PetCtrls', [])
     .controller('SearchCtrl', ['$scope', function($scope) {
-        function getBreeds(animal) {
+        // function getBreeds(animal) {
 
-        }
+        // }
 
     }])
     .controller('PetShowCtrl', ['$scope', function($scope) {
 
     }])
-    .controller('CompareCtrl', ['$scope', '$http', function($scope, $http) {
-        $http.post('/api/compare', { test: 'test' }).then(function(data) {
-            $scope.data = data;
+    .controller('CompareCtrl', ['$scope', '$http', 'Auth', function($scope, $http, Auth) {
+        var user = Auth.currentUser();
+        $http.post('/api/compare', { userUrl: user.profileImg, }).then(function(result) {
+            $scope.matchPercent = result.data.matchPercent;
         }).catch(function(err) {
             console.log(err);
         });
