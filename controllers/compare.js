@@ -29,6 +29,8 @@ router.post('/', function(req, res) {
                             console.log(equality);
                             deleteAfterUse(user);
                             deleteAfterUse(pet);
+
+
                             res.send({ matchPercent: equality });
                         });
                     });
