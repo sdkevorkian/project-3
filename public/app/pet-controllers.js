@@ -1,6 +1,6 @@
 angular.module('PetCtrls', ['PetFactories'])
     .controller('HomeCtrl', ['$scope', function($scope) {
-        $scope.people = ['../img/home-test/sk.jpg', '../img/home-test/ab.jpg', '../img/home-test/at.jpg'];
+        $scope.people = ['../img/home-test/sk.jpg', '../img/home-test/ab.png', '../img/home-test/at.jpg'];
         $scope.pets = ['../img/home-test/zoe.png', '../img/home-test/zero.png', '../img/home-test/hobbes.png'];
         var userToTest;
         var petToTest;
@@ -33,7 +33,7 @@ angular.module('PetCtrls', ['PetFactories'])
         };
     }])
 
-    .controller('PetShowCtrl', ['$scope', '$http','$stateParams', 'Auth', 'Favorite', function($scope,$http, $stateParams, Auth, Favorite) {
+.controller('PetShowCtrl', ['$scope', '$http', '$stateParams', 'Auth', 'Favorite', function($scope, $http, $stateParams, Auth, Favorite) {
         var user = Auth.currentUser();
         var pet = {
             id: localStorage.petId,
@@ -41,8 +41,8 @@ angular.module('PetCtrls', ['PetFactories'])
             petImg: localStorage.petUrl
         }
 
-        $http.get('/api/pets/' + $stateParams.id).then(function(result){
-            $scope.pet =result.data;
+        $http.get('/api/pets/' + $stateParams.id).then(function(result) {
+            $scope.pet = result.data;
             //save to local storage for retrieval on compare page
             localStorage.petName = $scope.pet.name.$t;
             localStorage.petUrl = result.data.media.photos.photo[2].$t;
