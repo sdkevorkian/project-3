@@ -1,54 +1,55 @@
-<form ng-submit="petSearch()" class="container row">
-    <legend>Search for Your Perfect Pet</legend>
-    <div class="form-column-1">
-        <div class="animal">
-            <label for="petAnimal">Type of Pet</label>
-            <select name="petAnimal" class="form-control" ng-model="pet.animal">
-                <option value="cat">Cat</option>
-                <option value="dog">Dog</option>
-                <option value="bird">Bird</option>
-                <option value="reptile">Reptile</option>
-                <option value="pig">Pig</option>
-                <option value="horse">Horse</option>
-                <option value="barnyard">Barnyard</option>
-                <option value="smallfury">Small Furry</option>
-            </select>
-            <button type="button" ng-click="getBreeds()">Get Breeds</button>
+<div class="container">
+    <form ng-submit="petSearch()" class="container row">
+        <legend>Search for Your Perfect Pet</legend>
+        <div class="form-column-1">
+            <div class="animal">
+                <label for="petAnimal">Type of Pet</label>
+                <select name="petAnimal" class="form-control" ng-model="pet.animal">
+                    <option value="cat">Cat</option>
+                    <option value="dog">Dog</option>
+                    <option value="bird">Bird</option>
+                    <option value="reptile">Reptile</option>
+                    <option value="pig">Pig</option>
+                    <option value="horse">Horse</option>
+                    <option value="barnyard">Barnyard</option>
+                    <option value="smallfury">Small Furry</option>
+                </select>
+                <button type="button" ng-click="getBreeds()">Get Breeds</button>
+            </div>
+            <div class="breeds">
+                <label for="petBreed">Pet's Breed</label>
+                <select name="petBreed" class="form-control" ng-model="pet.breed">
+                    <option ng-repeat="breed in breeds" ng-model="breeds">{{ breed.$t }}</option>
+                </select>
+            </div>
         </div>
-        <div class="breeds">
-            <label for="petBreed">Pet's Breed</label>
-            <select name="petBreed" class="form-control" ng-model="pet.breed">
-                <option ng-repeat="breed in breeds" ng-model="breeds">{{ breed.$t }}</option>
-            </select>
+        <div class="form-column-2">
+            <div class="size">
+                <label for="petSize">Pet's Size</label>
+                <select name="petSize" class="form-control" ng-model="pet.size">
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                    <option value="XL">Extra Large</option>
+                </select>
+            </div>
+            <div class="sex">
+                <label for="petSex">Pet's Sex</label>
+                <select name="petSex" class="form-control" ng-model="pet.sex">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+            </div>
         </div>
+        <div class="form-column-3 location">
+            <label for="petLocation">Pet's Location</label>
+            <input name="petLocation" class="form-control" ng-model="pet.location" placeholder="Zip Code">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <div ng-model="pets" ng-repeat="result in pets">
+        <a href="/petShow/{{ result.id.$t }}">{{ result.name.$t }}</a>
+        <img src="{{ result.media.photos.photo[2].$t }}" alt="{{ result.name.$t }}">
+        <p>{{ results.description.$t }}</p>
     </div>
-    <div class="form-column-2">
-        <div class="size">
-            <label for="petSize">Pet's Size</label>
-            <select name="petSize" class="form-control" ng-model="pet.size">
-                <option value="S">Small</option>
-                <option value="M">Medium</option>
-                <option value="L">Large</option>
-                <option value="XL">Extra Large</option>
-            </select>
-        </div>
-        <div class="sex">
-            <label for="petSex">Pet's Sex</label>
-            <select name="petSex" class="form-control" ng-model="pet.sex">
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-column-3 location">
-        <label for="petLocation">Pet's Location</label>
-        <input name="petLocation" class="form-control" ng-model="pet.location" placeholder="Zip Code">
-    </div>
-    <button type="submit" class="btn btn-primary">Search</button>
-</form>
-
-<div ng-model="pets" ng-repeat="result in pets">
-    <a href="/petShow/{{ result.id.$t }}">{{ result.name.$t }}</a>
-    <img src="{{ result.media.photos.photo[2].$t }}" alt="{{ result.name.$t }}">
-    <p>{{ results.description.$t }}</p>
 </div>
