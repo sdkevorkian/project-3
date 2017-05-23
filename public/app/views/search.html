@@ -50,6 +50,6 @@
     </form>
     <div class="container pet-results" ng-model="pets" ng-repeat="result in pets">
         <div class="pet-result-image"><img src="{{ result.media.photos.photo[2].$t }}" alt="{{ result.name.$t }}"></div>
-        <div class="pet-result-name"><a href="/petShow/{{ result.id.$t }}">{{ result.name.$t }}</a></div>
+        <div class="pet-result-name"><a href="/petShow/{{ result.id.$t }}" target="_blank">{{ result.name.$t }}</a></div>
     </div>
 </div>

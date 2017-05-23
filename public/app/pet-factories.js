@@ -2,14 +2,10 @@ angular.module('PetFactories', [])
     .factory('Compare', ['$http', function($http){
         return {
           compareTwo: function(user, pet){
-              $http.post('/api/compare', { userUrl: user, petUrl: pet }).then(function(result) {
-                return result.data.matchPercent;
-            }).catch(function(err) {
-                console.log(err);
-            });
-          }
-        };
-    }])
+              return $http.post('/api/compare', { userUrl: user, petUrl: pet });
+            }
+        }
+    })
     .factory('Favorite', ['$http', function($http) {
         return {
           add: function(userId, pet) {
