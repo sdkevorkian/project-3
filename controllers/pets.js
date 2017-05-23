@@ -11,16 +11,16 @@ router.route('/')
             method: 'GET',
             qs: {
                 key: key,
-                animal: req.body.animal,
-                breed: req.body.breed,
-                size: req.body.size,
-                sex: req.body.sex,
-                location: req.body.location,
+                animal: req.body.searchBody.animal,
+                breed: req.body.searchBody.breed,
+                size: req.body.searchBody.size,
+                sex: req.body.searchBody.sex,
+                location: req.body.searchBody.location,
                 format: 'json'
             }
         }, function(error, response, body) {
             if (error) console.log('somethign went wrong', error);
-            res.send(JSON.parse(body));
+            res.send(JSON.parse(body).petfinder.pets.pet);
         });
     });
 
