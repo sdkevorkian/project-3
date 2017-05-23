@@ -1,4 +1,7 @@
 angular.module('PetCtrls', ['PetFactories'])
+    .controller('HomeCtrl', ['$scope', 'Auth', function($scope, Auth) {
+
+    }])
     .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
         $scope.getBreeds = function() {
             $http.post('/api/pets/breeds', { animal: $scope.pet.animal }).then(function(results) {

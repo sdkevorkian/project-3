@@ -1,7 +1,4 @@
 angular.module('AuthCtrls', ['AuthFactories'])
-    .controller('HomeCtrl', ['$scope', 'Auth', function($scope, Auth) {
-
-    }])
     .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', function($scope, Auth, Alerts) {
         $scope.Auth = Auth;
         $scope.logout = function() {
