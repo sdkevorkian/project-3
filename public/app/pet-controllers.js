@@ -7,6 +7,13 @@ angular.module('PetCtrls', [])
                 console.log(err);
             });
         };
+        $scope.petSearch = function() {
+            $http.post('/api/pets', { searchBody: $scope.pet }).then(function(results) {
+                $scope.pets = results.data;
+            }).catch(function(err) {
+                console.log(err);
+            });
+        };
     }])
     .controller('PetShowCtrl', ['$scope', '$http','$stateParams', function($scope,$http, $stateParams) {
         $http.get('/api/pets/' + $stateParams.id).then(function(result){

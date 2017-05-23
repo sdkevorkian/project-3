@@ -1,8 +1,6 @@
-<nav class="navigation" ng-controller="NavCtrl">
-    <a href="/search" ng-show="Auth.isLoggedIn()">Search</a>
-    <a href="/profile" ng-show="Auth.isLoggedIn()">Profile</a>
-    <a href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
-    <a href="/signup" ng-hide="Auth.isLoggedIn()">Signup</a>
-    <a href="/login" ng-hide="Auth.isLoggedIn()">Login</a>
-    <a ng-click="logout()" ng-show="Auth.isLoggedIn()">Logout</a>
+<nav ng-controller="NavCtrl">
+    <a href="/" class="logo">doggleg&#228;nger</a>
+    <a href="/search" ng-show="Auth.isLoggedIn()">search</a>
+    <a href="/profile" ng-show="Auth.isLoggedIn()">profile</a>
+    <a ng-click="logout()" ng-show="Auth.isLoggedIn()">logout</a>
 </nav>
