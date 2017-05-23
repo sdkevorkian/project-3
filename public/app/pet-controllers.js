@@ -1,5 +1,19 @@
 angular.module('PetCtrls', ['PetFactories'])
-    .controller('HomeCtrl', ['$scope', 'Auth', function($scope, Auth) {
+    .controller('HomeCtrl', ['$scope', function($scope) {
+        $scope.people = ['../img/home-test/sk.jpg', '../img/home-test/ab.jpg', '../img/home-test/at.jpg'];
+        $scope.pets = ['../img/home-test/zoe.png', '../img/home-test/zero.png', '../img/home-test/hobbes.png'];
+        var userToTest;
+        var petToTest;
+
+        $scope.userChosen = function(person) {
+            userToTest = $scope.people[person];
+            console.log(userToTest);
+        };
+        $scope.petChosen = function(pet) {
+            petToTest = $scope.pets[pet];
+            console.log(petToTest);
+        };
+
 
     }])
     .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
@@ -18,12 +32,12 @@ angular.module('PetCtrls', ['PetFactories'])
             });
         };
     }])
-    .controller('PetShowCtrl', ['$scope', '$http','$stateParams', 'Favorite', function($scope,$http, $stateParams, Favorite) {
-        $http.get('/api/pets/' + $stateParams.id).then(function(result){
-            $scope.pet =result.data;
+    .controller('PetShowCtrl', ['$scope', '$http', '$stateParams', 'Favorite', function($scope, $http, $stateParams, Favorite) {
+        $http.get('/api/pets/' + $stateParams.id).then(function(result) {
+            $scope.pet = result.data;
             //save to local storage for retrieval on compare page
             localStorage.petName = $scope.pet.name.$t;
-            localStorage.petUrl=result.data.media.photos.photo[2].$t;
+            localStorage.petUrl = result.data.media.photos.photo[2].$t;
             $scope.petId = $stateParams.id;
             localStorage.petId = $scope.petId;
         });
@@ -36,13 +50,13 @@ angular.module('PetCtrls', ['PetFactories'])
         $scope.petImg = localStorage.petUrl;
         $scope.petId = localStorage.petId;
 
-        $scope.matchPercent = Compare.compareTwo(user.profileImg, localStorage.petUrl).then(function(result){
+        $scope.matchPercent = Compare.compareTwo(user.profileImg, localStorage.petUrl).then(function(result) {
             $scope.matchPercent = result.data.matchPercent;
             console.log(result);
-        }).catch(function(err){
+        }).catch(function(err) {
             console.log(err);
         });
-       $scope.addFavorite = function() {
+        $scope.addFavorite = function() {
             Favorite.add(user.id, )
         };
     }]);
