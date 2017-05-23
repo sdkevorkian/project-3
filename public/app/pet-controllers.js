@@ -18,7 +18,14 @@ angular.module('PetCtrls', ['PetFactories'])
             });
         };
     }])
-    .controller('PetShowCtrl', ['$scope', '$http','$stateParams', 'Favorite', function($scope,$http, $stateParams, Favorite) {
+    .controller('PetShowCtrl', ['$scope', '$http','$stateParams', 'Auth', 'Favorite', function($scope,$http, $stateParams, Auth, Favorite) {
+        var user = Auth.currentUser();
+        var pet = {
+            id: localStorage.petId,
+            name: localStorage.petName,
+            petImg: localStorage.petUrl
+        }
+
         $http.get('/api/pets/' + $stateParams.id).then(function(result){
             $scope.pet =result.data;
             //save to local storage for retrieval on compare page
@@ -27,10 +34,19 @@ angular.module('PetCtrls', ['PetFactories'])
             $scope.petId = $stateParams.id;
             localStorage.petId = $scope.petId;
         });
+
+        $scope.addFavorite = function() {
+            Favorite.add(user.id, pet);
+        };
     }])
     .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', 'Favorite', function($scope, $http, Auth, Compare, Favorite) {
         var user = Auth.currentUser();
-        console.log(user);
+        var pet = {
+            id: localStorage.petId,
+            name: localStorage.petName,
+            petImg: localStorage.petUrl
+        }
+
         // gets image urls for display
         $scope.profileImg = user.profileImg;
         $scope.petImg = localStorage.petUrl;
@@ -42,7 +58,8 @@ angular.module('PetCtrls', ['PetFactories'])
         }).catch(function(err){
             console.log(err);
         });
-       $scope.addFavorite = function() {
-            Favorite.add(user.id, )
+
+        $scope.addFavorite = function() {
+            Favorite.add(user.id, pet);
         };
     }]);

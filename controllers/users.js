@@ -26,7 +26,7 @@ router.route('/')
 
 router.route('/favorites')
   .post(function(req, res) {
-      User.findByIdAndUpdate(userId, { $push: {favorites: pet}}, function(err) {
+      User.findByIdAndUpdate(req.body.userId, { $push: {favorites: req.body.pet}}, function(err) {
           if (err) return res.status(500).send(err);
 
           return res.send('Favorite Added');
