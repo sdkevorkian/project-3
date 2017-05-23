@@ -1,4 +1,4 @@
-angular.module('AuthServices', ['ngResource'])
+angular.module('AuthFactories', ['ngResource'])
     .factory('Auth', ['$window', function($window) {
         return {
             saveToken: function(token) {
