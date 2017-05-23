@@ -36,7 +36,7 @@ app.config([
                 controller: 'SearchCtrl'
             })
             .state('petShow', {
-                url: '/petShow',
+                url: '/petShow/:id',
                 templateUrl: 'app/views/petShow.html',
                 controller: 'PetShowCtrl'
             })

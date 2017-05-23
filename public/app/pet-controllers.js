@@ -6,10 +6,12 @@ angular.module('PetCtrls', [])
             }).catch(function(err) {
                 console.log(err);
             });
-        }
+        };
     }])
-    .controller('PetShowCtrl', ['$scope', function($scope) {
-
+    .controller('PetShowCtrl', ['$scope', '$http','$stateParams', function($scope,$http, $stateParams) {
+        $http.get('/api/pets/' + $stateParams.id).then(function(result){
+            console.log(result);
+        });
     }])
     .controller('CompareCtrl', ['$scope', '$http', 'Auth', function($scope, $http, Auth) {
         var user = Auth.currentUser();
