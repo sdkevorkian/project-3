@@ -13,12 +13,12 @@
 	  <option value="barnyard">Barnyard</option>
 	   <option value="smallfury">Small Furry</option>
             </select>
-            <input type="submit" ng-click="getBreeds(pet.animal)" value="Get Breeds">
+            <input type="submit" ng-click="getBreeds()" value="Get Breeds">
         </div>
         <div class="breeds">
             <label for="petBreed">Pet's Breed</label>
             <select name="petBreed" class="form-control" ng-model="pet.breed">
-                <option ng-repeat="breed in breeds">{{ breed.$t }}</option>
+                <option ng-repeat="breed in breeds" ng-model="breeds">{{ breed.$t }}</option>
             </select>
         </div>
     </div>

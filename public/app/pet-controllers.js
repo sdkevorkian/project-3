@@ -1,12 +1,11 @@
 angular.module('PetCtrls', [])
     .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
-        $scope.getBreeds = function(animal) {
-            $http.post('/api/pets/breeds', animal).then(function(data) {
-                $scope.breeds = data;
+        $scope.getBreeds = function() {
+            $http.post('/api/pets/breeds', { animal: $scope.pet.animal }).then(function(results) {
+                $scope.breeds = results.data;
             }).catch(function(err) {
                 console.log(err);
             });
-            return $scope.breeds;
         }
     }])
     .controller('PetShowCtrl', ['$scope', function($scope) {
