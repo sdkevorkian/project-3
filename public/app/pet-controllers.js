@@ -1,8 +1,8 @@
 angular.module('PetCtrls', [])
     .controller('SearchCtrl', ['$scope', function($scope) {
-        function getBreeds(animal) {
+        // function getBreeds(animal) {
 
-        }
+        // }
 
     }])
     .controller('PetShowCtrl', ['$scope', function($scope) {

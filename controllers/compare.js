@@ -4,8 +4,7 @@ var fs = require('fs');
 var request = require('request');
 var router = express();
 
-router.post('/api/compare', function(req, res) {
-    router.post('/', function(req, res) {
+router.post('/', function(req, res) {
         // below is how to access data posted to this route
         console.log(req.body.test);
         var user = 'user.jpg';
@@ -39,7 +38,7 @@ router.post('/api/compare', function(req, res) {
             });
         });
     });
-});
+
 // helper functions
 var download = function(uri, filename, callback) {
     request.head(uri, function(err, res, body) {
