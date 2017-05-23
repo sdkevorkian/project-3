@@ -51,7 +51,7 @@ router.route('/random')
               }
             }, function(error, response, body) {
               if (error) console.log('error', error);
-              res.send(JSON.parse(body));
+              res.send(JSON.parse(body).petfinder.pet);
             });
         });
     });
@@ -85,7 +85,7 @@ router.route('/:id')
          }
         }, function(error, response, body) {
           if (error) console.log('error', error);
-          res.send(JSON.parse(body));
+          res.send(JSON.parse(body).petfinder.pet);
         });
     });
 
