@@ -51,6 +51,13 @@ body {
     margin-left: 5%;
 }
 
+button {
+    text-transform: uppercase;
+    border: none;
+    background-color: #E89005;
+    color: #fff;
+}
+
 
 /* NAV */
 
@@ -60,7 +67,7 @@ nav {
     font-size: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
-    border-bottom: 6px solid #F1F2F3;
+    border-bottom: 6px solid #66717e;
 }
 
 nav a {
@@ -105,6 +112,71 @@ nav a:hover {
 
 
 /* SEARCH */
+
+.search-form {
+    display: grid;
+    grid-template-rows: 2em 2em 2em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    font-family: 'Droid Sans', sans-serif;
+    background-color: #F1F2F3;
+    padding: 2em;
+    margin-top: 2em;
+}
+
+.search-field:nth-child(1) {
+    grid-column: 1 / 4;
+    grid-row: 1 / 1;
+    font-family: 'Righteous', cursive;
+    color: #102542;
+    font-size: 25px;
+}
+
+.search-field:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.search-field:nth-child(3) {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.search-field:nth-child(4) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.search-field:nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+.search-field:nth-child(6) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+.search-field:nth-child(7) {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+}
+
+.search-btn,
+.search-zip,
+select {
+    width: 100%;
+    border: none;
+}
+
+.search-zip,
+select {
+    background-color: #fff;
+}
+
+.pet-animal-btn {
+    float: right;
+}
 
 
 /* PET INFO */
