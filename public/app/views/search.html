@@ -48,13 +48,8 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
     <div ng-model="pets" ng-repeat="result in pets">
-        <a href="/petShow/{{ result.id.$t }}">{{ result.name.$t }}</a>
+        <a href="/petShow/{{ result.id.$t }}"  target="_blank">{{ result.name.$t }}</a>
         <img src="{{ result.media.photos.photo[2].$t }}" alt="{{ result.name.$t }}">
         <p>{{ results.description.$t }}</p>
     </div>
-    <div class="form-column-3 location">
-        <label for="petLocation">Pet's Location</label>
-        <input name="petLocation" class="form-control" ng-model="pet.location" placeholder="Zip Code">
-    </div>
-    <button type="submit" class="btn btn-primary">Search</button>
 </div>
