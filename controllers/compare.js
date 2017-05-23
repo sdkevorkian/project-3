@@ -9,7 +9,7 @@ router.post('/', function(req, res) {
     var user = 'user.jpg';
     var pet = 'pet.jpg';
     var userUrl = req.body.userUrl;
-    var petUrl = 'https://www.petinsurance.com/images/VSSimages/consumer/v5/cat-insurance.jpg';
+    var petUrl = req.body.petUrl;
 
     download(userUrl, user, function(err, data) {
         if (err) console.log(err);
