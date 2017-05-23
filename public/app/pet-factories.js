@@ -1,4 +1,4 @@
-angular.module('PetFactories', [])
+angular.module('PetFactories', ['AuthFactories'])
     .factory('Compare', ['$http', function($http){
         return {
           compareTwo: function(user, pet){
@@ -6,11 +6,11 @@ angular.module('PetFactories', [])
             }
         }
     }])
-    .factory('Favorite', ['$http', function($http) {
+    .factory('Favorite', ['$http', 'Alerts', function($http, Alerts) {
         return {
           add: function(userId, pet) {
             $http.post('/api/users/favorites', { userId: userId, pet: pet }).then(function(result) {
-                console.log(result);
+                Alerts.add('success', 'Favorite Added')
             }).catch(function(err) {
                 console.log(err);
             });

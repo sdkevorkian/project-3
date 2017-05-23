@@ -54,6 +54,12 @@ angular.module('AuthCtrls', ['AuthFactories'])
             };
         }
     ])
-    .controller('ProfileCtrl', ['$scope', function($scope) {
+    .controller('ProfileCtrl', ['$scope', '$http', 'Auth', function($scope, $http, Auth) {
+        var userId = Auth.currentUser().id;
 
+        $http.get('/api/users/' + userId).then(function(results) {
+            $scope.user = results.data;
+        }).catch(function(err){
+            console.log(err);
+        });
     }]);

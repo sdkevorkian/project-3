@@ -5,7 +5,6 @@ var request = require('request');
 var router = express();
 
 router.post('/', function(req, res) {
-    console.log('test');
     var user = 'user.jpg';
     var pet = 'pet.jpg';
     var userUrl = req.body.userUrl;
