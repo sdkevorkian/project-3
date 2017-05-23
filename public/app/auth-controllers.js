@@ -1,4 +1,4 @@
-angular.module('AuthCtrls', ['AuthServices'])
+angular.module('AuthCtrls', ['AuthFactories'])
     .controller('HomeCtrl', ['$scope', 'Auth', function($scope, Auth) {
 
     }])

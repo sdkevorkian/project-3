@@ -25,6 +25,8 @@ angular.module('PetCtrls', [])
     }])
     .controller('CompareCtrl', ['$scope', '$http', 'Auth', function($scope, $http, Auth) {
         var user = Auth.currentUser();
+        $scope.profileImg = user.profileImg;
+        $scope.petImg = localStorage.petUrl;
         $http.post('/api/compare', { userUrl: user.profileImg, petUrl: localStorage.petUrl }).then(function(result) {
             $scope.petId = localStorage.petId;
             $scope.matchPercent = result.data.matchPercent;
