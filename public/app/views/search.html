@@ -50,5 +50,5 @@
 <div ng-model="pets" ng-repeat="result in pets">
     <a href="/petShow/{{ result.id.$t }}">{{ result.name.$t }}</a>
     <img src="{{ result.media.photos.photo[2].$t }}" alt="{{ result.name.$t }}">
-    <p>{{ results.description.$t }}</p>
+    <p>{{ result.description.$t }}</p>
 </div>
