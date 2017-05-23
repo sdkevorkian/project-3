@@ -12,6 +12,7 @@ angular.module('PetCtrls', [])
         $http.get('/api/pets/' + $stateParams.id).then(function(result){
             $scope.pet =result.data.petfinder.pet;
             localStorage.petUrl=result.data.petfinder.pet.media.photos.photo[2].$t;
+            localStorage.petId = $stateParams.id;
         });
     }])
     .controller('CompareCtrl', ['$scope', '$http', 'Auth', function($scope, $http, Auth) {
