@@ -144,15 +144,23 @@ nav a:hover {
 }
 
 
-/* SIGNUP */
+/* SIGNUP & LOGIN */
 
 .signup-pg {
     background-image: url('../img/cat-basket.jpg');
+}
+
+.login-pg {
+    background-image: url('../img/tiny-creature.jpg');
+}
+
+.signup-pg,
+.login-pg {
     background-size: cover;
     height: 100vh;
 }
 
-.signup-form {
+.signin-form {
     width: 40%;
     background-color: #F1F2F3;
     padding: 2em;
@@ -160,30 +168,32 @@ nav a:hover {
     margin-bottom: 3em;
 }
 
-.signup-form h3 {
+.signin-form h3 {
     margin: 0;
 }
 
-.signup {
+.signin {
     margin-top: 1em;
 }
 
-.signup p {
+.signin p {
     font-size: 13px;
 }
 
-.signup-btn {
+.signin-btn {
     width: 100%;
     font-size: 18px;
 }
 
 
-/* LOGIN */
+/* 404 */
 
-.login-pg {
-    background-image: url();
-    background-size: cover;
-    height: 100vh;
+.four {
+    text-align: center;
+}
+
+.four-gif {
+    margin: auto;
 }
 
 

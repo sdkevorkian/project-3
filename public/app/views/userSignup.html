@@ -1,25 +1,25 @@
 <div class="signup-pg">
     <div class="container">
-        <form ng-submit="userSignup()" class="signup-form">
+        <form ng-submit="userSignup()" class="signin-form">
             <h3>Signup</h3>
-            <div class="form-group signup">
+            <div class="form-group signin">
                 <label for="firstName">First Name</label>
                 <input type="text" class="form-control" id="firstName" placeholder="Your Name" ng-model="user.firstName">
             </div>
-            <div class="form-group signup">
+            <div class="form-group signin">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="youremail@notaol.com" ng-model="user.email">
             </div>
-            <div class="form-group signup">
+            <div class="form-group signin">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="********" ng-model="user.password">
             </div>
-            <div class="form-group signup">
+            <div class="form-group signin">
                 <label for="search">Profile Image URL</label>
                 <input type="text" class="form-control" id="userImg" placeholder="Public link" ng-model="user.profileImg">
                 <p>This image will be used to compare your likeness to pets. Please use a clear photo of your face.</p>
             </div>
-            <button type="submit" class="signup-btn signup">Sign Up &#38; Log In</button>
+            <button type="submit" class="signin-btn signin">Sign Up &#38; Log In</button>
         </form>
     </div>
 </div>
