@@ -40,13 +40,14 @@ angular.module('PetCtrls', ['PetFactories'])
 
     }])
     .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
-        $scope.getBreeds = function() {
+        $scope.$watch('pet.animal', function() {
             $http.post('/api/pets/breeds', { animal: $scope.pet.animal }).then(function(results) {
                 $scope.breeds = results.data;
             }).catch(function(err) {
                 console.log(err);
             });
-        };
+        });
+
         $scope.petSearch = function() {
             $http.post('/api/pets', { searchBody: $scope.pet }).then(function(results) {
                 $scope.pets = results.data;

@@ -21,6 +21,7 @@ angular.module('AuthFactories', ['ngResource'])
                         var payload = JSON.parse($window.atob(token.split('.')[1]));
                         return payload;
                     } catch (err) {
+                        console.log(err);
                         return false;
                     }
                 }
