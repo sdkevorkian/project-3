@@ -47,6 +47,7 @@ angular.module('PetCtrls', ['PetFactories'])
             }).catch(function(err) {
                 console.log(err);
             });
+            $scope.matchDone = true;
         };
 
     }])
