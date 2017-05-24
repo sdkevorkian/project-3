@@ -58,6 +58,7 @@ body {
 
 button {
     text-transform: uppercase;
+    letter-spacing: 1px;
     border: none;
     background-color: #E89005;
     color: #fff;
@@ -67,6 +68,8 @@ button {
 .form-control {
     border: none;
     background-color: #fff;
+    width: 100%;
+    padding: 3px;
 }
 
 
@@ -143,23 +146,45 @@ nav a:hover {
 
 /* SIGNUP */
 
+.signup-pg {
+    background-image: url('../img/cat-basket.jpg');
+    background-size: cover;
+    height: 100vh;
+}
+
 .signup-form {
+    width: 40%;
     background-color: #F1F2F3;
     padding: 2em;
     margin-top: 2em;
     margin-bottom: 3em;
-    display: grid;
-    grid-template-
 }
 
-.signup-title {
-    font-family: 'Righteous', cursive;
-    color: #102542;
-    font-size: 25px;
+.signup-form h3 {
+    margin: 0;
+}
+
+.signup {
+    margin-top: 1em;
+}
+
+.signup p {
+    font-size: 13px;
+}
+
+.signup-btn {
+    width: 100%;
+    font-size: 18px;
 }
 
 
 /* LOGIN */
+
+.login-pg {
+    background-image: url();
+    background-size: cover;
+    height: 100vh;
+}
 
 
 /* PROFILE */
