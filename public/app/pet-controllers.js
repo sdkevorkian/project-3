@@ -2,28 +2,28 @@ angular.module('PetCtrls', ['PetFactories'])
     .controller('HomeCtrl', ['$scope', 'Compare', function($scope, Compare) {
         $scope.people = [{
             imgSrc: '../img/home-test/sk.jpg',
-            compareSrc: '../public/img/home-test/sk.jpg',
+            compareSrc: './public/img/home-test/sk.jpg',
             name: 'Sara'
         }, {
             imgSrc: '../img/home-test/ab.png',
-            compareSrc: '../public/img/home-test/ab.png',
+            compareSrc: './public/img/home-test/ab.png',
             name: 'Alaina'
         }, {
             imgSrc: '../img/home-test/at.jpg',
-            compareSrc: '../public/img/home-test/at.jpg',
+            compareSrc: './public/img/home-test/at.jpg',
             name: 'Sara'
         }];
         $scope.pets = [{
             imgSrc: '../img/home-test/zoe.png',
-            compareSrc: '../public/img/home-test/zoe.png',
+            compareSrc: './public/img/home-test/zoe.png',
             name: 'Zoe'
         }, {
             imgSrc: '../img/home-test/zero.png',
-            compareSrc: '../public/img/home-test/zero.png',
+            compareSrc: './public/img/home-test/zero.png',
             name: 'Zero'
         }, {
             imgSrc: '../img/home-test/hobbes.png',
-            compareSrc: '../public/img/home-test/hobbes.png',
+            compareSrc: './public/img/home-test/hobbes.png',
             name: 'Hobbes'
         }];
         var personToTest;
