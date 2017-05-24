@@ -2,41 +2,52 @@ angular.module('PetCtrls', ['PetFactories'])
     .controller('HomeCtrl', ['$scope', 'Compare', function($scope, Compare) {
         $scope.people = [{
             imgSrc: '../img/home-test/sk.jpg',
-            compareSrc: '../public/img/home-test/sk.jpg'
+            compareSrc: '../public/img/home-test/sk.jpg',
+            name: 'Sara'
         }, {
             imgSrc: '../img/home-test/ab.png',
-            compareSrc: '../public/img/home-test/ab.png'
+            compareSrc: '../public/img/home-test/ab.png',
+            name: 'Alaina'
         }, {
             imgSrc: '../img/home-test/at.jpg',
-            compareSrc: '../public/img/home-test/at.jpg'
+            compareSrc: '../public/img/home-test/at.jpg',
+            name: 'Sara'
         }];
-        $scope.pets = ['../img/home-test/zoe.png', '../img/home-test/zero.png', '../img/home-test/hobbes.png'];
-        var userToTest;
+        $scope.pets = [{
+            imgSrc: '../img/home-test/zoe.png',
+            compareSrc: '../public/img/home-test/zoe.png',
+            name: 'Zoe'
+        }, {
+            imgSrc: '../img/home-test/zero.png',
+            compareSrc: '../public/img/home-test/zero.png',
+            name: 'Zero'
+        }, {
+            imgSrc: '../img/home-test/hobbes.png',
+            compareSrc: '../public/img/home-test/hobbes.png',
+            name: 'Hobbes'
+        }];
+        var personToTest;
         var petToTest;
 
         $scope.userChosen = function(person) {
-            userToTest = $scope.people[person];
-            console.log(userToTest);
-            if (petToTest) {
-                Compare.compareDemo(userToTest.compareSrc, petToTest.compareSrc).then(function(result) {
-                    console.log(result);
-                }).catch(function(err) {
-                    console.log(err);
-                });
-            }
+            personToTest = $scope.people[person];
+            console.log(personToTest);
+
         };
         $scope.petChosen = function(pet) {
             petToTest = $scope.pets[pet];
             console.log(petToTest);
-            if (userToTest) {
-                Compare.compareDemo(userToTest.compareSrc, petToTest.compareSrc).then(function(result) {
-                    console.log(result);
-                }).catch(function(err) {
-                    console.log(err);
-                });
-            }
+
         };
 
+        $scope.compareDemo = function() {
+            Compare.compareDemo(personToTest.compareSrc, petToTest.compareSrc).then(function(result) {
+                $scope.matchPercent = result.data.matchPercent;
+                console.log(result);
+            }).catch(function(err) {
+                console.log(err);
+            });
+        };
 
     }])
     .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {

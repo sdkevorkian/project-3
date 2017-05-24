@@ -20,5 +20,5 @@ angular.module('PetFactories', ['AuthFactories'])
                     console.log(err);
                 });
             }
-        }
+        };
     }]);

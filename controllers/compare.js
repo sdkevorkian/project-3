@@ -40,7 +40,21 @@ router.post('/', function(req, res) {
 });
 
 router.post('/demo', function(req, res) {
+    var person = req.body.person;
+    var pet = req.body.pet;
+    gm(person).resize(200, 200, '!').noProfile().write(person, function(err) {
+        if (!err) console.log('person resized');
+        gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
+            if (!err) console.log('pet resized');
 
+            gm().compare(person, pet, 1.0, function(err, isEqual, equality) {
+                console.log(err);
+                console.log(isEqual);
+                console.log(equality);
+                res.send({ matchPercent: 'got to route', result: equality, err: err });
+            });
+        });
+    });
 });
 
 // helper functions
