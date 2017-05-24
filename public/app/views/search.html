@@ -5,7 +5,6 @@
         </div>
         <div class="animal-search search-field">
             <label for="petAnimal">Type of Pet</label>
-            <button type="button" class="pet-animal-btn" ng-click="getBreeds()">Get Breeds</button>
             <select name="petAnimal" class="form-control pet-animal" ng-model="pet.animal">
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
@@ -20,7 +19,7 @@
         <div class="breeds-search search-field">
             <label for="petBreed">Pet's Breed</label>
             <select name="petBreed" class="form-control" ng-model="pet.breed">
-                <option disabled>Must choose animal type first.</option>
+                <option disabled value="">Must choose animal type first.</option>
                 <option ng-repeat="breed in breeds" ng-model="breeds">{{ breed.$t }}</option>
             </select>
         </div>

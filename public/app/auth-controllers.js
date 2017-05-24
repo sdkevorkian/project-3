@@ -36,12 +36,12 @@ angular.module('AuthCtrls', ['AuthFactories'])
             });
         };
     }])
-    .controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', 'Alerts',
-        function($scope, $http, $location, Auth, Alerts) {
+    .controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', 'Alerts', function($scope, $http, $location, Auth, Alerts) {
             $scope.user = {
                 email: '',
                 password: ''
             };
+
             $scope.userLogin = function() {
                 $http.post('/api/auth', $scope.user).then(function success(res) {
                     Auth.saveToken(res.data.token);
@@ -52,12 +52,11 @@ angular.module('AuthCtrls', ['AuthFactories'])
                     console.log(res);
                 });
             };
-        }
-    ])
+    }])
     .controller('ProfileCtrl', ['$scope', '$http', 'Auth', function($scope, $http, Auth) {
-        var userId = Auth.currentUser().id;
+        var user = Auth.currentUser();
 
-        $http.get('/api/users/' + userId).then(function(results) {
+        $http.get('/api/users/' + user.id).then(function(results) {
             $scope.user = results.data;
         }).catch(function(err){
             console.log(err);
