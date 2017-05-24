@@ -96,6 +96,7 @@ angular.module('PetCtrls', ['PetFactories'])
     }])
     .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', 'Favorite', function($scope, $http, Auth, Compare, Favorite) {
         var user = Auth.currentUser();
+        // NOTE: because of how we are using local storage, this page will only work from the petShow page.....
         var pet = {
             id: localStorage.petId,
             name: localStorage.petName,
