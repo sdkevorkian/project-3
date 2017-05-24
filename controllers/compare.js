@@ -6,7 +6,7 @@ var router = express();
 
 router.post('/', function(req, res) {
     var user = 'user.jpg';
-    var pet = 'pet.jpg'; // save as userId with some concatenation
+    var pet = 'pet.jpg'; // save as userId with some concatenation (unique file paths, allows multiple users at once)
     var userUrl = req.body.userUrl;
     var petUrl = req.body.petUrl;
     // do parallel async for both downloads and both gms. In the callback, then proceed.
@@ -40,18 +40,12 @@ router.post('/demo', function(req, res) {
     var person = req.body.person;
     var pet = req.body.pet;
     console.log(person, pet);
-    gm(person).resize(200, 200, '!').noProfile().write(person, function(err) {
-        if (!err) console.log('person resized');
-        gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
-            if (!err) console.log('pet resized');
 
-            gm().compare(person, pet, 1.0, function(err, isEqual, equality) {
-                console.log(err);
-                console.log(isEqual);
-                console.log(equality);
-                res.send({ matchPercent: 'got to route', result: equality, err: err });
-            });
-        });
+    gm().compare(person, pet, 1.0, function(err, isEqual, equality) {
+        console.log(err);
+        console.log(isEqual);
+        console.log(equality);
+        res.send({ matchPercent: equality });
     });
 });
 
