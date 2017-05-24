@@ -29,10 +29,6 @@ angular.module('PetCtrls', ['PetFactories'])
             imgSrc: '../img/home-test/mickey.png',
             compareSrc: './public/img/home-test/mickey.png',
             name: 'Mickey'
-        }, {
-            imgSrc: '../img/home-test/harvey.png',
-            compareSrc: './public/img/home-test/harvey.png',
-            name: 'Harvey'
         }];
         var personToTest;
         var petToTest;
@@ -50,8 +46,8 @@ angular.module('PetCtrls', ['PetFactories'])
 
         $scope.compareDemo = function() {
             Compare.compareDemo(personToTest.compareSrc, petToTest.compareSrc).then(function(result) {
-                $scope.matchPercent = result.data.matchPercent;
-                console.log(result);
+                $scope.matchResults = Compare.percentToRanking(result.data.matchPercent);
+                console.log(result.data.matchPercent);
             }).catch(function(err) {
                 console.log(err);
             });
@@ -79,11 +75,6 @@ angular.module('PetCtrls', ['PetFactories'])
 
 .controller('PetShowCtrl', ['$scope', '$http', '$stateParams', 'Auth', 'Favorite', function($scope, $http, $stateParams, Auth, Favorite) {
         var user = Auth.currentUser();
-        var pet = {
-            id: $stateParams.id,
-            name: localStorage.petName,
-            petImg: localStorage.petUrl
-        };
 
         $http.get('/api/pets/' + $stateParams.id).then(function(result) {
             $scope.pet = result.data;
@@ -93,6 +84,11 @@ angular.module('PetCtrls', ['PetFactories'])
             $scope.petId = $stateParams.id;
             localStorage.petId = $scope.petId;
         });
+        var pet = {
+            id: $stateParams.id,
+            name: localStorage.petName,
+            petImg: localStorage.petUrl
+        };
 
         $scope.addFavorite = function() {
             Favorite.add(user.id, pet);
@@ -112,7 +108,7 @@ angular.module('PetCtrls', ['PetFactories'])
         $scope.petId = localStorage.petId;
 
         $scope.matchPercent = Compare.compareTwo(user.profileImg, localStorage.petUrl).then(function(result) {
-            $scope.matchPercent = result.data.matchPercent;
+            $scope.matchResults = Compare.percentToRanking(result.data.matchPercent);
             console.log(result);
         }).catch(function(err) {
             console.log(err);
