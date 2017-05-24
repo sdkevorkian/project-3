@@ -13,5 +13,6 @@
     <div ng-repeat="pet in user.favorites">
         <p><a href="/petShow/{{ pet.id }}">{{ pet.name }}</a></p>
         <img src="{{ pet.petImg }}" alt="{{ pet.name }}">
+        <button type="button" ng-clic="removeFavorite">Delete</button>
     </div>
 </div>
