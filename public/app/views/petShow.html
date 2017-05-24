@@ -1,17 +1,21 @@
 <div class="container">
-    <h2>Pet Details</h2>
-    <img src="{{pet.media.photos.photo[2].$t}}">
-    <button type="button" ng-click="addFavorite()">Add to Favorites</button>
-    <div class="pet-info">
-        <p>Name: {{ pet.name.$t }}</p>
-        <p>Description: {{ pet.description.$t }}</p>
-        <p>Type: {{ pet.animal.$t }}</p>
-        <p>Breed: {{ pet.breeds.breed.$t }}</p>
-        <p>Size: {{ pet.size.$t }}</p>
-        <p>Sex: {{ pet.sex.$t }}</p>
-        <p>Location: {{ pet.contact.city.$t }}, {{pet.contact.state.$t}}</p>
-        <a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">Go Adopt This Pet On PetFinder!</a>
+    <h2 class="pet-name">Meet {{ pet.name.$t }}</h2>
+    <div class="pet-bio">
+        <div class="pet-info">
+            <img src="{{pet.media.photos.photo[2].$t}}">
+            <div class="pet-actions">
+                <button class="pet-finder"><a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">Adopt {{ pet.name.$t }} On PetFinder!</a></button>
+                <button type="button" ng-click="addFavorite()">Add {{ pet.name.$t }} to Favorites</button>
+                <button class="compare"><a href="/compare">Compare Photos with {{ pet.name.$t }}</a></button>
+            </div>
+        </div>
+        <div class="pet-facts">
+            <p><span class="category">Description:</span> {{ pet.description.$t }}</p>
+            <p><span class="category">Type:</span> {{ pet.animal.$t }}</p>
+            <p><span class="category">Breed:</span> {{ pet.breeds.breed.$t }}</p>
+            <p><span class="category">Size:</span> {{ pet.size.$t }}</p>
+            <p><span class="category">Sex:</span> {{ pet.sex.$t }}</p>
+            <p><span class="category">Location:</span> {{ pet.contact.city.$t }}, {{pet.contact.state.$t}}</p>
+        </div>
     </div>
-
-    <button class="compare"><a href="/compare">Compare Me to This Creature!</a></button>
 </div>

@@ -65,6 +65,10 @@ button {
     padding: 10px;
 }
 
+button:hover {
+    background-color: #dd5325;
+}
+
 .form-control {
     border: none;
     background-color: #fff;
@@ -300,6 +304,55 @@ select {
 
 
 /* PET INFO */
+
+.pet-bio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.pet-name {
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+
+.pet-info {
+    width: 48%;
+}
+
+.pet-facts {
+    width: 48%;
+}
+
+.pet-facts p {
+    margin-top: 0;
+    margin-bottom: .4em;
+}
+
+.pet-info img {
+    width: 100%;
+}
+
+.pet-actions button {
+    width: 100%;
+    margin-top: 1em;
+    font-size: 15px;
+}
+
+.pet-actions button a {
+    color: white;
+}
+
+.category {
+    font-weight: 700;
+    color: #dd5325;
+}
+
+.pet-finder {
+    background-color: #7332D6;
+}
 
 
 /* COMPARE */
