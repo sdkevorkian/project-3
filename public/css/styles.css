@@ -1,5 +1,10 @@
 /* UNIVERSAL */
 
+* {
+    font-family: 'Droid Sans', sans-serif;
+    color: #66717e;
+}
+
 h1,
 h2,
 h3,
@@ -48,7 +53,7 @@ body {
 .container {
     display: grid;
     max-width: 80%;
-    margin-left: 5%;
+    margin-left: 10%;
 }
 
 button {
@@ -56,6 +61,12 @@ button {
     border: none;
     background-color: #E89005;
     color: #fff;
+    padding: 10px;
+}
+
+.form-control {
+    border: none;
+    background-color: #fff;
 }
 
 
@@ -89,7 +100,7 @@ nav a:hover {
     background-image: url('../img/funny-dog.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    padding-bottom: 4em;
 }
 
 .home h1 {
@@ -101,8 +112,51 @@ nav a:hover {
     width: 40%;
 }
 
+.welcome button {
+    width: 10em;
+    height: 3em;
+}
+
+.welcome button a {
+    color: white;
+}
+
+.hp-test {
+    border-top: 10px solid #102542;
+    border-bottom: 10px solid #102542;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.witnesses {
+    background-image: url('../img/witness-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 10px;
+    height: 20em;
+}
+
+.witnesses h3 {
+    text-align: center;
+}
+
 
 /* SIGNUP */
+
+.signup-form {
+    background-color: #F1F2F3;
+    padding: 2em;
+    margin-top: 2em;
+    margin-bottom: 3em;
+    display: grid;
+    grid-template-
+}
+
+.signup-title {
+    font-family: 'Righteous', cursive;
+    color: #102542;
+    font-size: 25px;
+}
 
 
 /* LOGIN */
@@ -177,6 +231,7 @@ select {
 
 .pet-animal-btn {
     float: right;
+    padding: 3px;
 }
 
 
@@ -200,7 +255,12 @@ select {
 
 .pet-result-name {
     text-align: center;
+    font-weight: 700;
     font-family: 'Droid Sans', sans-serif;
+}
+
+.pet-result-name a:hover {
+    color: #E89005;
 }
 
 

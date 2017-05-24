@@ -2,18 +2,36 @@
     <div class="welcome container">
         <h1>doggleg&#228;nger</h1>
         <p>People say pets look like their owners. Doggleganger allows you to find the perfect pet based on a percentage look-alike match, as well as personality information about the animal.</p>
-        <a href="/signup" ng-hide="Auth.isLoggedIn()">Signup</a>
-        <a href="/login" ng-hide="Auth.isLoggedIn()">Login</a>
+        <div class="welcome-buttons">
+            <button><a href="/signup" ng-hide="Auth.isLoggedIn()">Signup</a></button>
+            <button><a href="/login" ng-hide="Auth.isLoggedIn()">Login</a></button>
+        </div>
     </div>
 </div>
-<div class="container hp-test">
-    <p>Skeptical? Give it a spin.</p>
-    <div class="pick-one">
-        <h4>compare one of these people</h4>
-        <img src="{{person.imgSrc}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)">
+<div class="hp-test">
+    <div class="container">
+        <p>Skeptical? Give it a spin.</p>
+        <div class="pick-one">
+            <h4>compare one of these people</h4>
+            <img src="{{person.imgSrc}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)">
+        </div>
+        <div class="pick-one">
+            <h4>to one of these pets</h4>
+            <img src="{{pet}}" ng-repeat='pet in pets track by $index' ng-click="petChosen($index)">
+        </div>
     </div>
-    <div class="pick-one">
-        <h4>to one of these pets</h4>
-        <img src="{{pet}}" ng-repeat='pet in pets track by $index' ng-click="petChosen($index)">
+</div>
+<div class="witnesses">
+    <h3>Success stories</h3>
+    <div class="witness-group container">
+        <div class="witness">
+            <p class="quote">"People are weird but dogs get me. Especially this dog that looks just like me!"</p>
+        </div>
+        <!--         <div class="witness">
+            <p class="quote">"After trying doggleganger, I'll never go back to pets that don't share my facial features."</p>
+        </div>
+        <div class="witness">
+            <p class="quote">"Meow meow meow! Woof woof woof!"</p>
+        </div> -->
     </div>
 </div>
