@@ -13,7 +13,7 @@
         <p>Skeptical? Give it a spin.</p>
         <div class="pick-one">
             <h4>compare one of these people</h4>
-            <img src="{{person}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)">
+            <img src="{{person.imgSrc}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)">
         </div>
         <div class="pick-one">
             <h4>to one of these pets</h4>

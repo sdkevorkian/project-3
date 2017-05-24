@@ -1,6 +1,15 @@
 angular.module('PetCtrls', ['PetFactories'])
-    .controller('HomeCtrl', ['$scope', function($scope) {
-        $scope.people = ['../img/home-test/sk.jpg', '../img/home-test/ab.png', '../img/home-test/at.jpg'];
+    .controller('HomeCtrl', ['$scope', 'Compare', function($scope, Compare) {
+        $scope.people = [{
+            imgSrc: '../img/home-test/sk.jpg',
+            compareSrc: '../public/img/home-test/sk.jpg'
+        }, {
+            imgSrc: '../img/home-test/ab.png',
+            compareSrc: '../public/img/home-test/ab.png'
+        }, {
+            imgSrc: '../img/home-test/at.jpg',
+            compareSrc: '../public/img/home-test/at.jpg'
+        }];
         $scope.pets = ['../img/home-test/zoe.png', '../img/home-test/zero.png', '../img/home-test/hobbes.png'];
         var userToTest;
         var petToTest;
@@ -8,10 +17,24 @@ angular.module('PetCtrls', ['PetFactories'])
         $scope.userChosen = function(person) {
             userToTest = $scope.people[person];
             console.log(userToTest);
+            if (petToTest) {
+                Compare.compareDemo(userToTest.compareSrc, petToTest.compareSrc).then(function(result) {
+                    console.log(result);
+                }).catch(function(err) {
+                    console.log(err);
+                });
+            }
         };
         $scope.petChosen = function(pet) {
             petToTest = $scope.pets[pet];
             console.log(petToTest);
+            if (userToTest) {
+                Compare.compareDemo(userToTest.compareSrc, petToTest.compareSrc).then(function(result) {
+                    console.log(result);
+                }).catch(function(err) {
+                    console.log(err);
+                });
+            }
         };
 
 
@@ -39,7 +62,7 @@ angular.module('PetCtrls', ['PetFactories'])
             id: localStorage.petId,
             name: localStorage.petName,
             petImg: localStorage.petUrl
-        }
+        };
 
         $http.get('/api/pets/' + $stateParams.id).then(function(result) {
             $scope.pet = result.data;
@@ -60,7 +83,7 @@ angular.module('PetCtrls', ['PetFactories'])
             id: localStorage.petId,
             name: localStorage.petName,
             petImg: localStorage.petUrl
-        }
+        };
 
         // gets image urls for display
         $scope.profileImg = user.profileImg;
