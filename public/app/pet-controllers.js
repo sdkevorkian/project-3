@@ -1,8 +1,8 @@
 angular.module('PetCtrls', ['PetFactories'])
     .controller('HomeCtrl', ['$scope', 'Compare', function($scope, Compare) {
         $scope.people = [{
-            imgSrc: '../img/home-test/sk.jpg',
-            compareSrc: './public/img/home-test/sk.jpg',
+            imgSrc: '../img/home-test/sk.png',
+            compareSrc: './public/img/home-test/sk.png',
             name: 'Sara'
         }, {
             imgSrc: '../img/home-test/ab.png',
@@ -11,7 +11,7 @@ angular.module('PetCtrls', ['PetFactories'])
         }, {
             imgSrc: '../img/home-test/at.jpg',
             compareSrc: './public/img/home-test/at.jpg',
-            name: 'Sara'
+            name: 'Andrew'
         }];
         $scope.pets = [{
             imgSrc: '../img/home-test/zoe.png',
@@ -25,6 +25,14 @@ angular.module('PetCtrls', ['PetFactories'])
             imgSrc: '../img/home-test/hobbes.png',
             compareSrc: './public/img/home-test/hobbes.png',
             name: 'Hobbes'
+        }, {
+            imgSrc: '../img/home-test/mickey.png',
+            compareSrc: './public/img/home-test/mickey.png',
+            name: 'Mickey'
+        }, {
+            imgSrc: '../img/home-test/harvey.png',
+            compareSrc: './public/img/home-test/harvey.png',
+            name: 'Harvey'
         }];
         var personToTest;
         var petToTest;
@@ -72,7 +80,7 @@ angular.module('PetCtrls', ['PetFactories'])
 .controller('PetShowCtrl', ['$scope', '$http', '$stateParams', 'Auth', 'Favorite', function($scope, $http, $stateParams, Auth, Favorite) {
         var user = Auth.currentUser();
         var pet = {
-            id: localStorage.petId,
+            id: $stateParams.id,
             name: localStorage.petName,
             petImg: localStorage.petUrl
         };
