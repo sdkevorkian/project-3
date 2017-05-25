@@ -24,13 +24,6 @@ router.route('/')
         });
     });
 
-
-
-
-
-
-
-
 router.route('/favorites')
     .post(function(req, res) {
         User.findByIdAndUpdate(req.body.userId, { $push: { favorites: req.body.pet }}, function(err) {

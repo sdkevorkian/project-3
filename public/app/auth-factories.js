@@ -17,7 +17,6 @@ angular.module('AuthFactories', ['ngResource'])
             currentUser: function() {
                 if (this.isLoggedIn()) {
                     var token = this.getToken();
-                    // console.log(token);
                     try {
                         var payload = JSON.parse($window.atob(token.split('.')[1]));
                         return payload;

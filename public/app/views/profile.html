@@ -47,6 +47,10 @@
                 <label for="userPetImg">Your Pet Image URL</label>
                 <input type="text" class="form-control" placeholder="{{ user.usersPetImg }}" ng-model="edit.usersPetImg">
             </div>
+            <div class="form-group">
+                <label for="password">Please Enter Your Current Password to Update Your Profile</label>
+                <input type="password" class="form-control" placeholder="********" ng-model="token.password">
+            </div>
             <button type="button" ng-click="editBtn(false)">Cancel</button>
             <button type="submit">Submit</button>
         </form>
