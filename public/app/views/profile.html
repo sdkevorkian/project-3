@@ -7,12 +7,13 @@
                 <img src="{{user.profileImg}}">
             </div>
         </div>
-        <div class="change-img">
+        <div class="change-img" ng-if="petExistsOnProfile">
             <div class="profile-img">
                 <img src="{{user.usersPetImg}}">
             </div>
+            <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
         </div>
-        <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
+        <p ng-if="!petExistsOnProfile">If you haven't added a pet to your profile, click "Edit Your Profile Information" to do so!</p>
         <p>First Name: {{ user.firstName }}</p>
         <p>Email: {{ user.email }}</p>
         <div class="faves">

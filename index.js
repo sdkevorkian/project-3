@@ -12,7 +12,8 @@ var app = express();
 // mongoose models and connection
 var mongoose = require('mongoose');
 var User = require('./models/user');
-mongoose.connect('mongodb://localhost/doggleganger');
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/doggleganger');
 
 // decode POST data in JSON and URL encoded formats
 app.use(bodyParser.json());

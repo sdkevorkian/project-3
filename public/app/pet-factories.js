@@ -9,15 +9,16 @@ angular.module('PetFactories', ['AuthFactories'])
             },
             percentToRanking: function(percent) {
                 var matchRank = '';
-                percent = percent * 100;
-                if (percent > 25) {
-                    matchRank = 'Your match is 110%!! You should adopt this pet right now!';
-                } else if (percent > 20) {
-                    matchRank = 'You two are over an 80% match!';
-                } else if (percent > 10) {
-                    matchRank = 'You two are over a 50% match!';
+                percent = (100 - (percent * 100)).toFixed(0);
+                console.log(percent);
+                if (percent > 95) {
+                    matchRank = `Your match is ${percent}%!! You should adopt this pet right now!`;
+                } else if (percent > 85) {
+                    matchRank = `You two are a great match, ${percent}%!`;
+                } else if (percent > 75) {
+                    matchRank = `You two are looking pretty good as a ${percent}% match!`;
                 } else {
-                    matchRank = 'Your match is less than 50%...';
+                    matchRank = `Your match could be better...Only ${percent}%`;
                 }
                 return matchRank;
             }
