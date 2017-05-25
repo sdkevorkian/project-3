@@ -1,35 +1,43 @@
 <div class="profile-content container">
-    <h3>Your Profile Information</h3>
-    <div class="change-img">
-        <div class="profile-img">
-            <img src="{{user.profileImg}}">
+    <div>
+        <h3>Your Profile Information</h3>
+        <div class="change-img">
+            <div class="profile-img">
+                <img src="{{user.profileImg}}">
+            </div>
+            <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
+                <label for="profileImg">Change picture url</label>
+                <input type="text" class="form-control" id="profileImg" ng-model="user.profileImg">
+            </div>
         </div>
-        <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
-            <label for="profileImg">Change picture url</label>
-            <input type="text" class="form-control" id="profileImg" ng-model="user.profileImg">
-        </div>
-    </div>
-    <div class="change-img">
-        <div class="profile-img">
-            <img src="{{user.usersPetImg}}">
-        </div>
-        <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
-            <label for="usersPetImg">Add your own pet's url</label>
-            <input type="text" class="form-control" id="usersPetImg" ng-model="user.usersPetImg">
+        <div class="change-img">
+            <div class="profile-img">
+                <img src="{{user.usersPetImg}}">
+            </div>
+            <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
+                <label for="usersPetImg">Add your own pet's url</label>
+                <input type="text" class="form-control" id="usersPetImg" ng-model="user.usersPetImg">
+            </div>
         </div>
     </div>
     <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
-    <p>First Name: {{ user.firstName }}</p>
-    <p>Email: {{ user.email }}</p>
-    <p>Password: Hidden <a href="#">Update Password</a></p>
-    <div class="faves">
-        <h4>Favorite Pets</h4>
-        <div class="saved-faves" ng-repeat="pet in user.favorites">
-            <p><a href="/petShow/{{ pet.id }}">{{ pet.name }}</a></p>
-            <div class="fave-img">
-                <img src="{{ pet.petImg }}" alt="{{ pet.name }}">
+        <p>First Name: {{ user.firstName }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Password: Hidden <a href="#">Update Password</a></p>
+        <div class="faves">
+            <h4>Favorite Pets</h4>
+            <div class="saved-faves" ng-repeat="pet in user.favorites">
+                <p><a href="/petShow/{{ pet.id }}">{{ pet.name }}</a></p>
+                <div class="fave-img">
+                    <img src="{{ pet.petImg }}" alt="{{ pet.name }}">
+                </div>
+                <button type="button" ng-click="removeFavorite(pet.id)">Delete</button>
             </div>
-            <button type="button" ng-click="removeFavorite(pet.id)">Delete</button>
         </div>
+    </div>
+    <div>
+        <form>
+
+        </form>
     </div>
 </div>
