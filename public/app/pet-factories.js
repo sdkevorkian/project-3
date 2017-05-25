@@ -11,12 +11,13 @@ angular.module('PetFactories', ['AuthFactories'])
             },
             percentToRanking: function(percent) {
                 var matchRank = '';
+                percent = percent * 100;
                 if (percent > 20) {
-                    matchRank = 'best';
+                    matchRank = 'You two are the best match!';
                 } else if (percent > 10) {
-                    matchRank = 'good';
+                    matchRank = 'This is a pretty good match.';
                 } else {
-                    matchRank = 'ok';
+                    matchRank = 'This match is ok...';
                 }
                 return matchRank;
             }

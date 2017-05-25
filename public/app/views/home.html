@@ -16,7 +16,7 @@
             <img src="{{person.imgSrc}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)" alt="{{person.name}}">
         </div>
         <button ng-click="compareDemo()">show me a match!</button>
-        <p ng-if="matchDone">{{matchPercent * 100 | number: 2}}% match!</p>
+        <p ng-if="matchDone">{{matchResults}}</p>
         <div class="pick-one">
             <h4>to one of these pets</h4>
             <img src="{{pet.imgSrc}}" ng-repeat='pet in pets track by $index' ng-click="petChosen($index)" alt="{{pet.name}}">
