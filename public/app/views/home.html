@@ -13,13 +13,13 @@
         <p>Skeptical? Give it a spin.</p>
         <div class="pick-one">
             <h4>compare one of these people</h4>
-            <img src="{{person.imgSrc}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)" alt="{{person.name}}">
+            <img src="{{person.imgSrc}}" ng-repeat='person in people track by $index' ng-click="userChosen($index)" alt="{{person.name}}" ng-class="{'demo-choice': person.name === personToTest.name}">
         </div>
         <button ng-click="compareDemo()">show me a match!</button>
         <p ng-if="matchDone">{{matchResults}}</p>
         <div class="pick-one">
             <h4>to one of these pets</h4>
-            <img src="{{pet.imgSrc}}" ng-repeat='pet in pets track by $index' ng-click="petChosen($index)" alt="{{pet.name}}">
+            <img src="{{pet.imgSrc}}" ng-repeat='pet in pets track by $index' ng-click="petChosen($index)" alt="{{pet.name}}" ng-class="{'demo-choice': pet.name === petToTest.name}">
         </div>
     </div>
 </div>

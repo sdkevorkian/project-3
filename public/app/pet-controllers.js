@@ -30,22 +30,16 @@ angular.module('PetCtrls', ['PetFactories'])
             compareSrc: './public/img/home-test/mickey.png',
             name: 'Mickey'
         }];
-        var personToTest;
-        var petToTest;
 
         $scope.userChosen = function(person) {
-            personToTest = $scope.people[person];
-            console.log(personToTest);
-
+            $scope.personToTest = $scope.people[person];
         };
         $scope.petChosen = function(pet) {
-            petToTest = $scope.pets[pet];
-            console.log(petToTest);
-
+            $scope.petToTest = $scope.pets[pet];
         };
 
         $scope.compareDemo = function() {
-            Compare.compareDemo(personToTest.compareSrc, petToTest.compareSrc).then(function(result) {
+            Compare.compareDemo($scope.personToTest.compareSrc, $scope.petToTest.compareSrc).then(function(result) {
                 $scope.matchResults = Compare.percentToRanking(result.data.matchPercent);
                 console.log(result.data.matchPercent);
             }).catch(function(err) {
