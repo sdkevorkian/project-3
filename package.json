@@ -30,6 +30,7 @@
     "fs": "0.0.1-security",
     "gm": "^1.23.0",
     "jsonwebtoken": "^7.1.6",
+    "masonry-layout": "^4.2.0",
     "mongoose": "^4.5.7",
     "morgan": "^1.7.0",
     "request": "^2.81.0"

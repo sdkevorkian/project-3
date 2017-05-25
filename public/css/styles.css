@@ -90,7 +90,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    font-family: 'Righteous', cursive;
+    font-family: 'Palanquin Dark', sans-serif;
     color: #dd5325;
     margin-left: 1em;
     margin-right: .2em;
@@ -98,6 +98,10 @@ nav a {
 
 nav a:hover {
     color: #E89005;
+}
+
+#nav-logo {
+    font-family: 'Righteous', cursive !important;
 }
 
 
@@ -306,10 +310,19 @@ select {
 
 .one-pet {
     width: 100%;
+    padding: 10px;
+    background-color: #F1F2F3;
 }
 
 .one-pet img {
     width: 100%;
+    border: 8px solid white;
+}
+
+.pet-result-image {
+    margin: auto;
+    width: 80%;
+    padding-bottom: 10px;
 }
 
 .pet-result-name {

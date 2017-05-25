@@ -1,5 +1,5 @@
 <nav ng-controller="NavCtrl">
-    <a href="/" class="logo">doggleg&#228;nger</a>
+    <a href="/" id="nav-logo" class="logo">doggleg&#228;nger</a>
     <a href="/search" ng-show="Auth.isLoggedIn()">search</a>
     <a href="/profile" ng-show="Auth.isLoggedIn()">profile</a>
     <a ng-click="logout()" ng-show="Auth.isLoggedIn()">logout</a>
