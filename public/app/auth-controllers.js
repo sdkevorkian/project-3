@@ -55,10 +55,22 @@ angular.module('AuthCtrls', ['AuthFactories'])
     }])
     .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', '$state', function($scope, $http, Auth, Alerts, $state) {
         var user = Auth.currentUser();
-        $scope.edit= {};
+        $scope.edit = {};
+
+        console.log(user);
 
         $http.get('/api/users/' + user.id).then(function(results) {
             $scope.user = results.data;
+
+            // this toggles the compare to pet on if you have added a pet to your profile
+            // and directions to do so if not.
+            //SK
+            if ($scope.user.usersPetImg) {
+                $scope.petExistsOnProfile = true;
+            } else {
+                $scope.petExistsOnProfile = false;
+            }
+
         }).catch(function(err) {
             console.log(err);
         });
@@ -73,20 +85,20 @@ angular.module('AuthCtrls', ['AuthFactories'])
         };
 
         $scope.userEdit = function() {
-            $http.put('/api/users', { userId: user.id, update: $scope.edit}).then(function(result) {
+            $http.put('/api/users', { userId: user.id, update: $scope.edit }).then(function(result) {
                 $scope.user = result.data;
                 Alerts.add('success', 'Profile Updated');
             }).catch(function(err) {
-                console.log(err)
+                console.log(err);
             });
 
             $scope.bool = false;
-        }
+        };
 
         $scope.editBtn = function(bool) {
             $scope.bool = bool;
-        }
-        // localStorage.petUrl = $scope.user.usersPetImg;
+        };
+
 
         $scope.compareToOwnPet = function() {
             if ($scope.user.usersPetImg) {
