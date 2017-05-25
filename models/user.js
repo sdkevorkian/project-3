@@ -13,6 +13,7 @@ var UserSchema = mongoose.Schema({
         required: true
     },
     profileImg: String,
+    usersPetImg: String,
     favorites: [{
         id: String,
         name: String,
@@ -27,6 +28,7 @@ UserSchema.set('toJSON', {
             email: ret.email,
             firstName: ret.firstName,
             profileImg: ret.profileImg,
+            usersPetImg: ret.usersPetImg,
             favorites: ret.favorites
         };
         return returnJson;
