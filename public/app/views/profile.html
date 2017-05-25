@@ -1,7 +1,7 @@
 <div class="profile-content container">
-    <div>
+    <div ng-if="!edit">
         <h3>Your Profile Information</h3>
-        <button type="button">Edit Your Profile Information</button>
+        <button type="button" ng-click="editBtn(true)">Edit Your Profile Information</button>
         <div class="change-img">
             <div class="profile-img">
                 <img src="{{user.profileImg}}">
@@ -26,7 +26,8 @@
             </div>
         </div>
     </div>
-    <div>
+
+    <div ng-if="edit">
         <form ng-submit="userEdit()" class="edit-form">
             <h3>Edit Your Profile</h3>
             <div class="form-group">
@@ -38,10 +39,6 @@
                 <input type="text" class="form-control" placeholder="{{ user.email }}" ng-model="edit.email">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" class="form-control" placeholder="********" ng-model="edit.password">
-            </div>
-            <div class="form-group">
                 <label for="profileImg">Profile Image URL</label>
                 <input type="text" class="form-control" placeholder="{{ user.profileImg }}" ng-model="edit.profileImg">
                 <p>This image will be used to compare your likeness to pets. Please use a clear photo of your face.</p>
@@ -50,7 +47,8 @@
                 <label for="userPetImg">Your Pet Image URL</label>
                 <input type="text" class="form-control" placeholder="{{ user.usersPetImg }}" ng-model="edit.usersPetImg">
             </div>
-            <button type="submit">Submit</button>
+            <button type="button" ng-click="editBtn(false)">Cancel</button>
+            <button type="submit" ng-click="editBtn(false)">Submit</button>
         </form>
     </div>
 </div>
