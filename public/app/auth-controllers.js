@@ -37,21 +37,21 @@ angular.module('AuthCtrls', ['AuthFactories', 'PetFactories'])
         };
     }])
     .controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', 'Alerts', function($scope, $http, $location, Auth, Alerts) {
-            $scope.user = {
-                email: '',
-                password: ''
-            };
+        $scope.user = {
+            email: '',
+            password: ''
+        };
 
-            $scope.userLogin = function() {
-                $http.post('/api/auth', $scope.user).then(function success(res) {
-                    Auth.saveToken(res.data.token);
-                    Alerts.add('success', 'You are now logged in!');
-                    $location.path('/');
-                }, function error(res) {
-                    Alerts.add('danger', 'Something went wrong, maybe a wrong password or username?');
-                    console.log(res);
-                });
-            };
+        $scope.userLogin = function() {
+            $http.post('/api/auth', $scope.user).then(function success(res) {
+                Auth.saveToken(res.data.token);
+                Alerts.add('success', 'You are now logged in!');
+                $location.path('/');
+            }, function error(res) {
+                Alerts.add('danger', 'Something went wrong, maybe a wrong password or username?');
+                console.log(res);
+            });
+        };
     }])
     .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Favorite', function($scope, $http, Auth, Favorite) {
         var user = Auth.currentUser();
@@ -65,4 +65,5 @@ angular.module('AuthCtrls', ['AuthFactories', 'PetFactories'])
         $scope.removeFavorite = function(petId) {
             Favorite.remove(user.id, petId);
         };
+        localStorage.petUrl = $scope.user.usersPetImg;
     }]);

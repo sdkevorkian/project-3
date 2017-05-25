@@ -9,6 +9,16 @@
             <input type="text" class="form-control" id="profileImg" ng-model="user.profileImg">
         </div>
     </div>
+    <div class="change-img">
+        <div class="profile-img">
+            <img src="{{user.usersPetImg}}">
+        </div>
+        <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
+            <label for="usersPetImg">Add your own pet's url</label>
+            <input type="text" class="form-control" id="usersPetImg" ng-model="user.usersPetImg">
+        </div>
+    </div>
+    <button class="compare"><a href="/compare">Compare Yourself to Your Own Pet</a></button>
     <p>First Name: {{ user.firstName }}</p>
     <p>Email: {{ user.email }}</p>
     <p>Password: Hidden <a href="#">Update Password</a></p>
