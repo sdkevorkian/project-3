@@ -203,7 +203,26 @@ nav a:hover {
 
 /* PROFILE */
 
-.
+.profile-img {
+    width: 300px;
+}
+
+.change-img img,
+.fave-img img,
+.faves button {
+    width: 100%;
+}
+
+.faves,
+.fave-img {
+    width: 300px;
+}
+
+.faves p {
+    text-align: center;
+}
+
+
 /* SEARCH */
 
 .search-form {
