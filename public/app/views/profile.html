@@ -19,7 +19,8 @@
                 <input type="text" class="form-control" id="usersPetImg" ng-model="user.usersPetImg">
             </div>
         </div>
-        <button class="compare"><a href="/compare">Compare Yourself to Your Own Pet</a></button>
+    </div>
+    <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
         <p>First Name: {{ user.firstName }}</p>
         <p>Email: {{ user.email }}</p>
         <p>Password: Hidden <a href="#">Update Password</a></p>

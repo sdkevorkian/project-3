@@ -70,5 +70,5 @@ angular.module('AuthCtrls', ['AuthFactories'])
                 console.log(err);
             });
         };
-        localStorage.petUrl = $scope.user.usersPetImg;
+        // localStorage.petUrl = $scope.user.usersPetImg;
     }]);
