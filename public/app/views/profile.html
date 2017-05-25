@@ -1,5 +1,5 @@
 <div class="profile-content container">
-    <div ng-show="!bool">
+    <div ng-if="!bool">
         <h3>Your Profile Information</h3>
         <button type="button" ng-click="editBtn(true)">Edit Your Profile Information</button>
         <div class="change-img">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div ng-show="bool">
+    <div ng-if="bool">
         <form ng-submit="userEdit()" class="edit-form">
             <h3>Edit Your Profile</h3>
             <div class="form-group">
@@ -47,7 +47,7 @@
                 <input type="text" class="form-control" placeholder="{{ user.usersPetImg }}" ng-model="edit.usersPetImg">
             </div>
             <button type="button" ng-click="editBtn(false)">Cancel</button>
-            <button type="submit" ng-click="editBtn(false)">Submit</button>
+            <button type="submit">Submit</button>
         </form>
     </div>
 </div>

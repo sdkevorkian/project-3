@@ -55,6 +55,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
     }])
     .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', '$state', function($scope, $http, Auth, Alerts, $state) {
         var user = Auth.currentUser();
+        $scope.edit= {};
 
         $http.get('/api/users/' + user.id).then(function(results) {
             $scope.user = results.data;
@@ -78,6 +79,8 @@ angular.module('AuthCtrls', ['AuthFactories'])
             }).catch(function(err) {
                 console.log(err)
             });
+
+            $scope.bool = false;
         }
 
         $scope.editBtn = function(bool) {
