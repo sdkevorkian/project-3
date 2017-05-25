@@ -200,6 +200,11 @@ nav a:hover {
     width: 300px;
 }
 
+.demo-choice {
+    /*edit as you wish, this is just for testing1*/
+    border: 10px solid #dd5325;
+}
+
 
 /* SIGNUP & LOGIN */
 
