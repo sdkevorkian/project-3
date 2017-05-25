@@ -70,6 +70,17 @@ angular.module('AuthCtrls', ['AuthFactories'])
                 console.log(err);
             });
         };
+
+        $scope.userEdit = function() {
+            $http.put('/api/users', { userId: user.id, update: $scope.edit}).then(function(result) {
+                $scope.user = result.data;
+                Alerts.add('success', 'Profile Updated');
+            }).catch(function(err) {
+                console.log(err)
+            });
+        }
+        // localStorage.petUrl = $scope.user.usersPetImg;
+
         $scope.compareToOwnPet = function() {
             if ($scope.user.usersPetImg) {
                 localStorage.petUrl = $scope.user.usersPetImg;
