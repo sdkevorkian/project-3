@@ -1,4 +1,4 @@
-angular.module('AuthCtrls', ['AuthFactories', 'PetFactories'])
+angular.module('AuthCtrls', ['AuthFactories'])
     .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', function($scope, Auth, Alerts) {
         $scope.Auth = Auth;
         $scope.logout = function() {
@@ -53,7 +53,7 @@ angular.module('AuthCtrls', ['AuthFactories', 'PetFactories'])
                 });
             };
     }])
-    .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Favorite', function($scope, $http, Auth, Favorite) {
+    .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', function($scope, $http, Auth, Alerts) {
         var user = Auth.currentUser();
 
         $http.get('/api/users/' + user.id).then(function(results) {
@@ -63,6 +63,11 @@ angular.module('AuthCtrls', ['AuthFactories', 'PetFactories'])
         });
 
         $scope.removeFavorite = function(petId) {
-            Favorite.remove(user.id, petId);
+            $http.put('/api/users/favorites', { userId: user.id, petId: petId }).then(function(result) {
+                $scope.user = result.data;
+                Alerts.add('success', 'Favorite Removed');
+            }).catch(function(err) {
+                console.log(err);
+            });
         };
     }]);

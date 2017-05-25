@@ -33,10 +33,10 @@ router.route('/favorites')
         });
     })
     .put(function(req, res) {
-        User.findByIdAndUpdate(req.body.userId, { $pull: { favorites: { id: req.body.petId }}}, function(err) {
+        User.findByIdAndUpdate(req.body.userId, { $pull: { favorites: { id: req.body.petId }}}, { new: true }, function(err, result) {
             if (err) return res.status(500).send(err);
 
-            return res.send('Favorite Removed');
+            return res.send(result);
         });
     });
 
