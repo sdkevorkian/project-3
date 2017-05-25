@@ -157,12 +157,47 @@ nav a:hover {
     background-image: url('../img/witness-bg.jpg');
     background-size: cover;
     background-position: center;
-    padding-top: 10px;
-    height: 20em;
+    padding-top: 14em;
+    padding-bottom: 14em;
 }
 
-.witnesses h3 {
+.witness-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.witness {
+    width: 25%;
+    background-color: rgba(255, 255, 255, .6);
+    padding: 20px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.quote {
+    color: #102542;
+}
+
+.petfinder {
+    background-color: #7332D6;
     text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-top: 10px solid #fff;
+    border-bottom: 10px solid #fff;
+}
+
+.petfinder p {
+    margin: 0;
+    font-size: 30px;
+    font-family: 'Palanquin Dark', sans-serif;
+    color: #fff;
+}
+
+.petfinder img {
+    width: 300px;
 }
 
 
