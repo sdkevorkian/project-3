@@ -31,6 +31,13 @@ router.route('/favorites')
 
             return res.send('Favorite Added');
         });
+    })
+    .put(function(req, res) {
+        User.findByIdAndUpdate(req.body.userId, { $pull: { favorites: { id: req.body.petId }}}, function(err) {
+            if (err) return res.status(500).send(err);
+
+            return res.send('Favorite Removed');
+        });
     });
 
 // Find a single user, by ID.  Used for profile page.  Should we search by email instead?

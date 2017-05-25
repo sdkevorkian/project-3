@@ -31,6 +31,15 @@ angular.module('PetFactories', ['AuthFactories'])
                 }).catch(function(err) {
                     console.log(err);
                 });
+            },
+            remove: function(userId, petId) {
+                $http.put('/api/users/favorites', { userId: userId, petId: petId }).then(function(result) {
+                    $route.reload();
+                    // $location.path('/profile');
+                    Alerts.add('success', 'Favoirte Removed');
+                }).catch(function(err) {
+                    console.log(err);
+                });
             }
         };
     }]);
