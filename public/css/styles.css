@@ -11,7 +11,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Righteous', cursive;
+    font-family: 'Palanquin Dark', sans-serif;
     color: #102542;
 }
 
@@ -85,7 +85,7 @@ nav {
     font-size: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
-    border-bottom: 6px solid #66717e;
+    border-bottom: 2px solid #66717e;
 }
 
 nav a {
@@ -112,6 +112,7 @@ nav a:hover {
 
 .home h1 {
     text-align: left;
+    font-family: 'Righteous', cursive;
 }
 
 .home p {
@@ -202,6 +203,25 @@ nav a:hover {
 
 
 /* PROFILE */
+
+.profile-img {
+    width: 300px;
+}
+
+.change-img img,
+.fave-img img,
+.faves button {
+    width: 100%;
+}
+
+.faves,
+.fave-img {
+    width: 300px;
+}
+
+.faves p {
+    text-align: center;
+}
 
 
 /* SEARCH */
@@ -342,7 +362,7 @@ select {
 }
 
 .pet-actions button a {
-    color: white;
+    color: #fff;
 }
 
 .category {
@@ -356,3 +376,67 @@ select {
 
 
 /* COMPARE */
+
+.full-compare {
+    background-color: #F1F2F3;
+    margin: 0;
+    height: 100vh;
+}
+
+.compare-results {
+    display: grid;
+    grid-template-columns: repeat(11, 100px);
+    grid-template-rows: repeat(7, 100px);
+    padding-left: 10%;
+    width: 100%;
+}
+
+.compared img {
+    width: 100%;
+}
+
+.compared:nth-child(1) {
+    grid-column: 2 / 5;
+    grid-row: 3 / 5;
+    width: 300px;
+    height: 300px;
+    border: 8px solid white;
+}
+
+.compared:nth-child(2) {
+    grid-column: 7 / 11;
+    grid-row: 3 / 5;
+    width: 300px;
+    height: 300px;
+    border: 8px solid white;
+    overflow: hidden;
+}
+
+.compared:nth-child(3) {
+    background-color: rgba(232, 144, 5, .5);
+    grid-column: 4 / 8;
+    grid-row: 2 / 6;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.compared:nth-child(3) p {
+    color: #102542;
+    font-size: 30px;
+    font-family: 'Righteous', cursive;
+}
+
+.compared:nth-child(4) {
+    grid-column: 1 / 11;
+    grid-row: 6 / 7;
+    margin: auto;
+}
+
+.compare-adopt {
+    background-color: #7332D6;
+}
+
+.compare-adopt a {
+    color: white;
+}
