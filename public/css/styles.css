@@ -11,7 +11,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Righteous', cursive;
+    font-family: 'Palanquin Dark', sans-serif;
     color: #102542;
 }
 
@@ -112,6 +112,7 @@ nav a:hover {
 
 .home h1 {
     text-align: left;
+    font-family: 'Righteous', cursive;
 }
 
 .home p {
