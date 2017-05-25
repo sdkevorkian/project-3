@@ -5,6 +5,10 @@
     color: #66717e;
 }
 
+body {
+    min-height: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -165,7 +169,7 @@ nav a:hover {
 }
 
 .hp-test-try {
-    width: 30%;
+    width: 25%;
     margin-left: 5%;
     padding-top: 7em;
 }
@@ -295,6 +299,7 @@ nav a:hover {
 .login-pg {
     background-size: cover;
     height: 100vh;
+    padding-top: 10em;
 }
 
 .signin-form {
@@ -327,6 +332,7 @@ nav a:hover {
 
 .four {
     text-align: center;
+    padding-top: 5em;
 }
 
 .four-gif {
@@ -335,6 +341,10 @@ nav a:hover {
 
 
 /* PROFILE */
+
+.profile-content {
+    padding-top: 5em;
+}
 
 .profile-img {
     width: 300px;
@@ -357,6 +367,10 @@ nav a:hover {
 
 
 /* SEARCH */
+
+.search-pg {
+    padding-top: 5em;
+}
 
 .search-form {
     display: grid;
@@ -473,6 +487,10 @@ select {
 
 /* PET INFO */
 
+.pet-show {
+    padding-top: 5em;
+}
+
 .pet-bio {
     display: flex;
     flex-direction: row;
@@ -529,6 +547,7 @@ select {
     background-color: #F1F2F3;
     margin: 0;
     height: 100vh;
+    padding-top: 5em;
 }
 
 .compare-results {
@@ -540,7 +559,9 @@ select {
 }
 
 .compared img {
-    width: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    border: 8px solid white;
 }
 
 .compared:nth-child(1) {
@@ -548,7 +569,6 @@ select {
     grid-row: 3 / 5;
     width: 300px;
     height: 300px;
-    border: 8px solid white;
 }
 
 .compared:nth-child(2) {
@@ -556,8 +576,6 @@ select {
     grid-row: 3 / 5;
     width: 300px;
     height: 300px;
-    border: 8px solid white;
-    overflow: hidden;
 }
 
 .compared:nth-child(3) {
