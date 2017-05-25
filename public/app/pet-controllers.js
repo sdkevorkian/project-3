@@ -14,17 +14,13 @@ angular.module('PetCtrls', ['PetFactories'])
             name: 'Andrew'
         }];
         $scope.pets = [{
-            imgSrc: '../img/home-test/zoe.png',
-            compareSrc: './public/img/home-test/zoe.png',
-            name: 'Zoe'
+            imgSrc: '../img/home-test/hobbes.png',
+            compareSrc: './public/img/home-test/hobbes.png',
+            name: 'Hobbes'
         }, {
             imgSrc: '../img/home-test/zero.png',
             compareSrc: './public/img/home-test/zero.png',
             name: 'Zero'
-        }, {
-            imgSrc: '../img/home-test/hobbes.png',
-            compareSrc: './public/img/home-test/hobbes.png',
-            name: 'Hobbes'
         }, {
             imgSrc: '../img/home-test/mickey.png',
             compareSrc: './public/img/home-test/mickey.png',
@@ -102,7 +98,7 @@ angular.module('PetCtrls', ['PetFactories'])
         $scope.petImg = localStorage.petUrl;
         $scope.petId = localStorage.petId;
 
-        $scope.matchPercent = Compare.compareTwo(user.profileImg, localStorage.petUrl).then(function(result) {
+        $scope.matchPercent = Compare.compareTwo(user.profileImg, localStorage.petUrl, user.id).then(function(result) {
             $scope.matchResults = Compare.percentToRanking(result.data.matchPercent);
             console.log(result);
         }).catch(function(err) {

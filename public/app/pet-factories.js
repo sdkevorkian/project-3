@@ -1,8 +1,8 @@
 angular.module('PetFactories', ['AuthFactories'])
     .factory('Compare', ['$http', function($http) {
         return {
-            compareTwo: function(user, pet) {
-                return $http.post('/api/compare', { userUrl: user, petUrl: pet });
+            compareTwo: function(user, pet, userId) {
+                return $http.post('/api/compare', { userUrl: user, petUrl: pet, userId: userId });
             },
             compareDemo: function(person, pet) {
                 return $http.post('/api/compare/demo', { person: person, pet: pet });

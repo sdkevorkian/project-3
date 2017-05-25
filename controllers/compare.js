@@ -5,8 +5,8 @@ var request = require('request');
 var router = express();
 
 router.post('/', function(req, res) {
-    var user = 'user.jpg';
-    var pet = 'pet.jpg'; // save as userId with some concatenation (unique file paths, allows multiple users at once)
+    var user = 'user' + req.body.userId + '.jpg';
+    var pet = 'pet' + req.body.userId + '.jpg';
     var userUrl = req.body.userUrl;
     var petUrl = req.body.petUrl;
     // do parallel async for both downloads and both gms. In the callback, then proceed.
