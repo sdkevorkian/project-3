@@ -148,14 +148,34 @@ nav a:hover {
 }
 
 .hp-test {
-    display: grid;
-    grid-template-columns: repeat(11, 100px);
-    grid-gap: 0;
-    grid-template-rows: repeat(7, 100px);
+    display: flex;
+    flex-direction: row;
     border-top: 10px solid #102542;
     border-bottom: 10px solid #102542;
+}
+
+.hp-test-grid {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(11, 67px);
+    grid-template-rows: repeat(7, 67px);
     padding-top: 5em;
     padding-bottom: 5em;
+    margin-left: 2%;
+}
+
+.hp-test-try {
+    width: 30%;
+    margin-left: 5%;
+    padding-top: 7em;
+}
+
+.test-item img {
+    border-radius: 50%;
+}
+
+.test-item img:hover {
+    border: 10px solid #E89005;
 }
 
 .test-item:nth-child(1) {
@@ -174,18 +194,34 @@ nav a:hover {
 }
 
 .test-item:nth-child(4) {
-    grid-column: 3 / 6;
-    grid-row: 3 / 6;
+    grid-column: 9 / 12;
+    grid-row: 1 / 4;
 }
 
 .test-item:nth-child(5) {
-    grid-column: 3 / 6;
-    grid-row: 3 / 6;
+    grid-column: 9 / 12;
+    grid-row: 5 / 8;
 }
 
 .test-item:nth-child(6) {
-    grid-column: 3 / 6;
+    grid-column: 7 / 10;
     grid-row: 3 / 6;
+}
+
+.test-item:nth-child(7) {
+    grid-column: 5 / 8;
+    grid-row: 7 / 8;
+}
+
+.test-item button {
+    width: 100%;
+    font-size: 15px;
+}
+
+.test-item:nth-child(8) {
+    grid-column: 5 / 8;
+    grid-row: 1 / 2;
+    text-align: center;
 }
 
 .witnesses {
@@ -200,7 +236,7 @@ nav a:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .witness {
@@ -209,10 +245,15 @@ nav a:hover {
     padding: 20px;
     line-height: 1.5;
     font-weight: 700;
+    margin-left: 1em;
 }
 
 .quote {
     color: #102542;
+}
+
+.witness-name {
+    text-align: right;
 }
 
 .petfinder {
@@ -546,4 +587,42 @@ select {
 
 .compare-adopt a {
     color: white;
+}
+
+
+/* FOOTER */
+
+.footer {
+    background-color: #102542;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 12px;
+    width: 80%;
+    margin: auto;
+}
+
+.credit {
+    width: 100%;
+}
+
+.credit p {
+    color: #fff;
+}
+
+.credit a {
+    color: #fff;
+}
+
+.credit a:hover {
+    color: #E89005;
+}
+
+.share {
+    width: 20%;
 }
