@@ -83,9 +83,11 @@ nav {
     width: 100%;
     text-align: right;
     font-size: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
     border-bottom: 2px solid #66717e;
+    position: fixed;
+    background-color: #fff;
 }
 
 nav a {
@@ -93,7 +95,7 @@ nav a {
     font-family: 'Palanquin Dark', sans-serif;
     color: #dd5325;
     margin-left: 1em;
-    margin-right: .2em;
+    margin-right: 1em;
 }
 
 nav a:hover {
@@ -108,20 +110,27 @@ nav a:hover {
 /* HOME */
 
 .home {
-    background-image: url('../img/funny-dog.jpg');
+    background-image: url('../img/funny-dog-copy.jpg');
+    height: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding-bottom: 4em;
+    padding-top: 15em;
+    padding-bottom: 7em;
 }
 
-.home h1 {
+.home h2 {
     text-align: left;
     font-family: 'Righteous', cursive;
+    color: #fff;
+    margin-bottom: 0;
 }
 
 .home p {
-    color: #fff;
-    width: 40%;
+    color: #102542;
+    width: 30%;
+    font-weight: 700;
 }
 
 .welcome button {
@@ -131,6 +140,10 @@ nav a:hover {
 
 .welcome button a {
     color: white;
+}
+
+.demo-choice {
+    border: 10px solid #dd5325;
 }
 
 .hp-test {
@@ -144,12 +157,52 @@ nav a:hover {
     background-image: url('../img/witness-bg.jpg');
     background-size: cover;
     background-position: center;
-    padding-top: 10px;
-    height: 20em;
+    padding-top: 14em;
+    padding-bottom: 14em;
 }
 
-.witnesses h3 {
+.witness-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.witness {
+    width: 25%;
+    background-color: rgba(255, 255, 255, .6);
+    padding: 20px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.quote {
+    color: #102542;
+}
+
+.petfinder {
+    background-color: #7332D6;
     text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-top: 10px solid #fff;
+    border-bottom: 10px solid #fff;
+}
+
+.petfinder p {
+    margin: 0;
+    font-size: 30px;
+    font-family: 'Palanquin Dark', sans-serif;
+    color: #fff;
+}
+
+.petfinder img {
+    width: 300px;
+}
+
+.demo-choice {
+    /*edit as you wish, this is just for testing1*/
+    border: 10px solid #dd5325;
 }
 
 
@@ -245,7 +298,7 @@ nav a:hover {
 .search-field:nth-child(1) {
     grid-column: 1 / 4;
     grid-row: 1 / 1;
-    font-family: 'Righteous', cursive;
+    font-family: 'Palanquin Dark', sans-serif;
     color: #102542;
     font-size: 25px;
 }
@@ -280,7 +333,13 @@ nav a:hover {
     grid-row: 3 / 4;
 }
 
-.search-btn,
+.search-btn {
+    height: 3em;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
 .search-zip,
 select {
     width: 100%;
@@ -310,9 +369,9 @@ select {
 
 .one-pet {
     width: 100%;
-    padding: 10px;
-    margin-left: 0;
     background-color: #F1F2F3;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .one-pet img {
@@ -322,13 +381,14 @@ select {
 
 .pet-result-image {
     width: 80%;
-    margin-bottom: 10px;
+    margin-left: 7%;
 }
 
 .pet-result-name {
     text-align: center;
     font-weight: 700;
     font-family: 'Droid Sans', sans-serif;
+    margin-top: 15px;
 }
 
 .pet-result-name a:hover {
@@ -437,7 +497,7 @@ select {
 .compared:nth-child(3) p {
     color: #102542;
     font-size: 30px;
-    font-family: 'Righteous', cursive;
+    font-family: 'Palanquin Dark', sans-serif;
 }
 
 .compared:nth-child(4) {
