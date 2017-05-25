@@ -53,7 +53,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
             });
         };
     }])
-    .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', function($scope, $http, Auth, Alerts) {
+    .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', '$state', function($scope, $http, Auth, Alerts, $state) {
         var user = Auth.currentUser();
 
         $http.get('/api/users/' + user.id).then(function(results) {
@@ -70,5 +70,13 @@ angular.module('AuthCtrls', ['AuthFactories'])
                 console.log(err);
             });
         };
-        // localStorage.petUrl = $scope.user.usersPetImg;
+        $scope.compareToOwnPet = function() {
+            if ($scope.user.usersPetImg) {
+                localStorage.petUrl = $scope.user.usersPetImg;
+                console.log(localStorage);
+                $state.go('compare');
+            } else {
+                Alerts.add('danger', "You don't have a pet to compare to!");
+            }
+        };
     }]);
