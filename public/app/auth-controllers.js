@@ -72,14 +72,12 @@ angular.module('AuthCtrls', ['AuthFactories'])
         };
 
         $scope.userEdit = function() {
-            console.log($scope.edit);
-
-            // $http.put('/api/users', { userId: user.id, update: $scope.edit}).then(function(result) {
-            //     $scope.user = result.data;
-            //     Alerts.add('success', 'Profile Updated');
-            // }).catch(function(err) {
-            //     console.log(err)
-            // });
+            $http.put('/api/users', { userId: user.id, update: $scope.edit}).then(function(result) {
+                $scope.user = result.data;
+                Alerts.add('success', 'Profile Updated');
+            }).catch(function(err) {
+                console.log(err)
+            });
         }
         // localStorage.petUrl = $scope.user.usersPetImg;
     }]);

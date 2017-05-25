@@ -16,21 +16,27 @@ router.route('/')
         });
     })
     .put(function(req, res) {
-        User.findById(req.body.userId, function(err, user) {
+        User.findByIdAndUpdate(req.body.userId, req.body.update, { new: true }, function(err, result) {
             if (err) return res.status(500).send(err);
 
-            if (user) {
-                if (req.body.update.firstName !== null) user.firstName = req.body.update.firstName;
-                if (req.body.update.email !== null) user.email = req.body.update.email;
-                if (req.body.update.password !== null) user.password = req.body.update.password;
-                if (req.body.update.profileImg !== null) user.profileImg = req.body.update.profileImg;
-                if (req.body.update.usersPetImg !== null) user.usersPetImg = req.body.update.usersPetImg;
-
-                user.save();
-            }
-
-            return res.send(user);
+            return res.send(result);
         });
+
+        // User.findById(req.body.userId, function(err, user) {
+        //     if (err) return res.status(500).send(err);
+
+        //     if (user) {
+        //         if (req.body.update.firstName !== null) user.firstName = req.body.update.firstName;
+        //         if (req.body.update.email !== null) user.email = req.body.update.email;
+        //         if (req.body.update.password !== null) user.password = req.body.update.password;
+        //         if (req.body.update.profileImg !== null) user.profileImg = req.body.update.profileImg;
+        //         if (req.body.update.usersPetImg !== null) user.usersPetImg = req.body.update.usersPetImg;
+
+        //         user.save();
+        //     }
+
+        //     return res.send(user);
+        // });
     });
 
 
