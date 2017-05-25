@@ -37,21 +37,21 @@ angular.module('AuthCtrls', ['AuthFactories'])
         };
     }])
     .controller('LoginCtrl', ['$scope', '$http', '$location', 'Auth', 'Alerts', function($scope, $http, $location, Auth, Alerts) {
-            $scope.user = {
-                email: '',
-                password: ''
-            };
+        $scope.user = {
+            email: '',
+            password: ''
+        };
 
-            $scope.userLogin = function() {
-                $http.post('/api/auth', $scope.user).then(function success(res) {
-                    Auth.saveToken(res.data.token);
-                    Alerts.add('success', 'You are now logged in!');
-                    $location.path('/');
-                }, function error(res) {
-                    Alerts.add('danger', 'Something went wrong, maybe a wrong password or username?');
-                    console.log(res);
-                });
-            };
+        $scope.userLogin = function() {
+            $http.post('/api/auth', $scope.user).then(function success(res) {
+                Auth.saveToken(res.data.token);
+                Alerts.add('success', 'You are now logged in!');
+                $location.path('/');
+            }, function error(res) {
+                Alerts.add('danger', 'Something went wrong, maybe a wrong password or username?');
+                console.log(res);
+            });
+        };
     }])
     .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', function($scope, $http, Auth, Alerts) {
         var user = Auth.currentUser();
@@ -70,4 +70,5 @@ angular.module('AuthCtrls', ['AuthFactories'])
                 console.log(err);
             });
         };
+        localStorage.petUrl = $scope.user.usersPetImg;
     }]);

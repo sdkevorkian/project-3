@@ -152,6 +152,11 @@ nav a:hover {
     text-align: center;
 }
 
+.demo-choice {
+    /*change as you will, this is just for testing- SK*/
+    border: 10px solid #dd5325;
+}
+
 
 /* SIGNUP & LOGIN */
 

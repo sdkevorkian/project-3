@@ -3,21 +3,19 @@ angular.module('PetFactories', ['AuthFactories'])
         return {
             compareTwo: function(user, pet) {
                 return $http.post('/api/compare', { userUrl: user, petUrl: pet });
-                // may want to clean up and add then/catch here, only return matchPercent. will deal with later in week SK
             },
             compareDemo: function(person, pet) {
                 return $http.post('/api/compare/demo', { person: person, pet: pet });
-                // may want to clean up and add then/catch here, only return matchPercent. will deal with later in week SK
             },
             percentToRanking: function(percent) {
                 var matchRank = '';
                 percent = percent * 100;
                 if (percent > 20) {
-                    matchRank = 'You two are the best match!';
+                    matchRank = 'You two are over an 80% match!';
                 } else if (percent > 10) {
-                    matchRank = 'This is a pretty good match.';
+                    matchRank = 'You two are over a 50% match!';
                 } else {
-                    matchRank = 'This match is ok...';
+                    matchRank = 'Your match is less than 50%...';
                 }
                 return matchRank;
             }
