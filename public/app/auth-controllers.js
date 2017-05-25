@@ -81,7 +81,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
         }
 
         $scope.editBtn = function(bool) {
-            $scope.edit = bool;
+            $scope.bool = bool;
         }
         // localStorage.petUrl = $scope.user.usersPetImg;
 
