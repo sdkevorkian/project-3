@@ -79,6 +79,10 @@ angular.module('AuthCtrls', ['AuthFactories'])
                 console.log(err)
             });
         }
+
+        $scope.editBtn = function(bool) {
+            $scope.edit = bool;
+        }
         // localStorage.petUrl = $scope.user.usersPetImg;
 
         $scope.compareToOwnPet = function() {
