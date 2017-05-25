@@ -3,14 +3,6 @@ var User = require('../models/user');
 var router = express.Router();
 
 router.route('/')
-    .get(function(req, res) {
-        // Find and return ALL users.  Do we need this route?
-        User.find(function(err, users) {
-            if (err) return res.status(500).send(err);
-
-            return res.send(users);
-        });
-    })
     .post(function(req, res) {
         // Find the user by email.  Error if already exists, otherwise create user
         User.findOne({ email: req.body.email }, function(err, user) {
@@ -22,11 +14,35 @@ router.route('/')
                 return res.send(user);
             });
         });
+    })
+    .put(function(req, res) {
+        User.findById(req.body.userId, function(err, user) {
+            if (err) return res.status(500).send(err);
+
+            if (user) {
+                if (req.body.update.firstName !== null) user.firstName = req.body.update.firstName;
+                if (req.body.update.email !== null) user.email = req.body.update.email;
+                if (req.body.update.password !== null) user.password = req.body.update.password;
+                if (req.body.update.profileImg !== null) user.profileImg = req.body.update.profileImg;
+                if (req.body.update.usersPetImg !== null) user.usersPetImg = req.body.update.usersPetImg;
+
+                user.save();
+            }
+
+            return res.send(user);
+        });
     });
+
+
+
+
+
+
+
 
 router.route('/favorites')
     .post(function(req, res) {
-        User.findByIdAndUpdate(req.body.userId, { $push: { favorites: req.body.pet } }, function(err) {
+        User.findByIdAndUpdate(req.body.userId, { $push: { favorites: req.body.pet }}, function(err) {
             if (err) return res.status(500).send(err);
 
             return res.send('Favorite Added');

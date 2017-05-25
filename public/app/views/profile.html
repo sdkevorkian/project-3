@@ -1,29 +1,20 @@
 <div class="profile-content container">
     <div>
         <h3>Your Profile Information</h3>
+        <button type="button">Edit Your Profile Information</button>
         <div class="change-img">
             <div class="profile-img">
                 <img src="{{user.profileImg}}">
-            </div>
-            <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
-                <label for="profileImg">Change picture url</label>
-                <input type="text" class="form-control" id="profileImg" ng-model="user.profileImg">
             </div>
         </div>
         <div class="change-img">
             <div class="profile-img">
                 <img src="{{user.usersPetImg}}">
             </div>
-            <div class="form-group" action="/edit" method="POST" enctype="multipart/form-data">
-                <label for="usersPetImg">Add your own pet's url</label>
-                <input type="text" class="form-control" id="usersPetImg" ng-model="user.usersPetImg">
-            </div>
         </div>
-    </div>
-    <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
+        <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
         <p>First Name: {{ user.firstName }}</p>
         <p>Email: {{ user.email }}</p>
-        <p>Password: Hidden <a href="#">Update Password</a></p>
         <div class="faves">
             <h4>Favorite Pets</h4>
             <div class="saved-faves" ng-repeat="pet in user.favorites">
@@ -36,8 +27,30 @@
         </div>
     </div>
     <div>
-        <form>
-
+        <form ng-submit="userEdit()" class="edit-form">
+            <h3>Edit Your Profile</h3>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" placeholder="{{ user.firstName }}" ng-model="edit.firstName">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" placeholder="{{ user.email }}" ng-model="edit.email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" placeholder="********" ng-model="edit.password">
+            </div>
+            <div class="form-group">
+                <label for="profileImg">Profile Image URL</label>
+                <input type="text" class="form-control" placeholder="{{ user.profileImg }}" ng-model="edit.profileImg">
+                <p>This image will be used to compare your likeness to pets. Please use a clear photo of your face.</p>
+            </div>
+            <div class="form-group">
+                <label for="userPetImg">Your Pet Image URL</label>
+                <input type="text" class="form-control" placeholder="{{ user.usersPetImg }}" ng-model="edit.usersPetImg">
+            </div>
+            <button type="submit">Submit</button>
         </form>
     </div>
 </div>
