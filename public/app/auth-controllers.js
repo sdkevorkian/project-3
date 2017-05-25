@@ -56,6 +56,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
     .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', '$state', function($scope, $http, Auth, Alerts, $state) {
         var user = Auth.currentUser();
         $scope.edit= {};
+        $scope.token = {};
 
         $http.get('/api/users/' + user.id).then(function(results) {
             $scope.user = results.data;
@@ -76,6 +77,14 @@ angular.module('AuthCtrls', ['AuthFactories'])
             $http.put('/api/users', { userId: user.id, update: $scope.edit}).then(function(result) {
                 $scope.user = result.data;
                 Alerts.add('success', 'Profile Updated');
+                Auth.removeToken();
+                $http({
+                    method: 'POST',
+                    url: '/api/auth',
+                    data: { 'email': result.data.email, 'password': $scope.token.password }
+                }).then(function(result) {
+                    Auth.saveToken(result.data.token);
+                });
             }).catch(function(err) {
                 console.log(err)
             });
