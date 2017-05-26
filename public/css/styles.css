@@ -743,6 +743,9 @@ footer {
 
 
 @media only screen and (max-width: 775px) {
+
+    /* LANDING PAGE */
+
     nav {
         display: flex;
         justify-content: space-between;
@@ -808,4 +811,22 @@ footer {
         width: 90%;
         margin: 1em auto;
     }
+
+    /* SIGN UP */
+
+    .signup-pg{
+        padding-top: 3em;
+        height: inherit;
+    }
+
+    .signup-pg > .container {
+        max-width: 90%;
+        margin-left: auto;
+    }
+
+    .signin-form {
+        width: 100%;
+    }
+
+
 }
