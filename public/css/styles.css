@@ -284,6 +284,10 @@ nav a:hover {
     border: 10px solid #dd5325;
 }
 
+.mobile-message {
+    display: none;
+}
+
 
 /* SIGNUP & LOGIN */
 
@@ -643,4 +647,70 @@ select {
 
 .share {
     width: 20%;
+}
+
+
+@media only screen and (max-width: 775px) {
+    nav {
+        display: flex;
+        justify-content: space-around;
+        padding-top: .25em;
+        padding-bottom: .25em;
+    }
+
+    nav a {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nav-a {
+        display: none;
+    }
+
+    .home {
+        background-size: contain;
+        background-attachment: inherit;
+        padding-top: 1em;
+        padding-bottom: 0;
+        height: 80vw;
+    }
+
+    .welcome p {
+        display: none;
+    }
+
+    .welcome h2 {
+        display: none;
+    }
+
+    .mobile-message {
+        display: block;
+        color: #102542;
+        font-weight: 500;
+        width: 90%;
+        margin: 0 auto 1em auto;
+        text-align: center;
+    }
+
+    .welcome-buttons {
+        display: none;
+    }
+
+    .hp-test {
+        display: none;
+    }
+
+    .witness-group {
+        flex-direction: column;
+    }
+
+    .witnesses {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .witness {
+        width: 90%;
+        margin: 1em auto;
+    }
 }

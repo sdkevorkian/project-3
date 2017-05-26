@@ -16,7 +16,6 @@ router.route('/')
         });
     })
     .put(function(req, res) {
-        console.log(req.body.update);
         User.findByIdAndUpdate(req.body.userId, req.body.update, { new: true }, function(err, result) {
             if (err) return res.status(500).send(err);
 
