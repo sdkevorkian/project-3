@@ -95,7 +95,6 @@ angular.module('PetCtrls', ['PetFactories'])
         if (!Auth.isLoggedIn()) {
             $state.go('home');
         }
-
         var user = Auth.currentUser();
         // NOTE: because of how we are using local storage, this page will only work from the petShow page.....
         var pet = {
