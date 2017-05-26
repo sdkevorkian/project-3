@@ -96,17 +96,6 @@ angular.module('PetCtrls', ['PetFactories'])
             $state.go('home');
         }
 
-        var loader;
-
-        function loading() {
-            loader = setTimeout(showPage, 3000);
-        }
-
-        function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("compare-results").style.display = "block";
-        }
-
         var user = Auth.currentUser();
         // NOTE: because of how we are using local storage, this page will only work from the petShow page.....
         var pet = {
