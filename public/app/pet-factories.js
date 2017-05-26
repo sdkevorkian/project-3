@@ -28,7 +28,7 @@ angular.module('PetFactories', ['AuthFactories'])
         return {
             add: function(userId, pet) {
                 $http.post('/api/users/favorites', { userId: userId, pet: pet }).then(function(result) {
-                    Alerts.add('success', 'Favorite Added');
+                    Alerts.add('danger', 'Favorite Added');
                 }).catch(function(err) {
                     console.log(err);
                 });

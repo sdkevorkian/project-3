@@ -126,36 +126,14 @@ nav a:hover {
 /* ALERTS */
 
 .alerts {
-    background-color: white;
-    color: #E89005;
     width: 20em;
     position: fixed;
     top: 0;
     left: 5vh;
-}
-
-.alert-danger,
-.alert-danger > div {
-    background-color: #E89005;
-    color: white;
-    margin: 0;
-}
-
-.alert-success,
-.alert-success >div {
-    background-color: white;
-    color: #E89005;
-    margin: 0;
-}
-
-
-/* .alert {
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 0;
     border: 1px solid transparent;
     border-radius: 4px;
 }
-*/
 
 .alert h4 {
     margin-top: 0;
@@ -175,41 +153,23 @@ nav a:hover {
     margin-top: 5px;
 }
 
-.alert-dismissable,
-.alert-dismissible {
-    padding-right: 35px;
-}
-
 .alert-dismissable .close,
 .alert-dismissible .close {
     position: relative;
-    top: -2px;
-    right: -21px;
-    color: inherit;
+    top: 15px;
+    right: 6px;
+    background-color: #dd5325;
 }
 
-.alert-success {
+.alerts > .alert-danger >div {
     background-color: white;
     border-color: white;
-    color: #E89005;
-}
-
-.alert-success hr {
-    border-top-color: #c9e2b3;
-}
-
-.alert-success .alert-link {
-    color: #2b542c;
-}
-
-.alert-danger {
-    background-color: #E89005;
-    border-color: #E89005;
-    color: white;
+    color: #dd5325;
+    padding: 15px 35px 15px 10px;
 }
 
 .alert-danger hr {
-    border-top-color: #E89005;
+    border-top-color: #dd5325;
 }
 
 .alert-danger .alert-link {
@@ -219,9 +179,13 @@ nav a:hover {
 .close {
     float: right;
     position: relative;
-    top: -2px;
+    top: -12px;
     right: -21px;
     color: inherit;
+}
+
+.close span {
+    color: white;
 }
 
 
@@ -835,30 +799,22 @@ footer {
     nav i {
         margin-left: 4vw;
     }
-<<<<<<< HEAD
-    .nav-a {
-=======
-    
     .btn-group {
         position: relative;
         display: inline-block;
         vertical-align: middle;
     }
-
     .btn-group.open .dropdown-toggle {
-        -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
-        box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+        -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
     }
-
     .btn-group .dropdown-toggle:active,
     .btn-group.open .dropdown-toggle {
         outline: 0;
     }
-
     .open>.dropdown-menu {
         display: block;
     }
-
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -876,11 +832,10 @@ footer {
         -webkit-background-clip: padding-box;
         background-clip: padding-box;
         border: 1px solid #ccc;
-        border: 1px solid rgba(0,0,0,.15);
+        border: 1px solid rgba(0, 0, 0, .15);
         border-radius: 4px;
-        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-        box-shadow: 0 6px 12px rgba(0,0,0,.175);
->>>>>>> 61417be0c66e0ff2851dfc9983b5a675ecebcc1b
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
         display: none;
     }
     .btn-group {
