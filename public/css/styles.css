@@ -755,6 +755,7 @@ footer {
         padding-top: .25em;
         padding-bottom: .25em;
     }
+
     nav a {
         margin-right: 4vw;
     }
@@ -762,9 +763,13 @@ footer {
     nav i {
         margin-left: 4vw;
     }
+
     .nav-a {
         display: none;
     }
+
+    /* HAMBURGER DROP DOWN */
+
     .btn-group {
         position: relative;
         display: inline-block;
@@ -809,6 +814,7 @@ footer {
     }
 
     /* LANDING PAGE */
+
     .home {
         background-size: contain;
         background-attachment: inherit;
@@ -863,6 +869,4 @@ footer {
     .signin-form {
         width: 100%;
     }
-
-    /* LOG
 }
