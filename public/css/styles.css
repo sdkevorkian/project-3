@@ -111,6 +111,35 @@ nav a:hover {
 }
 
 
+/* ALERTS */
+
+.alerts {
+    background-color: white;
+    color: #E89005;
+    width: 20em;
+    position: absolute;
+    bottom: 20vh;
+    right: 5vh;
+
+}
+
+.alert-danger,
+.alert-danger > div {
+    background-color: #E89005;
+    color: white;
+}
+
+.alert-success,
+.alert-success >div {
+    background-color: white;
+    color: #E89005;
+}
+
+.alerts >button >span {
+    color: white;
+}
+
+
 /* HOME */
 
 .home {
@@ -644,6 +673,3 @@ select {
 .share {
     width: 20%;
 }
-
-
-/* ALERTS */
