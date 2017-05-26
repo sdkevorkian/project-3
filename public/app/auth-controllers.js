@@ -63,13 +63,14 @@ angular.module('AuthCtrls', ['AuthFactories'])
             $scope.user = results.data;
 
             // this toggles the compare to pet on if you have added a pet to your profile
-            // and directions to do so if not.
-            //SK
-            if ($scope.user.usersPetImg) {
-                $scope.petExistsOnProfile = true;
-            } else {
-                $scope.petExistsOnProfile = false;
-            }
+         // and directions to do so if not.
+         //SK
+         if ($scope.user.usersPetImg) {
+             $scope.petExistsOnProfile = true;
+         } else {
+             $scope.petExistsOnProfile = false;
+         }
+
 
         }).catch(function(err) {
             console.log(err);
