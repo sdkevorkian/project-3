@@ -113,10 +113,6 @@ nav a:hover {
     color: #E89005;
 }
 
-.nav-a {
-    display: none;
-}
-
 #nav-logo {
     font-family: 'Righteous', cursive !important;
 }
@@ -879,6 +875,11 @@ footer {
 
 @media only screen and (max-width: 775px) {
 
+    .container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
     /* NAV BAR */
 
     nav {
@@ -988,11 +989,6 @@ footer {
         height: inherit;
     }
 
-    .signup-pg > .container {
-        max-width: 90%;
-        margin: 0 auto;
-    }
-
     .signin-form {
         width: inherit;
     }
@@ -1004,8 +1000,34 @@ footer {
         height: inherit;
     }
 
-    .login-pg > .container {
-        max-width: 90%;
-        margin: 0 auto;
+    /* PROFILE */
+
+    .profile-content {
+        padding-top: 3em;
+    }
+
+    .profile-content h3 {
+        font-size: 7vw;
+        text-align: center;
+    }
+
+    .showprofile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile {
+        width: inherit;
+        padding: 1em;
+        margin-right: 0;
+    }
+
+    .faves {
+        width: 100%;
+    }
+
+    .faves h4 {
+        font-size: 7vw;
+        text-align: center;
     }
 }
