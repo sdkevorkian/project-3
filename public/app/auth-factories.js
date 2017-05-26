@@ -25,6 +25,13 @@ angular.module('AuthFactories', ['ngResource'])
                         return false;
                     }
                 }
+            },
+            checkForPetOnProfile: function(user) {
+                if (user.usersPetImg) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         };
     }])
