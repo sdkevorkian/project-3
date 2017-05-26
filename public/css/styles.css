@@ -1013,9 +1013,6 @@ footer {
     .hp-test {
         display: none;
     }
-    .witness-group {
-        flex-direction: column;
-    }
     .witnesses {
         padding-top: 0;
         padding-bottom: 0;
