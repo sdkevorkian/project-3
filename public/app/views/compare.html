@@ -1,20 +1,17 @@
-<div onload="loader()">
-    <div id="loader"></div>
-    <div class="full-compare">
-        <div class="compare-results" style="display:none" class="animate-bottom">
-            <div class="compared">
-                <img src="{{profileImg}}">
-            </div>
-            <div class="compared">
-                <img src="{{petImg}}">
-            </div>
-            <div class="compared">
-                <p>{{matchResults}}</p>
-            </div>
-            <div class="compared">
-                <button type="button" class="compare-adopt"><a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">Go Adopt This Pet On PetFinder!</a></button>
-                <button type="button" ng-click="addFavorite()">Add to Favorites</button>
-            </div>
+<div class="full-compare">
+    <div class="compare-results">
+        <div class="compared">
+            <img src="{{profileImg}}">
+        </div>
+        <div class="compared">
+            <img src="{{petImg}}">
+        </div>
+        <div class="compared">
+            <p>{{matchResults}}</p>
+        </div>
+        <div class="compared">
+            <button type="button" class="compare-adopt"><a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">Go Adopt This Pet On PetFinder!</a></button>
+            <button type="button" ng-click="addFavorite()">Add to Favorites</button>
         </div>
     </div>
 </div>
