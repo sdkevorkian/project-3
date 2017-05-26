@@ -19,7 +19,7 @@ router.route('/')
                 format: 'json'
             }
         }, function(error, response, body) {
-            if (error) console.log('somethign went wrong', error);
+            if (error) console.log('something went wrong', error);
             res.send(JSON.parse(body).petfinder.pets.pet);
         });
     });
@@ -29,12 +29,12 @@ router.route('/random')
     .get(function(req, res) {
         // API call to get the ID of a random animal
         request({
-          uri: 'http://api.petfinder.com/pet.getRandom',
-          method: 'GET',
-          qs: {
-            key: key,
-            format: 'json'
-          }
+            uri: 'http://api.petfinder.com/pet.getRandom',
+            method: 'GET',
+            qs: {
+                key: key,
+                format: 'json'
+            }
         }, function(error, response, body) {
             if (error) console.log('error', error);
             var data = JSON.parse(body);
@@ -42,16 +42,16 @@ router.route('/random')
 
             // API call to get the data of an animal, based on the random ID generated above
             request({
-              uri: 'http://api.petfinder.com/pet.get',
-              method: 'GET',
-              qs: {
-                key: key,
-                id: id,
-                format: 'json'
-              }
+                uri: 'http://api.petfinder.com/pet.get',
+                method: 'GET',
+                qs: {
+                    key: key,
+                    id: id,
+                    format: 'json'
+                }
             }, function(error, response, body) {
-              if (error) console.log('error', error);
-              res.send(JSON.parse(body).petfinder.pet);
+                if (error) console.log('error', error);
+                res.send(JSON.parse(body).petfinder.pet);
             });
         });
     });
@@ -59,13 +59,13 @@ router.route('/random')
 router.route('/breeds')
     .post(function(req, res) {
         request({
-          uri: 'http://api.petfinder.com/breed.list',
-          method: 'GET',
-          qs: {
-            key: key,
-            animal: req.body.animal,
-            format: 'json'
-          }
+            uri: 'http://api.petfinder.com/breed.list',
+            method: 'GET',
+            qs: {
+                key: key,
+                animal: req.body.animal,
+                format: 'json'
+            }
         }, function(error, response, body) {
             if (error) console.log('error', error);
             res.send(JSON.parse(body).petfinder.breeds.breed);
@@ -73,19 +73,19 @@ router.route('/breeds')
     });
 
 router.route('/:id')
-  // route to get data on 1 animal, based on it's ID
+    // route to get data on 1 animal, based on it's ID
     .get(function(req, res) {
-       request({
-         uri: 'http://api.petfinder.com/pet.get',
-         method: 'GET',
-         qs: {
-            key: key,
-            id: req.params.id,
-            format: 'json'
-         }
+        request({
+            uri: 'http://api.petfinder.com/pet.get',
+            method: 'GET',
+            qs: {
+                key: key,
+                id: req.params.id,
+                format: 'json'
+            }
         }, function(error, response, body) {
-          if (error) console.log('error', error);
-          res.send(JSON.parse(body).petfinder.pet);
+            if (error) console.log('error', error);
+            res.send(JSON.parse(body).petfinder.pet);
         });
     });
 

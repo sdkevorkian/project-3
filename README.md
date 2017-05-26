@@ -6,8 +6,17 @@
 <p>Pet lovers who love to procrastinate real-world tasks will love the hours of entertainment Doggleganger provides, while also tempting them to adopt more animals!</p>
 
 <h2>Technologies Used</h2>
+<ul>
+    <li>HTML + CSS, with focus on CSS Grid</li>
+    <li>Angular.js: </li>
+    <li>Node.js/Express.js</li>
+    <li>MongoDB</li>
+    <li>Petfinder API: We use the Petfinder to find adoptable pets users can compare their face to.</li>
+    <li>gm (graphics magic) npm module. Using the file system, we temporarily download two images, then resize them to be the same with gm. After resizing, gm performs a pixel-by-pixel comparison of the two images and returns the percent equality. The files are then deleted.</li>
+</ul>
 
 <h2>Approach</h2>
+<p>SK: I approached my portion of the project by starting with the most difficult and central part of my responsibilites, the image to image comparison. I tested with images locally saved and then broadened it to allow for dynamic, user input. Once that piece was done I could work on other sections as needed. </p>
 
 <h2>Installation Instructions</h2>
 <ul>To install this project locally perform the following steps:
@@ -19,6 +28,7 @@
 </ul>
 
 <h2>Unsolved Problems / Major Hurdles</h2>
+<p>Occasionally user profiles will become unretrievable. We have debugged a few causes (mostly related to Auth tokens), but a few cases still have issues and we have not been able to reliably reproduce the issue.</p>
 
 <h2>Links</h2>
 <a href="https://trello.com/b/VTSyaYEI/doggleganger">Trello Board</a>
