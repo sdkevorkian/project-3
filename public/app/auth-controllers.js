@@ -2,7 +2,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
     .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', '$state', function($scope, Auth, Alerts, $state) {
         $scope.Auth = Auth;
         $scope.status = {
-          isopen: false
+            isopen: false
         };
 
         $scope.logout = function() {
@@ -12,13 +12,13 @@ angular.module('AuthCtrls', ['AuthFactories'])
         };
 
         $scope.toggled = function(open) {
-          $log.log('Dropdown is now: ', open);
+            console.log('Dropdown is now: ', open);
         };
 
         $scope.toggleDropdown = function($event) {
-          $event.preventDefault();
-          $event.stopPropagation();
-          $scope.status.isopen = !$scope.status.isopen;
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.status.isopen = !$scope.status.isopen;
         };
     }])
     .controller('AlertsCtrl', ['$scope', 'Alerts', function($scope, Alerts) {
