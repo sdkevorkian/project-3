@@ -345,6 +345,7 @@ nav a:hover {
     padding-bottom: 2em;
     border-top: 10px solid #fff;
     border-bottom: 10px solid #fff;
+    margin-bottom: -2em;
 }
 
 .petfinder p {
@@ -441,9 +442,14 @@ nav a:hover {
 }
 
 .profile {
+    flex-direction: column;
     background-color: #F1F2F3;
     margin-right: 2em;
     padding: 2em;
+}
+
+.profile button {
+    width: 100%;
 }
 
 .add-pet-img {
@@ -461,11 +467,13 @@ nav a:hover {
 
 .profile-img {
     max-width: 300px;
+    margin: auto;
 }
 
 .change-img img,
 .fave-img img,
-.faves button {
+.faves button,
+.profile button {
     width: 100%;
 }
 
@@ -754,6 +762,7 @@ footer {
     background-color: #102542;
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-top: 2em;
 }
 
 .footer-content {
@@ -798,6 +807,9 @@ footer {
     }
     nav i {
         margin-left: 4vw;
+    }
+    .nav-a {
+        display: none;
     }
     .btn-group {
         position: relative;
