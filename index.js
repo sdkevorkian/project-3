@@ -23,8 +23,8 @@ app.use(require('morgan')('dev'));
 
 
 // app.use('/api/users', require('./controllers/users'));
-app.use('/api/compare', require('./controllers/compare'));
-app.use('/api/pets', require('./controllers/pets'));
+app.use('/api/compare', expressJWT({ secret: secret }).unless({ path: [{ url: '/api/compare/demo' }] }), require('./controllers/compare'));
+app.use('/api/pets', expressJWT({ secret: secret }), require('./controllers/pets'));
 
 
 // Replace the above routes with the following

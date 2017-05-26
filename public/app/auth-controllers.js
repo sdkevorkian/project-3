@@ -69,6 +69,9 @@ angular.module('AuthCtrls', ['AuthFactories'])
         };
     }])
     .controller('ProfileCtrl', ['$scope', '$http', 'Auth', 'Alerts', '$state', function($scope, $http, Auth, Alerts, $state) {
+        if (!Auth.isLoggedIn()) {
+            $state.go('home');
+        }
         var user = Auth.currentUser();
 
         $scope.edit = {};
@@ -84,6 +87,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
 
         $scope.removeFavorite = function(petId) {
             $http.put('/api/users/favorites', { userId: user.id, petId: petId }).then(function(result) {
+
                 $scope.user = result.data;
                 $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
                 Alerts.add('danger', 'Favorite Removed');

@@ -45,7 +45,11 @@ angular.module('PetCtrls', ['PetFactories'])
         };
 
     }])
-    .controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
+    .controller('SearchCtrl', ['$scope', '$http', 'Auth', '$state', function($scope, $http, Auth, $state) {
+        if (!Auth.isLoggedIn()) {
+            $state.go('home');
+        }
+
         $scope.$watch('pet.animal', function() {
             $http.post('/api/pets/breeds', { animal: $scope.pet.animal }).then(function(results) {
                 $scope.breeds = results.data;
@@ -63,7 +67,10 @@ angular.module('PetCtrls', ['PetFactories'])
         };
     }])
 
-.controller('PetShowCtrl', ['$scope', '$http', '$stateParams', 'Auth', 'Favorite', function($scope, $http, $stateParams, Auth, Favorite) {
+.controller('PetShowCtrl', ['$scope', '$http', '$stateParams', 'Auth', 'Favorite', '$state', function($scope, $http, $stateParams, Auth, Favorite, $state) {
+        if (!Auth.isLoggedIn()) {
+            $state.go('home');
+        }
         var user = Auth.currentUser();
 
         $http.get('/api/pets/' + $stateParams.id).then(function(result) {
@@ -84,7 +91,22 @@ angular.module('PetCtrls', ['PetFactories'])
             };
         });
     }])
-    .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', 'Favorite', function($scope, $http, Auth, Compare, Favorite) {
+    .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', 'Favorite', '$state', function($scope, $http, Auth, Compare, Favorite, $state) {
+        if (!Auth.isLoggedIn()) {
+            $state.go('home');
+        }
+
+        var loader;
+
+        function loading() {
+            loader = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("compare-results").style.display = "block";
+        }
+
         var user = Auth.currentUser();
         // NOTE: because of how we are using local storage, this page will only work from the petShow page.....
         var pet = {
