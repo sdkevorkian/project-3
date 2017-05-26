@@ -128,10 +128,9 @@ nav a:hover {
     background-color: white;
     color: #E89005;
     width: 20em;
-    position: absolute;
-    bottom: 20vh;
-    right: 5vh;
-
+    position: fixed;
+    top: 0;
+    left: 5vh;
 }
 
 .alert-danger,
@@ -149,6 +148,8 @@ nav a:hover {
 .alerts >button >span {
     color: white;
 }
+
+.alerts button {}
 
 
 /* HOME */
@@ -744,7 +745,6 @@ footer {
     width: 20%;
 }
 
-
 @media only screen and (max-width: 775px) {
 
     /* NAV BAR */
@@ -755,7 +755,6 @@ footer {
         padding-top: .25em;
         padding-bottom: .25em;
     }
-
     nav a {
         margin-right: 4vw;
     }
@@ -763,17 +762,14 @@ footer {
     nav i {
         margin-left: 4vw;
     }
-
     .nav-a {
         display: none;
     }
-
     .btn-group {
         display: inline-block;
     }
 
     /* LANDING PAGE */
-
     .home {
         background-size: contain;
         background-attachment: inherit;
@@ -781,15 +777,12 @@ footer {
         padding-bottom: 0;
         height: 80vw;
     }
-
     .welcome p {
         display: none;
     }
-
     .welcome h2 {
         display: none;
     }
-
     .mobile-message {
         display: block;
         color: #102542;
@@ -798,24 +791,19 @@ footer {
         margin: 0 auto 1em auto;
         text-align: center;
     }
-
     .welcome-buttons {
         display: none;
     }
-
     .hp-test {
         display: none;
     }
-
     .witness-group {
         flex-direction: column;
     }
-
     .witnesses {
         padding-top: 0;
         padding-bottom: 0;
     }
-
     .witness {
         width: 90%;
         margin: 1em auto;
