@@ -96,10 +96,10 @@ angular.module('PetCtrls', ['PetFactories'])
             $state.go('home');
         }
 
-        var loader;
+        var loaderIcon;
 
-        function loading() {
-            loader = setTimeout(showPage, 3000);
+        function loader() {
+            loaderIcon = setTimeout(showPage, 3000);
         }
 
         function showPage() {
