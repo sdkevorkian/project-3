@@ -2,7 +2,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
     .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', function($scope, Auth, Alerts) {
         $scope.Auth = Auth;
         $scope.logout = function() {
-            Alerts.add('sucess', 'You\'ve now logged out');
+            Alerts.add('success', 'You\'ve now logged out');
             Auth.removeToken();
         };
     }])
@@ -61,15 +61,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
 
         $http.get('/api/users/' + user.id).then(function(results) {
             $scope.user = results.data;
-
-            // this toggles the compare to pet on if you have added a pet to your profile
-            // and directions to do so if not.
-            //SK
-            if ($scope.user.usersPetImg) {
-                $scope.petExistsOnProfile = true;
-            } else {
-                $scope.petExistsOnProfile = false;
-            }
+            $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
 
         }).catch(function(err) {
             console.log(err);
@@ -78,6 +70,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
         $scope.removeFavorite = function(petId) {
             $http.put('/api/users/favorites', { userId: user.id, petId: petId }).then(function(result) {
                 $scope.user = result.data;
+                $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
                 Alerts.add('success', 'Favorite Removed');
             }).catch(function(err) {
                 console.log(err);
@@ -87,6 +80,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
         $scope.userEdit = function() {
             $http.put('/api/users', { userId: user.id, update: $scope.edit }).then(function(result) {
                 $scope.user = result.data;
+                $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
                 Alerts.add('success', 'Profile Updated');
                 Auth.removeToken();
                 $http({

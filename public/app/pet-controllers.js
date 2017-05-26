@@ -73,16 +73,16 @@ angular.module('PetCtrls', ['PetFactories'])
             localStorage.petUrl = result.data.media.photos.photo[2].$t;
             $scope.petId = $stateParams.id;
             localStorage.petId = $scope.petId;
+            var pet = {
+                id: $stateParams.id,
+                name: localStorage.petName,
+                petImg: localStorage.petUrl
+            };
+            console.log(pet);
+            $scope.addFavorite = function() {
+                Favorite.add(user.id, pet);
+            };
         });
-        var pet = {
-            id: $stateParams.id,
-            name: localStorage.petName,
-            petImg: localStorage.petUrl
-        };
-
-        $scope.addFavorite = function() {
-            Favorite.add(user.id, pet);
-        };
     }])
     .controller('CompareCtrl', ['$scope', '$http', 'Auth', 'Compare', 'Favorite', function($scope, $http, Auth, Compare, Favorite) {
         var user = Auth.currentUser();
@@ -100,7 +100,6 @@ angular.module('PetCtrls', ['PetFactories'])
 
         $scope.matchPercent = Compare.compareTwo(user.profileImg, localStorage.petUrl, user.id).then(function(result) {
             $scope.matchResults = Compare.percentToRanking(result.data.matchPercent);
-            console.log(result);
         }).catch(function(err) {
             console.log(err);
         });

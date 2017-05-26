@@ -1,3 +1,3 @@
-<div ng-controller="AlertsCtrl">
-    <p uib-alert ng-repeat="alert in Alerts.get()" close="Alerts.remove($index)" type="{{alert.type}}" dismiss-on-timeout='2000'>{{alert.msg}}</p>
+<div ng-controller="AlertsCtrl" class="alerts">
+    <p uib-alert ng-repeat="alert in Alerts.get()" close="Alerts.remove($index)" type="{{alert.type}}" dismiss-on-timeout='100000'>{{alert.msg}}</p>
 </div>
