@@ -59,15 +59,8 @@ angular.module('AuthCtrls', ['AuthFactories'])
         $scope.edit = {};
         $scope.token = {};
 
-
-
         $http.get('/api/users/' + user.id).then(function(results) {
             $scope.user = results.data;
-            // this toggles the compare to pet on if you have added a pet to your profile
-            // and directions to do so if not.
-            //SK
-            console.log(user);
-            console.log('this is $scope.user' + $scope.user);
             $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
 
         }).catch(function(err) {
