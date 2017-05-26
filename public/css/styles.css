@@ -745,14 +745,17 @@ footer {
 @media only screen and (max-width: 775px) {
     nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         padding-top: .25em;
         padding-bottom: .25em;
     }
 
     nav a {
-        margin-left: 0;
-        margin-right: 0;
+        margin-right: 4vw;
+    }
+
+    nav i {
+        margin-left: 4vw;
     }
 
     .nav-a {
