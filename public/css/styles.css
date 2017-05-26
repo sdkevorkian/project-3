@@ -1119,4 +1119,17 @@ footer {
     .pet-results {
         grid-template-columns: repeat(1, 1fr);
     }
+    /* PET SHOW */
+    .pet-show h2 {
+        font-size: 7vw;
+    }
+    .pet-bio {
+        flex-direction: column;
+    }
+    .pet-info {
+        width: 100%;
+    }
+    .pet-facts {
+        width: 100%;
+    }
 }
