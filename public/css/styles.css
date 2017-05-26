@@ -87,6 +87,7 @@ button a {
     width: 100%;
     padding: 3px;
 }
+
 /* NAV */
 
 nav {
@@ -174,6 +175,11 @@ nav a:hover {
     padding-top: 1em;
     padding-bottom: 0;
     height: 80vw;
+}
+
+.btn-group {
+    display: none;
+}
 
 /* ALERTS */
 
@@ -190,10 +196,11 @@ nav a:hover {
 .alert-danger > div {
     background-color: #E89005;
     color: white;
+    margin: 0;
 }
 
 .alert-success,
-.alert-success >div {
+.alert-success > div {
     background-color: white;
     color: #E89005;
 }
@@ -202,7 +209,86 @@ nav a:hover {
     color: white;
 }
 
-.alerts button {}
+.alerts button {
+    margin: 0;
+}
+
+
+/* .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+*/
+
+.alert h4 {
+    margin-top: 0;
+    color: inherit;
+}
+
+.alert .alert-link {
+    font-weight: bold;
+}
+
+.alert > p,
+.alert > ul {
+    margin-bottom: 0;
+}
+
+.alert > p + p {
+    margin-top: 5px;
+}
+
+.alert-dismissable,
+.alert-dismissible {
+    padding-right: 35px;
+}
+
+.alert-dismissable .close,
+.alert-dismissible .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+}
+
+.alert-success {
+    background-color: white;
+    border-color: white;
+    color: #E89005;
+}
+
+.alert-success hr {
+    border-top-color: #c9e2b3;
+}
+
+.alert-success .alert-link {
+    color: #2b542c;
+}
+
+.alert-danger {
+    background-color: #E89005;
+    border-color: #E89005;
+    color: white;
+}
+
+.alert-danger hr {
+    border-top-color: #E89005;
+}
+
+.alert-danger .alert-link {
+    color: white;
+}
+
+.close {
+    float: right;
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+}
+
 /* HOME */
 
 .home {
@@ -379,6 +465,7 @@ nav a:hover {
 .mobile-message {
     display: none;
 }
+
 /* SIGNUP & LOGIN */
 
 .signup-pg {
@@ -420,6 +507,7 @@ nav a:hover {
     width: 100%;
     font-size: 18px;
 }
+
 /* 404 */
 
 .four {
@@ -430,6 +518,7 @@ nav a:hover {
 .four-gif {
     margin: auto;
 }
+
 /* PROFILE */
 
 .profile-content {
@@ -508,6 +597,7 @@ nav a:hover {
 .save-btns {
     width: 49%;
 }
+
 /* SEARCH */
 
 .search-pg {
@@ -587,6 +677,7 @@ select {
     float: right;
     padding: 3px;
 }
+
 /* SEARCH RESULTS */
 
 .pet-results {
@@ -624,6 +715,7 @@ select {
 .pet-result-name a:hover {
     color: #E89005;
 }
+
 /* PET INFO */
 
 .pet-show {
@@ -678,6 +770,7 @@ select {
 .pet-finder {
     background-color: #7332D6;
 }
+
 /* COMPARE */
 
 .full-compare {
@@ -746,6 +839,7 @@ select {
 .compare-adopt a {
     color: white;
 }
+
 /* FOOTER */
 
 footer {
@@ -784,26 +878,34 @@ footer {
 }
 
 @media only screen and (max-width: 775px) {
+
     /* NAV BAR */
+
     nav {
         display: flex;
         justify-content: space-between;
         padding-top: .25em;
         padding-bottom: .25em;
     }
+
     nav a {
         margin-right: 4vw;
     }
+
     nav i {
         margin-left: 4vw;
     }
+
     .nav-a {
         display: none;
     }
+
     .btn-group {
         display: inline-block;
     }
+
     /* LANDING PAGE */
+
     .home {
         background-size: contain;
         background-attachment: inherit;
@@ -811,12 +913,61 @@ footer {
         padding-bottom: 0;
         height: 80vw;
     }
+
     .welcome p {
         display: none;
     }
+
     .welcome h2 {
         display: none;
     }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 160px;
+        padding: 5px 0;
+        margin: 2px 0 0;
+        font-size: 14px;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 4px;
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        display: none;
+    }
+
+    .btn-group {
+        display: inline-block;
+    }
+
+    /* LANDING PAGE */
+
+    .home {
+        background-size: contain;
+        background-attachment: inherit;
+        padding-top: 1em;
+        padding-bottom: 0;
+        height: 80vw;
+    }
+
+    .welcome p {
+        display: none;
+    }
+
+    .welcome h2 {
+        display: none;
+    }
+
     .mobile-message {
         display: block;
         color: #102542;
@@ -825,32 +976,41 @@ footer {
         margin: 0 auto 1em auto;
         text-align: center;
     }
+
     .welcome-buttons {
         display: none;
     }
+
     .hp-test {
         display: none;
     }
+
     .witness-group {
         flex-direction: column;
     }
+
     .witnesses {
         padding-top: 0;
         padding-bottom: 0;
     }
+
     .witness {
         width: 90%;
         margin: 1em auto;
     }
+
     /* SIGN UP */
+
     .signup-pg {
         padding-top: 3em;
         height: inherit;
     }
+
     .signup-pg > .container {
         max-width: 90%;
         margin-left: auto;
     }
+
     .signin-form {
         width: 100%;
     }
