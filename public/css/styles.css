@@ -118,6 +118,9 @@ nav a:hover {
     font-family: 'Righteous', cursive !important;
 }
 
+.btn-group {
+    display: none;
+}
 
 /* ALERTS */
 
@@ -743,19 +746,30 @@ footer {
 }
 
 @media only screen and (max-width: 775px) {
+
+    /* NAV BAR */
+
     nav {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         padding-top: .25em;
         padding-bottom: .25em;
     }
     nav a {
-        margin-left: 0;
-        margin-right: 0;
+        margin-right: 4vw;
+    }
+
+    nav i {
+        margin-left: 4vw;
     }
     .nav-a {
         display: none;
     }
+    .btn-group {
+        display: inline-block;
+    }
+
+    /* LANDING PAGE */
     .home {
         background-size: contain;
         background-attachment: inherit;
@@ -794,4 +808,22 @@ footer {
         width: 90%;
         margin: 1em auto;
     }
+
+    /* SIGN UP */
+
+    .signup-pg{
+        padding-top: 3em;
+        height: inherit;
+    }
+
+    .signup-pg > .container {
+        max-width: 90%;
+        margin-left: auto;
+    }
+
+    .signin-form {
+        width: 100%;
+    }
+
+    /* LOG
 }
