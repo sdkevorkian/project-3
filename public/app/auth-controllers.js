@@ -1,9 +1,10 @@
 angular.module('AuthCtrls', ['AuthFactories'])
-    .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', function($scope, Auth, Alerts) {
+    .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', '$state', function($scope, Auth, Alerts, $state) {
         $scope.Auth = Auth;
         $scope.logout = function() {
             Alerts.add('success', 'You\'ve now logged out');
             Auth.removeToken();
+            $state.go('home');
         };
     }])
     .controller('AlertsCtrl', ['$scope', 'Alerts', function($scope, Alerts) {
