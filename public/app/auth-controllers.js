@@ -2,23 +2,23 @@ angular.module('AuthCtrls', ['AuthFactories'])
     .controller('NavCtrl', ['$scope', 'Auth', 'Alerts', '$state', function($scope, Auth, Alerts, $state) {
         $scope.Auth = Auth;
         $scope.status = {
-          isopen: false
+            isopen: false
         };
 
         $scope.logout = function() {
-            Alerts.add('success', 'You\'ve now logged out');
+            Alerts.add('danger', 'You\'ve now logged out');
             Auth.removeToken();
             $state.go('home');
         };
 
         $scope.toggled = function(open) {
-          $log.log('Dropdown is now: ', open);
+            console.log('Dropdown is now: ', open);
         };
 
         $scope.toggleDropdown = function($event) {
-          $event.preventDefault();
-          $event.stopPropagation();
-          $scope.status.isopen = !$scope.status.isopen;
+            $event.preventDefault();
+            $event.stopPropagation();
+            $scope.status.isopen = !$scope.status.isopen;
         };
     }])
     .controller('AlertsCtrl', ['$scope', 'Alerts', function($scope, Alerts) {
@@ -32,10 +32,10 @@ angular.module('AuthCtrls', ['AuthFactories'])
         $scope.userSignup = function() {
             $http.post('/api/users', $scope.user).then(function success(res) {
 
-                Alerts.add('success', 'Account created!');
+                Alerts.add('danger', 'Account created!');
                 $http.post('/api/auth', $scope.user).then(function success(res) {
 
-                    Alerts.add('success', 'You are now logged in');
+                    Alerts.add('danger', 'You are now logged in');
                     Auth.saveToken(res.data.token);
                     $location.path('/');
                 }, function error(res) {
@@ -60,7 +60,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
         $scope.userLogin = function() {
             $http.post('/api/auth', $scope.user).then(function success(res) {
                 Auth.saveToken(res.data.token);
-                Alerts.add('success', 'You are now logged in!');
+                Alerts.add('danger', 'You are now logged in!');
                 $location.path('/');
             }, function error(res) {
                 Alerts.add('danger', 'Something went wrong, maybe a wrong password or username?');
@@ -86,7 +86,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
             $http.put('/api/users/favorites', { userId: user.id, petId: petId }).then(function(result) {
                 $scope.user = result.data;
                 $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
-                Alerts.add('success', 'Favorite Removed');
+                Alerts.add('danger', 'Favorite Removed');
             }).catch(function(err) {
                 console.log(err);
             });
@@ -96,7 +96,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
             $http.put('/api/users', { userId: user.id, update: $scope.edit }).then(function(result) {
                 $scope.user = result.data;
                 $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
-                Alerts.add('success', 'Profile Updated');
+                Alerts.add('danger', 'Profile Updated');
                 Auth.removeToken();
                 $http({
                     method: 'POST',
