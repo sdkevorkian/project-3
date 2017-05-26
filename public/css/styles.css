@@ -950,24 +950,6 @@ footer {
         display: inline-block;
     }
 
-    /* LANDING PAGE */
-
-    .home {
-        background-size: contain;
-        background-attachment: inherit;
-        padding-top: 1em;
-        padding-bottom: 0;
-        height: 80vw;
-    }
-
-    .welcome p {
-        display: none;
-    }
-
-    .welcome h2 {
-        display: none;
-    }
-
     .mobile-message {
         display: block;
         color: #102542;
@@ -1008,10 +990,22 @@ footer {
 
     .signup-pg > .container {
         max-width: 90%;
-        margin-left: auto;
+        margin: 0 auto;
     }
 
     .signin-form {
-        width: 100%;
+        width: inherit;
+    }
+
+    /* LOG IN */
+
+    .login-pg {
+        padding-top: 3em;
+        height: inherit;
+    }
+
+    .login-pg > .container {
+        max-width: 90%;
+        margin: 0 auto;
     }
 }
