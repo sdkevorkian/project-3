@@ -5,10 +5,6 @@
     color: #66717e;
 }
 
-body {
-    min-height: 100%;
-}
-
 h1,
 h2,
 h3,
@@ -71,6 +67,18 @@ button {
 
 button:hover {
     background-color: #dd5325;
+}
+
+button a {
+    color: #fff;
+}
+
+.delete-btn {
+    background-color: #dd5325;
+}
+
+.delete-btn:hover {
+    background-color: #66717e;
 }
 
 .form-control {
@@ -346,8 +354,39 @@ nav a:hover {
     padding-top: 5em;
 }
 
+.showprofile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 2em;
+}
+
+.profile,
+.faves {
+    width: 30%;
+}
+
+.profile {
+    background-color: #F1F2F3;
+    margin-right: 2em;
+    padding: 2em;
+}
+
+.add-pet-img {
+    font-size: 14px;
+}
+
+.edit-btn,
+.delete-btn {
+    margin-top: .5em;
+}
+
+.pet-name-btn {
+    font-size: 16px;
+}
+
 .profile-img {
-    width: 300px;
+    max-width: 300px;
 }
 
 .change-img img,
@@ -356,13 +395,36 @@ nav a:hover {
     width: 100%;
 }
 
+.saved-faves {
+    margin-bottom: 3em;
+}
+
 .faves,
 .fave-img {
-    width: 300px;
+    width: 500px;
+}
+
+.faves h4,
+.edit-form h4 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .faves p {
     text-align: center;
+}
+
+.edit-form-group {
+    margin-top: 1em;
+}
+
+.save-edit-btns {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.save-btns {
+    width: 49%;
 }
 
 
@@ -370,6 +432,7 @@ nav a:hover {
 
 .search-pg {
     padding-top: 5em;
+    min-height: 100vh;
 }
 
 .search-form {
@@ -610,7 +673,7 @@ select {
 
 /* FOOTER */
 
-.footer {
+footer {
     background-color: #102542;
     padding-top: 1em;
     padding-bottom: 1em;

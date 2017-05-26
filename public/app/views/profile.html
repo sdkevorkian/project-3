@@ -1,58 +1,63 @@
 <div class="profile-content container">
-    <div ng-if="!bool">
-        <h3>Your Profile Information</h3>
-        <button type="button" ng-click="editBtn(true)">Edit Your Profile Information</button>
-        <div class="change-img">
-            <div class="profile-img">
-                <img src="{{user.profileImg}}">
+    <h3>Your Profile Information</h3>
+    <div class="showprofile">
+        <div class="profile">
+            <div ng-if="!bool">
+                <div class="change-img">
+                    <div class="profile-img">
+                        <img src="{{user.profileImg}}">
+                    </div>
+                </div>
+                <div class="change-img" ng-if="petExistsOnProfile">
+                    <div class="profile-img">
+                        <img src="{{user.usersPetImg}}">
+                    </div>
+                    <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
+                </div>
+                <p>First Name: {{ user.firstName }}</p>
+                <p>Email: {{ user.email }}</p>
+                <p class="add-pet-img" ng-if="!petExistsOnProfile">If you haven't added a picture of your own pet or a pet that is not on Petfinder, click "Edit Your Profile Information" to do so.</p>
+                <button type="button" ng-click="editBtn(true)" class="edit-btn">Edit Your Profile Information</button>
+            </div>
+            <div ng-if="bool">
+                <form ng-submit="userEdit()" class="edit-form">
+                    <h4>Edit Your Profile</h4>
+                    <div class="edit-form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" placeholder="{{ user.firstName }}" ng-model="edit.firstName">
+                    </div>
+                    <div class="edit-form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" placeholder="{{ user.email }}" ng-model="edit.email">
+                    </div>
+                    <div class="edit-form-group">
+                        <label for="profileImg">Profile Image URL</label>
+                        <input type="text" class="form-control" placeholder="{{ user.profileImg }}" ng-model="edit.profileImg">
+                    </div>
+                    <div class="edit-form-group">
+                        <label for="userPetImg">Your Pet's Image URL</label>
+                        <input type="text" class="form-control" placeholder="{{ user.usersPetImg }}" ng-model="edit.usersPetImg">
+                    </div>
+                    <div class="edit-form-group">
+                        <label for="password">Please Enter Your Current Password to Update Your Profile</label>
+                        <input type="password" class="form-control" placeholder="********" ng-model="token.password" required>
+                    </div>
+                    <div class="save-edit-btns">
+                        <button type="button" class="save-btns" ng-click="editBtn(false)" class="cancel-btn">Cancel</button>
+                        <button type="submit" class="save-btns">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="change-img" ng-if="petExistsOnProfile">
-            <div class="profile-img">
-                <img src="{{user.usersPetImg}}">
-            </div>
-            <button class="compare" ng-click="compareToOwnPet()">Compare Yourself to Your Own Pet</button>
-        </div>
-        <p ng-if="!petExistsOnProfile">If you haven't added a pet to your profile, click "Edit Your Profile Information" to do so!</p>
-        <p>First Name: {{ user.firstName }}</p>
-        <p>Email: {{ user.email }}</p>
         <div class="faves">
-            <h4>Favorite Pets</h4>
+            <h4>Your Favorite Pets</h4>
             <div class="saved-faves" ng-repeat="pet in user.favorites">
-                <p><a href="/petShow/{{ pet.id }}">{{ pet.name }}</a></p>
                 <div class="fave-img">
                     <img src="{{ pet.petImg }}" alt="{{ pet.name }}">
                 </div>
-                <button type="button" ng-click="removeFavorite(pet.id)">Delete</button>
+                <button class="pet-name-btn" type="button"><a href="/petShow/{{ pet.id }}">{{ pet.name }}</a></button>
+                <button class="delete-btn" type="button" ng-click="removeFavorite(pet.id)">Delete</button>
             </div>
         </div>
-    </div>
-    <div ng-if="bool">
-        <form ng-submit="userEdit()" class="edit-form">
-            <h3>Edit Your Profile</h3>
-            <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" class="form-control" placeholder="{{ user.firstName }}" ng-model="edit.firstName">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" placeholder="{{ user.email }}" ng-model="edit.email">
-            </div>
-            <div class="form-group">
-                <label for="profileImg">Profile Image URL</label>
-                <input type="text" class="form-control" placeholder="{{ user.profileImg }}" ng-model="edit.profileImg">
-                <p>This image will be used to compare your likeness to pets. Please use a clear photo of your face.</p>
-            </div>
-            <div class="form-group">
-                <label for="userPetImg">Your Pet Image URL</label>
-                <input type="text" class="form-control" placeholder="{{ user.usersPetImg }}" ng-model="edit.usersPetImg">
-            </div>
-            <div class="form-group">
-                <label for="password">Please Enter Your Current Password to Update Your Profile</label>
-                <input type="password" class="form-control" placeholder="********" ng-model="token.password" required>
-            </div>
-            <button type="button" ng-click="editBtn(false)">Cancel</button>
-            <button type="submit">Submit</button>
-        </form>
     </div>
 </div>
