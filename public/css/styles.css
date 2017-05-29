@@ -853,6 +853,7 @@ footer {
     .container {
         max-width: 90%;
         margin: 0 auto;
+        display: inherit;
     }
     /* NAV BAR */
     nav {
@@ -1098,5 +1099,15 @@ footer {
     }
     .compared:nth-child(4) button {
         margin: .5em;
+    }
+    /* 404 */
+    .four {
+        padding-top: 3em;
+    }
+    .four h4 {
+        font-size: 7vw;
+    }
+    .four-gif {
+        width: 100%;
     }
 }
