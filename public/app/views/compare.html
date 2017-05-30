@@ -10,7 +10,9 @@
             <p>{{matchResults}}</p>
         </div>
         <div class="compared">
-            <button type="button" class="compare-adopt"><a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">Go Adopt This Pet On PetFinder!</a></button>
+            <a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">
+                <button type="button" class="compare-adopt">Go Adopt This Pet On PetFinder!</button>
+            </a>
         </div>
         <div class="compared">
             <button type="button" class="compare-fave" ng-click="addFavorite()">Add to Favorites</button>

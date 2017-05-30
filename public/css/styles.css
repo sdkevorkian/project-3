@@ -36,9 +36,7 @@ h5 {
 }
 
 p {
-    font-family: 'Droid Sans', sans-serif;
-    font-size: 1.2em;
-    color: #66717e;
+    font-size: 1em;
 }
 
 a {
@@ -71,6 +69,7 @@ button:hover {
 
 button a {
     color: #fff;
+    width: 100%;
 }
 
 .delete-btn {
@@ -166,21 +165,6 @@ nav a:hover {
 }
 
 
-/* LANDING PAGE */
-
-.home {
-    background-size: contain;
-    background-attachment: inherit;
-    padding-top: 1em;
-    padding-bottom: 0;
-    height: 80vw;
-}
-
-.btn-group {
-    display: none;
-}
-
-
 /* ALERTS */
 
 .alerts {
@@ -255,6 +239,10 @@ nav a:hover {
     padding-bottom: 7em;
 }
 
+.btn-group {
+    display: none;
+}
+
 .home h2 {
     text-align: left;
     font-family: 'Righteous', cursive;
@@ -274,12 +262,7 @@ nav a:hover {
 }
 
 .welcome button a {
-    color: white;
-}
-
-.demo-choice {
-    border: 10px solid #dd5325;
-    width: 200px;
+    color: #fff;
 }
 
 .hp-test {
@@ -287,6 +270,12 @@ nav a:hover {
     flex-direction: row;
     border-top: 10px solid #102542;
     border-bottom: 10px solid #102542;
+}
+
+.hp-test-try {
+    width: 25%;
+    margin-left: 5%;
+    padding-top: 7em;
 }
 
 .hp-test-grid {
@@ -299,10 +288,9 @@ nav a:hover {
     margin-left: 2%;
 }
 
-.hp-test-try {
-    width: 25%;
-    margin-left: 5%;
-    padding-top: 7em;
+.demo-choice {
+    border: 10px solid #dd5325;
+    max-width: 200px;
 }
 
 .test-item img {
@@ -365,6 +353,7 @@ nav a:hover {
     color: #102542;
     line-height: 1.25;
     animation: fadein 3s;
+    font-size: 2em;
 }
 
 @keyframes fadein {
@@ -428,10 +417,6 @@ nav a:hover {
     width: 300px;
 }
 
-.demo-choice {
-    border: 10px solid #dd5325;
-}
-
 .mobile-message {
     display: none;
 }
@@ -485,6 +470,7 @@ nav a:hover {
 .four {
     text-align: center;
     padding-top: 5em;
+    height: 80vh;
 }
 
 .four-gif {
@@ -583,7 +569,7 @@ nav a:hover {
 
 .search-pg {
     padding-top: 5em;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 .search-form {
@@ -647,10 +633,6 @@ nav a:hover {
 select {
     width: 100%;
     border: none;
-}
-
-.search-zip,
-select {
     background-color: #fff;
 }
 
@@ -668,7 +650,7 @@ select {
     grid-gap: 2rem;
     font-family: 'Droid Sans', sans-serif;
     justify-content: space-around;
-    margin-bottom: 2;
+    margin-bottom: 4em;
 }
 
 .one-pet {
@@ -678,9 +660,18 @@ select {
     padding-top: 15px;
 }
 
+.one-pet:hover {
+    background-color: #E89005;
+    transition: .8s;
+}
+
+.one-pet:hover a {
+    color: #fff;
+}
+
 .one-pet img {
     width: 100%;
-    border: 8px solid white;
+    border: 8px solid #fff;
 }
 
 .pet-result-image {
@@ -693,10 +684,6 @@ select {
     font-weight: 700;
     font-family: 'Droid Sans', sans-serif;
     margin-top: 15px;
-}
-
-.pet-result-name a:hover {
-    color: #E89005;
 }
 
 
@@ -848,7 +835,7 @@ footer {
 }
 
 .footer-content {
-    displ ay: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     font-size: 12px;
@@ -875,6 +862,9 @@ footer {
 .share {
     width: 20%;
 }
+
+
+/* MEDIA */
 
 @media only screen and (max-width: 775px) {
     .container {

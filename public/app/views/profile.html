@@ -55,7 +55,9 @@
                 <div class="fave-img">
                     <img src="{{ pet.petImg }}" alt="{{ pet.name }}">
                 </div>
-                <button class="pet-name-btn" type="button"><a href="/petShow/{{ pet.id }}">{{ pet.name }}</a></button>
+                <a href="/petShow/{{ pet.id }}">
+                    <button class="pet-name-btn" type="button">{{ pet.name }}</button>
+                </a>
                 <button class="delete-btn" type="button" ng-click="removeFavorite(pet.id)">Delete</button>
             </div>
         </div>

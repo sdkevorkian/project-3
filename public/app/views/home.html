@@ -3,8 +3,12 @@
         <h2>doggleg&#228;nger</h2>
         <p>Ready to adopt? We'll help you find a new best friend to bring home using image comparison and info from Petfinder.</p>
         <div class="welcome-buttons">
-            <button><a href="/signup" ng-hide="Auth.isLoggedIn()">Signup</a></button>
-            <button><a href="/login" ng-hide="Auth.isLoggedIn()">Login</a></button>
+            <a href="/signup" ng-hide="Auth.isLoggedIn()">
+                <button>Signup</button>
+            </a>
+            <a href="/login" ng-hide="Auth.isLoggedIn()">
+                <button>Login</button>
+            </a>
         </div>
     </div>
 </div>

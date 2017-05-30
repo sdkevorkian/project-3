@@ -4,9 +4,13 @@
         <div class="pet-info">
             <img src="{{pet.media.photos.photo[2].$t}}">
             <div class="pet-actions">
-                <button class="pet-finder"><a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">Adopt {{ pet.name.$t }} On PetFinder!</a></button>
+                <a href="https://www.petfinder.com/petdetail/{{petId}}" target="_blank">
+                    <button class="pet-finder">Adopt {{ pet.name.$t }} On PetFinder!</button>
+                </a>
                 <button type="button" ng-click="addFavorite()">Add {{ pet.name.$t }} to Favorites</button>
-                <button class="compare"><a href="/compare">Compare Photos with {{ pet.name.$t }}</a></button>
+                <a href="/compare">
+                    <button class="compare">Compare Photos with {{ pet.name.$t }}</button>
+                </a>
             </div>
         </div>
         <div class="pet-facts">
