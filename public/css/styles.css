@@ -219,9 +219,8 @@ nav a:hover {
     background-color: #dd5325;
 }
 
-.alerts > .alert-danger >div {
-    background-color: white;
-    border-color: white;
+.alerts > .alert-danger > div {
+    background-color: #fff;
     color: #dd5325;
     padding: 15px 35px 15px 10px;
 }
@@ -316,6 +315,7 @@ nav a:hover {
 
 .test-item img:hover {
     border: 10px solid #E89005;
+    transition: .25s;
 }
 
 .test-item:nth-child(1) {
@@ -364,6 +364,12 @@ nav a:hover {
     text-align: center;
 }
 
+.test-item:nth-child(8) p {
+    font-family: 'Palanquin Dark', sans-serif;
+    color: #102542;
+    line-height: 1.25;
+}
+
 .witnesses {
     background-image: url('../img/witness-bg.jpg');
     background-size: cover;
@@ -403,7 +409,6 @@ nav a:hover {
     padding-bottom: 2em;
     border-top: 10px solid #fff;
     border-bottom: 10px solid #fff;
-    margin-bottom: -2em;
 }
 
 .petfinder p {
@@ -817,7 +822,6 @@ footer {
     background-color: #102542;
     padding-top: 1em;
     padding-bottom: 1em;
-    margin-top: 2em;
 }
 
 .footer-content {
