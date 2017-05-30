@@ -7,7 +7,7 @@ router.route('/')
     // route to return a list of aniamls, based on user search terms
     .post(function(req, res) {
         request({
-            uri: 'http://api.petfinder.com/pet.find',
+            uri: 'https://api.petfinder.com/pet.find',
             method: 'GET',
             qs: {
                 key: key,
@@ -29,7 +29,7 @@ router.route('/random')
     .get(function(req, res) {
         // API call to get the ID of a random animal
         request({
-            uri: 'http://api.petfinder.com/pet.getRandom',
+            uri: 'https://api.petfinder.com/pet.getRandom',
             method: 'GET',
             qs: {
                 key: key,
@@ -42,7 +42,7 @@ router.route('/random')
 
             // API call to get the data of an animal, based on the random ID generated above
             request({
-                uri: 'http://api.petfinder.com/pet.get',
+                uri: 'https://api.petfinder.com/pet.get',
                 method: 'GET',
                 qs: {
                     key: key,
@@ -59,7 +59,7 @@ router.route('/random')
 router.route('/breeds')
     .post(function(req, res) {
         request({
-            uri: 'http://api.petfinder.com/breed.list',
+            uri: 'https://api.petfinder.com/breed.list',
             method: 'GET',
             qs: {
                 key: key,
@@ -76,7 +76,7 @@ router.route('/:id')
     // route to get data on 1 animal, based on it's ID
     .get(function(req, res) {
         request({
-            uri: 'http://api.petfinder.com/pet.get',
+            uri: 'https://api.petfinder.com/pet.get',
             method: 'GET',
             qs: {
                 key: key,
