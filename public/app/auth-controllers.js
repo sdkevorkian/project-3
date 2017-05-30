@@ -40,7 +40,7 @@ angular.module('AuthCtrls', ['AuthFactories'])
                     $location.path('/');
                 }, function error(res) {
 
-                    Alerts.add('danger', 'something went wrong, please try again');
+                    Alerts.add('danger', 'Something went wrong, please try again');
                     console.log(res);
                     $location.path('/signup');
                 });

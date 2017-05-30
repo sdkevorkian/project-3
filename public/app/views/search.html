@@ -47,7 +47,7 @@
             <button type="submit" class="search-btn">Search</button>
         </div>
     </form>
-    <div class="pet-results" id="petResults">
+    <div class="pet-results">
         <div class="one-pet" ng-model="pets" ng-repeat="result in pets">
             <div class="pet-result-image">
                 <a href="/petShow/{{ result.id.$t }}" target="_blank"><img src="{{ result.media.photos.photo[2].$t }}" alt="{{ result.name.$t }}"></a>
@@ -56,10 +56,3 @@
         </div>
     </div>
 </div>
-<script>
-new AnimOnScroll(document.getElementById('petResults'), {
-    minDuration: 0.4,
-    maxDuration: 0.7,
-    viewportFactor: 0.2
-});
-</script>

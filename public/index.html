@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Doggleganger</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
+    <link href="assets/css/please-wait.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Righteous|Palanquin+Dark:400,600" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
@@ -21,6 +22,7 @@
     <script src="app/pet-controllers.js"></script>
     <script src="app/auth-factories.js"></script>
     <script src="app/pet-factories.js"></script>
+    <script src="assets/js/default.min.js"></script>
     <script src="js/main.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,8 +33,8 @@
 </head>
 
 <body>
-    <div ng-include="'app/views/navbar.html'"></div>
-    <div ng-include="'app/views/alerts.html'"></div>
+    <div ng-include="'app/views/navbar.html'" class="navview"></div>
+    <div ng-include="'app/views/alerts.html'" class="navview"></div>
     <div ui-view>
     </div>
 </body>
