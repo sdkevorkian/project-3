@@ -62,8 +62,9 @@ router.post('/', function(req, res) {
 router.post('/demo', function(req, res) {
     var person = req.body.person;
     var pet = req.body.pet;
-    console.log(person, pet);
 
+    //  the demo doesn't require downloading and resizing
+    // so we have a different route for ease
     gm().compare(person, pet, 1.0, function(err, isEqual, equality) {
         console.log(err);
         console.log(isEqual);
