@@ -1,7 +1,7 @@
 <h1>Doggleganger</h1>
 <h4>WDI 13 | Project 3 | Andrew, Sara, Alaina</h4>
 
-<img src="../img/screenshots/doggleganger-hp.png" alt="Doggleganger Homepage">
+<img src="/img/screenshots/doggleganger-hp.png" alt="Doggleganger Homepage">
 
 <h2>User Stories</h2>
 <p>People say pets look like their owners. Doggleganger allows you to find the perfect pet based on a percentage look-alike match, as well as personality information about the animal.</p>
@@ -23,7 +23,7 @@
 <p>Sara began by focusing on the image-to-image comparison, getting a headstart over the weekend. This put us in a great position to jump-in to everything on Monday morning. Andrew started off working with the PetFinder API to ensure we could get the data we needed to combine with the image comparison. This was crucial to making our app practical, and he was an expert on PetFinder by Day One. Alaina worked as Git Master and Project Manager, so she began the week by setting up project guidelines, including MVP and designated roles. Alaina also led the design for the site, beginning with wireframing, all the way through to font choice.</p>
 <p>"I approached my portion of the project by starting with the most difficult and central part of my responsibilites, the image-to-image comparison. I tested with images locally saved and then broadened it to allow for dynamic, user input. Once that piece was done I could work on other sections as needed." — Sara</p>
 
-<img src="../img/screenshots/doggleganger-search.png" alt="Doggleganger Search Page Example">
+<img src="/img/screenshots/doggleganger-search.png" alt="Doggleganger Search Page Example">
 <br>
 <h2>Installation Instructions</h2>
 <ul>To install this project locally perform the following steps:
@@ -36,9 +36,9 @@
 
 <h2>Major Hurdles</h2>
 <p>Getting a new auth token when a user updates their profile. Success!</p>
-<img src="../img/screenshots/auth-code.png" alt="auth code issues">
+<img src="/img/screenshots/auth-code.png" alt="auth code issues">
 <p>Setting up a watch and doing an API call for a list of breeds, so our dropdown is populated with the relevant animal breeds. Success!</p>
-<img src="img/screenshots/breeds-code.png" alt="Doggleganger Homepage">
+<img src="/img/screenshots/breeds-code.png" alt="breeds code">
 
 
 <h2>Unsolved Problems</h2>
