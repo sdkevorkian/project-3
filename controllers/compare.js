@@ -9,7 +9,8 @@ router.post('/', function(req, res) {
     var pet = 'pet' + req.body.userId + '.jpg';
     var userUrl = req.body.userUrl;
     var petUrl = req.body.petUrl;
-    // do parallel async for both downloads and both gms. In the callback, then proceed.
+
+    // first two images are downloaded from provided URLs
     download(userUrl, user, function(err, data) {
         if (err) console.log(err);
         else console.log(data);
@@ -17,6 +18,7 @@ router.post('/', function(req, res) {
             if (err) console.log(err);
             else console.log(data);
 
+            // then the images are resized
             gm(user).resize(200, 200, '!').noProfile().write(user, function(err) {
                 if (!err) console.log('user resized');
                 gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
