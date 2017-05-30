@@ -22,6 +22,10 @@
     "supertest": "^1.2.0"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "async": "^2.4.1",
+>>>>>>> 8c8135dbe635984c3fcb2cfa8d555036693032f3
     "bcrypt": "^0.8.7",
     "body-parser": "^1.17.2",
     "dot-env": "0.0.1",
@@ -33,7 +37,10 @@
     "masonry-layout": "^4.2.0",
     "mongoose": "^4.5.7",
     "morgan": "^1.7.0",
+<<<<<<< HEAD
     "please-wait": "0.0.5",
+=======
+>>>>>>> 8c8135dbe635984c3fcb2cfa8d555036693032f3
     "request": "^2.81.0"
   },
   "description": "<h1>Doggleganger</h1> <h4>WDI 13 | Project 3 | Andrew, Sara, Alaina</h4>",

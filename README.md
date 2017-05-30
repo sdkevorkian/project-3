@@ -43,7 +43,10 @@
 
 <h2>Unsolved Problems</h2>
 <p>Occasionally user profiles will become unretrievable. We have debugged a few causes (mostly related to Auth tokens), but a few cases still have issues and we have not been able to reliably reproduce the issue.</p>
+<<<<<<< HEAD
 <p>In Progress: Issues getting animations to work with angular insted of jQuery. Looking forward to taking those on at a later date for version 2.0</p>
+=======
+>>>>>>> 8c8135dbe635984c3fcb2cfa8d555036693032f3
 
 <h2>Links</h2>
 <a href="https://trello.com/b/VTSyaYEI/doggleganger">Trello Board</a> |
