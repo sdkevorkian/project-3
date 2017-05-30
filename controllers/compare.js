@@ -2,6 +2,7 @@ var express = require('express');
 var gm = require('gm').subClass({ imageMagick: true });
 var fs = require('fs');
 var request = require('request');
+var async = require('async');
 var router = express();
 
 router.post('/', function(req, res) {
@@ -12,36 +13,52 @@ router.post('/', function(req, res) {
     var userUrl = req.body.userUrl;
     var petUrl = req.body.petUrl;
 
-    // first two images are downloaded from provided URLs
-    download(userUrl, user, function(err, data) {
-        if (err) console.log(err);
-        else console.log(data);
-        download(petUrl, pet, function(err, data) {
-            if (err) console.log(err);
-            else console.log(data);
-
-            // then the images are resized so comparison can be performed
+    async.waterfall([
+        // first two images are downloaded from provided URLs
+        function(callback) {
+            download(userUrl, user, function(err, data) {
+                if (err) console.log(err);
+                callback(null);
+            });
+        },
+        function(callback) {
+            download(petUrl, pet, function(err, data) {
+                if (err) console.log(err);
+                callback(null);
+            });
+        },
+        // then the images are resized so comparison can be performed
+        function(callback) {
             gm(user).resize(200, 200, '!').noProfile().write(user, function(err) {
                 if (!err) console.log('user resized');
-                gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
-                    if (!err) console.log('pet resized');
-
-                    // we compare the two images and send back the equality %
-                    // then, since we only needed the imgs temporarily we delete them
-                    gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
-                        console.log(err);
-                        console.log(isEqual);
-                        console.log(equality);
-                        deleteAfterUse(user);
-                        deleteAfterUse(pet);
-                        res.send({ matchPercent: equality });
-                    });
-                });
+                callback(null);
             });
-        });
+        },
+        function(callback) {
+            gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
+                if (!err) console.log('pet resized');
+                callback(null);
+            });
+        },
+        // we compare the two images and send back the equality %
+        // then, since we only needed the imgs temporarily we delete them
+        function(callback) {
+            gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
+                console.log(err);
+                deleteAfterUse(user);
+                deleteAfterUse(pet);
+                callback(null, equality);
+            });
+        }
+    ], function(err, result) {
+        if (err) console.log(err);
+        console.log('done');
+        res.send({ matchPercent: result });
     });
 });
 
+//  the demo doesn't require downloading and resizing
+// so we have a different route for ease
 router.post('/demo', function(req, res) {
     var person = req.body.person;
     var pet = req.body.pet;
@@ -70,7 +87,5 @@ function deleteAfterUse(pic) {
         console.log('pic deleted');
     });
 }
-
-
 
 module.exports = router;
