@@ -2,6 +2,7 @@ var express = require('express');
 var gm = require('gm').subClass({ imageMagick: true });
 var fs = require('fs');
 var request = require('request');
+var async = require('async');
 var router = express();
 
 router.post('/', function(req, res) {
@@ -9,32 +10,85 @@ router.post('/', function(req, res) {
     var pet = 'pet' + req.body.userId + '.jpg';
     var userUrl = req.body.userUrl;
     var petUrl = req.body.petUrl;
-    // do parallel async for both downloads and both gms. In the callback, then proceed.
-    download(userUrl, user, function(err, data) {
-        if (err) console.log(err);
-        else console.log(data);
-        download(petUrl, pet, function(err, data) {
-            if (err) console.log(err);
-            else console.log(data);
 
+
+    // DOESNT WORK, images are downloading after resize attempt on nothing
+    // WHY NOT IN ORDER??
+    async.waterfall([
+        function(callback) {
+            download(userUrl, user, function(err, data) {
+                if (err) console.log(err);
+                // else console.log(data);
+            });
+            // console.log('in 1st download before callback');
+            callback(null);
+        },
+        function(callback) {
+            download(petUrl, pet, function(err, data) {
+                if (err) console.log(err);
+                // else console.log(data);
+            });
+            callback(null);
+        },
+        function(callback) {
             gm(user).resize(200, 200, '!').noProfile().write(user, function(err) {
                 if (!err) console.log('user resized');
-                gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
-                    if (!err) console.log('pet resized');
-
-                    gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
-                        console.log(err);
-                        console.log(isEqual);
-                        console.log(equality);
-                        deleteAfterUse(user);
-                        deleteAfterUse(pet);
-                        res.send({ matchPercent: equality });
-                    });
-                });
+                console.log(err);
             });
-        });
+            callback(null);
+        },
+        function(callback) {
+            gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
+                if (!err) console.log('pet resized');
+            });
+            callback(null);
+        },
+        function(callback) {
+            gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
+                console.log(err);
+                console.log(isEqual);
+                console.log(equality);
+                console.log('in compare');
+                deleteAfterUse(user);
+                deleteAfterUse(pet);
+                // res.send({ matchPercent: equality });
+                callback(null, equality);
+            });
+        }
+    ], function(err, result) {
+        if (err) console.log(err);
+        console.log('done');
+        res.send({ matchPercent: result });
     });
 });
+
+// ORIGINAL METHOD w/o ASYNC WORKS
+// // do parallel async for both downloads and both gms. In the callback, then proceed.
+// download(userUrl, user, function(err, data) {
+// if (err) console.log(err);
+// else console.log(data);
+// download(petUrl, pet, function(err, data) {
+//     if (err) console.log(err);
+//     else console.log(data);
+
+//     gm(user).resize(200, 200, '!').noProfile().write(user, function(err) {
+//         if (!err) console.log('user resized');
+//         gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
+//             if (!err) console.log('pet resized');
+
+//             gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
+//                 console.log(err);
+//                 console.log(isEqual);
+//                 console.log(equality);
+//                 deleteAfterUse(user);
+//                 deleteAfterUse(pet);
+//                 res.send({ matchPercent: equality });
+//             });
+//         });
+//     });
+// });
+// });
+// });
 
 router.post('/demo', function(req, res) {
     var person = req.body.person;
