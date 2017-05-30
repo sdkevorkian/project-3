@@ -1,5 +1,6 @@
-//  Twitter button code
+//both these snippets provided by twitter and facebook widget tools respectively
 
+//  Twitter button code
 window.twttr = (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
         t = window.twttr || {};

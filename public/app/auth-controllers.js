@@ -79,15 +79,15 @@ angular.module('AuthCtrls', ['AuthFactories'])
 
         $http.get('/api/users/' + user.id).then(function(results) {
             $scope.user = results.data;
+            // petExistsOnProfile is the toggle for displaying either the pet image
+            // or prompt to add one, it will follow after $scope.user is updated
             $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
-
         }).catch(function(err) {
             console.log(err);
         });
 
         $scope.removeFavorite = function(petId) {
             $http.put('/api/users/favorites', { userId: user.id, petId: petId }).then(function(result) {
-
                 $scope.user = result.data;
                 $scope.petExistsOnProfile = Auth.checkForPetOnProfile($scope.user);
                 Alerts.add('danger', 'Favorite Removed');
@@ -112,7 +112,6 @@ angular.module('AuthCtrls', ['AuthFactories'])
             }).catch(function(err) {
                 console.log(err);
             });
-
             $scope.bool = false;
         };
 
@@ -120,11 +119,11 @@ angular.module('AuthCtrls', ['AuthFactories'])
             $scope.bool = bool;
         };
 
-
         $scope.compareToOwnPet = function() {
+            // check if a pet is present to compare to, then stores the url
+            // and takes the url to that controller
             if ($scope.user.usersPetImg) {
                 localStorage.petUrl = $scope.user.usersPetImg;
-                console.log(localStorage);
                 $state.go('compare');
             } else {
                 Alerts.add('danger', "You don't have a pet to compare to!");

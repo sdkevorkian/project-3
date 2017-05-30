@@ -5,6 +5,8 @@ var request = require('request');
 var router = express();
 
 router.post('/', function(req, res) {
+    // we declare where we want our temporary file saved
+    // and add the userId so multiple users can be on at once
     var user = 'user' + req.body.userId + '.jpg';
     var pet = 'pet' + req.body.userId + '.jpg';
     var userUrl = req.body.userUrl;
@@ -18,12 +20,14 @@ router.post('/', function(req, res) {
             if (err) console.log(err);
             else console.log(data);
 
-            // then the images are resized
+            // then the images are resized so comparison can be performed
             gm(user).resize(200, 200, '!').noProfile().write(user, function(err) {
                 if (!err) console.log('user resized');
                 gm(pet).resize(200, 200, '!').noProfile().write(pet, function(err) {
                     if (!err) console.log('pet resized');
 
+                    // we compare the two images and send back the equality %
+                    // then, since we only needed the imgs temporarily we delete them
                     gm().compare(user, pet, 1.0, function(err, isEqual, equality) {
                         console.log(err);
                         console.log(isEqual);
@@ -41,8 +45,9 @@ router.post('/', function(req, res) {
 router.post('/demo', function(req, res) {
     var person = req.body.person;
     var pet = req.body.pet;
-    console.log(person, pet);
 
+    //  the demo doesn't require downloading and resizing
+    // so we have a different route for ease
     gm().compare(person, pet, 1.0, function(err, isEqual, equality) {
         console.log(err);
         console.log(isEqual);
