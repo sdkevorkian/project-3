@@ -34,6 +34,7 @@ angular.module('PetCtrls', ['PetFactories'])
             $scope.petToTest = $scope.pets[pet];
         };
 
+        // takes the two images selected by the user on the home page and calculates match
         $scope.compareDemo = function() {
             Compare.compareDemo($scope.personToTest.compareSrc, $scope.petToTest.compareSrc).then(function(result) {
                 $scope.matchResults = Compare.percentToRanking(result.data.matchPercent);
@@ -108,6 +109,7 @@ angular.module('PetCtrls', ['PetFactories'])
         $scope.petImg = localStorage.petUrl;
         $scope.petId = localStorage.petId;
 
+        // takes image urls from saved user url and local storage (last clicked on pet)
         $scope.matchPercent = Compare.compareTwo(user.profileImg, localStorage.petUrl, user.id).then(function(result) {
             $scope.matchResults = Compare.percentToRanking(result.data.matchPercent);
         }).catch(function(err) {

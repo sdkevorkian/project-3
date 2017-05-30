@@ -8,7 +8,7 @@
 <h2>Technologies Used</h2>
 <ul>
     <li>HTML + CSS, with focus on CSS Grid</li>
-    <li>Angular.js: </li>
+    <li>Angular.js: handles data from petfinder and our comparison before display.</li>
     <li>Node.js/Express.js</li>
     <li>MongoDB</li>
     <li>Petfinder API: We use the Petfinder to find adoptable pets users can compare their face to.</li>
@@ -29,6 +29,7 @@
 
 <h2>Unsolved Problems / Major Hurdles</h2>
 <p>Occasionally user profiles will become unretrievable. We have debugged a few causes (mostly related to Auth tokens), but a few cases still have issues and we have not been able to reliably reproduce the issue.</p>
+<p>SK - did not figure out how to implement async on the compare.js file (in controllers folder, backend routing). I attempted series and waterfall methods but in both cases the functions ran out of order.</p>
 
 <h2>Links</h2>
 <a href="https://trello.com/b/VTSyaYEI/doggleganger">Trello Board</a>
