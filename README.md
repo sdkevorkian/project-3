@@ -23,7 +23,7 @@
 <p>Sara began by focusing on the image-to-image comparison, getting a headstart over the weekend. This put us in a great position to jump-in to everything on Monday morning. Andrew started off working with the PetFinder API to ensure we could get the data we needed to combine with the image comparison. This was crucial to making our app practical, and he was an expert on PetFinder by Day One. Alaina worked as Git Master and Project Manager, so she began the week by setting up project guidelines, including MVP and designated roles. Alaina also led the design for the site, beginning with wireframing, all the way through to font choice.</p>
 <p>"I approached my portion of the project by starting with the most difficult and central part of my responsibilites, the image-to-image comparison. I tested with images locally saved and then broadened it to allow for dynamic, user input. Once that piece was done I could work on other sections as needed." — Sara</p>
 
-<img src="../img/screenshots/doggleganger-search.png" alt="Doggleganger Search Page Example">
+<img src="img/screenshots/doggleganger-search.png" alt="Doggleganger Search Page Example">
 <br>
 <h2>Installation Instructions</h2>
 <ul>To install this project locally perform the following steps:
@@ -43,10 +43,8 @@
 
 <h2>Unsolved Problems</h2>
 <p>Occasionally user profiles will become unretrievable. We have debugged a few causes (mostly related to Auth tokens), but a few cases still have issues and we have not been able to reliably reproduce the issue.</p>
-<<<<<<< HEAD
 <p>In Progress: Issues getting animations to work with angular insted of jQuery. Looking forward to taking those on at a later date for version 2.0</p>
-=======
->>>>>>> 8c8135dbe635984c3fcb2cfa8d555036693032f3
+
 
 <h2>Links</h2>
 <a href="https://trello.com/b/VTSyaYEI/doggleganger">Trello Board</a> |
