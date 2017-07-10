@@ -6,7 +6,6 @@ var path = require('path');
 var expressJWT = require('express-jwt');
 var jwt = require('jsonwebtoken');
 var secret = process.env.JWT_SECRET;
-
 var app = express();
 
 // mongoose models and connection
@@ -22,12 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('morgan')('dev'));
 
 
-// app.use('/api/users', require('./controllers/users'));
 app.use('/api/compare', expressJWT({ secret: secret }).unless({ path: [{ url: '/api/compare/demo' }] }), require('./controllers/compare'));
 app.use('/api/pets', expressJWT({ secret: secret }), require('./controllers/pets'));
-
-
-// Replace the above routes with the following
 app.use('/api/users', expressJWT({ secret: secret }).unless({
     path: [{ url: '/api/users', methods: ['POST'] }]
 }), require('./controllers/users'));
@@ -61,7 +56,6 @@ app.post('/api/auth', function(req, res) {
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
-
 
 var server = app.listen(process.env.PORT || 3000);
 

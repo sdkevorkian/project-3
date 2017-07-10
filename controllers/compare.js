@@ -50,10 +50,10 @@ router.post('/', function(req, res) {
                 callback(null, equality);
             });
         }
-    ], function(err, result) {
+    ], function(err, equality) {
         if (err) console.log(err);
         console.log('done');
-        res.send({ matchPercent: result });
+        res.send({ matchPercent: equality });
     });
 });
 
