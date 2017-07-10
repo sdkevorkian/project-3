@@ -66,9 +66,6 @@ router.post('/demo', function(req, res) {
     //  the demo doesn't require downloading and resizing
     // so we have a different route for ease
     gm().compare(person, pet, 1.0, function(err, isEqual, equality) {
-        console.log(err);
-        console.log(isEqual);
-        console.log(equality);
         res.send({ matchPercent: equality });
     });
 });
@@ -76,8 +73,6 @@ router.post('/demo', function(req, res) {
 // helper functions
 function download(uri, filename, callback) {
     request.head(uri, function(err, res, body) {
-        console.log('content-type:', res.headers['content-type']);
-        console.log('content-length:', res.headers['content-length']);
         request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
     });
 }
