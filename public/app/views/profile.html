@@ -16,7 +16,7 @@
                 <p>First Name: {{ user.firstName }}</p>
                 <p>Email: {{ user.email }}</p>
                 <p class="add-pet-img" ng-if="!petExistsOnProfile">If you haven't added a picture of your own pet or a pet that is not on Petfinder, click "Edit Your Profile Information" to do so.</p>
-                <button class="compare" ng-click="compareToOwnPet()" class="compare-own">Compare Yourself to Your Own Pet</button>
+                <button class="compare" ng-click="compareToOwnPet()" class="compare-own" ng-if="petExistsOnProfile">Compare Yourself to Your Own Pet</button>
                 <button type="button" ng-click="editBtn(true)" class="edit-btn">Edit Your Profile Information</button>
             </div>
             <div ng-if="bool">
